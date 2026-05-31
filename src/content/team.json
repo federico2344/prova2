@@ -1,0 +1,16 @@
+{
+  "people": [
+    {
+      "role": "Lo Chef",
+      "name": "Gianpiero Tomei",
+      "text": "Romano, classe 1979. Dopo aver studiato Giurisprudenza ha scelto di seguire la sua vera passione: la cucina. Dietro ai fornelli porta rigore e dedizione, trasformando i piatti della tradizione in esperienze contemporanee senza mai tradirne l'anima.",
+      "photo": "/images/team/chef.jpg"
+    },
+    {
+      "role": "La Sommelier",
+      "name": "Gabriela Burgos",
+      "text": "Cura una carta dei vini fatta di piccoli produttori e cantine artigianali, con etichette ricercate a prezzi onesti. Il suo lavoro è trovare il vino giusto per ogni piatto e per ogni ospite, raccontando ciò che c'è dietro ogni bottiglia.",
+      "photo": "/images/team/sommelier.jpg"
+    }
+  ]
+}

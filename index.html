@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="preload" as="image" href="/images/hero/slide-1.jpg" fetchpriority="high" />
+
+    <!-- SEO: il vecchio sito aveva <title>.</title> — qui lo impostiamo correttamente -->
+    <title>L'Altra Osteria Roma - Cucina Tradizionale e Rivisitata</title>
+    <meta
+      name="description"
+      content="L'Altra Osteria a Roma (Via Cassia): cucina romana e italiana tra tradizione e rivisitazione, con vini di piccoli produttori artigianali. Prenota un tavolo."
+    />
+    <meta name="theme-color" content="#B5512E" />
+
+    <!-- Open Graph per anteprime social (WhatsApp, Facebook, Instagram) -->
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content="L'Altra Osteria Roma - Cucina Tradizionale e Rivisitata" />
+    <meta
+      property="og:description"
+      content="Cucina romana e italiana tra tradizione e rivisitazione. Via Cassia 923, Roma."
+    />
+    <meta property="og:url" content="https://laltraosteria2.netlify.app/" />
+    <meta property="og:site_name" content="L'Altra Osteria" />
+    <meta property="og:image" content="https://laltraosteria2.netlify.app/images/hero/slide-1.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="L'Altra Osteria - Cucina romana a Via Cassia" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="L'Altra Osteria Roma - Cucina Tradizionale e Rivisitata" />
+    <meta name="twitter:description" content="Cucina romana e italiana tra tradizione e rivisitazione. Via Cassia 923, Roma." />
+    <meta name="twitter:image" content="https://laltraosteria2.netlify.app/images/hero/slide-1.jpg" />
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "L'Altra Osteria",
+      "image": "https://laltraosteria2.netlify.app/images/general/logo.png",
+      "url": "https://laltraosteria2.netlify.app",
+      "telephone": "+390689524311",
+      "email": "altraosteria@gmail.com",
+      "priceRange": "€€",
+      "servesCuisine": ["Italian", "Roman", "Mediterranean"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Cassia 923",
+        "postalCode": "00189",
+        "addressLocality": "Roma",
+        "addressRegion": "RM",
+        "addressCountry": "IT"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "13:00",
+          "closes": "14:45"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "20:00",
+          "closes": "22:30"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/laltraosteria/",
+        "https://www.facebook.com/laltraosteriaroma/",
+        "https://www.tripadvisor.it/Restaurant_Review-g187791-d12501937-Reviews-L_altra_Osteria-Rome_Lazio.html"
+      ],
+      "hasMenu": "https://laltraosteria2.netlify.app/menu",
+      "acceptsReservations": "True"
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function(user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function() {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

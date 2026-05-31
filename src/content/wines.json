@@ -1,0 +1,142 @@
+{
+  "intro": "La nostra carta privilegia piccoli produttori e cantine artigianali: agricoltura attenta, basse rese, lavorazioni naturali. Etichette scelte bottiglia per bottiglia, che raccontano un territorio e una persona.",
+  "sections": [
+    {
+      "id": "bollicine",
+      "title": "Bollicine",
+      "items": [
+        { "name": "Metodo Classico Brut 2015 Docg, Oltrepò Pavese", "description": "Pinot Nero – Chardonnay · Piero Torti, Lombardia", "price": 35 },
+        { "name": "Franciacorta Brut Docg", "description": "Chardonnay – Pinot Nero · La Fioca, Nigoline di Corte Francia, Brescia, Lombardia", "price": 35 },
+        { "name": "Franciacorta SoloUva Dosaggio Zero", "description": "Chardonnay · Az. Agricola SoloUva, Erbusco (Bs), Lombardia", "price": 35 },
+        { "name": "Oltrepò Pavese \"Suspir\" Docg Brut Rosé, Metodo Classico", "description": "Pinot Nero · Azienda Agricola La Piotta, Lombardia", "price": 30 },
+        { "name": "Vino Frizzante Jonny Gambato", "description": "Pinot Nero – Vitigni bianchi · Cascina Baricchi, Neviglie, Lombardia", "price": 25 },
+        { "name": "Vino Spumante Brut Bianco \"Rù Maccone\" Igp 2017", "description": "Maresco, Metodo Ancestrale · Angiuli Donato, Adelfia, Puglia", "price": 28 },
+        { "name": "Terrebianche Zero, Metodo Ancestrale Bio", "description": "Dosaggio Zero · Grechetto · Terraquilla (Mo), Emilia Romagna", "price": 20 },
+        { "name": "Prosecco Doc Millesimato Brut 2021", "description": "Glera · Terra Vizina, Az. Agricola Cesare, Veneto", "price": 20 }
+      ]
+    },
+    {
+      "id": "bianchi",
+      "title": "Bianchi",
+      "items": [
+        { "name": "Chardonnay, Meriggio 2019", "description": "Marco Donati, Trentino", "price": 28 },
+        { "name": "Sylvaner Doc 2021, Pacher Hof", "description": "Sudtirol, Valle Isarco, Trentino Alto Adige", "price": 35 },
+        { "name": "Sauvignon Blanc Vette 2021", "description": "Tenuta San Leonardo, Avio, Trentino Alto Adige", "price": 30 },
+        { "name": "Ribolla Gialla Bio Dop 2020", "description": "Friuli Colli Orientali · Az. Agricola Visentini, Friuli", "price": 27 },
+        { "name": "Malvasia Istriana Doc 2020", "description": "Modeano · Az. Agricola Vialetto Gabriele, Udine, Friuli", "price": 25 },
+        { "name": "Arneis Langhe Docg 2021", "description": "Mario Garibaldi, Milandola, Piemonte", "price": 25 },
+        { "name": "Chardonnay Langhe 2020", "description": "Giovanni Rocca, Monteforte d'Alba, Piemonte", "price": 20 },
+        { "name": "Albana Secco di Romagna Docg 2021", "description": "FattoriaMonticino Rosso, Montecatone di Imola, Emilia Romagna", "price": 22 },
+        { "name": "Pecorino, Aufinum 2021", "description": "Terre di Chieti · Cantina Valle Traiana, Abruzzo", "price": 18 },
+        { "name": "Passerina 2021", "description": "Cantine di Castignano, Marche", "price": 18 },
+        { "name": "Pecorino Offida Docg 2021, Montemisio", "description": "Cantine di Castignano, Marche", "price": 22 },
+        { "name": "Verdicchio di Matelica Doc 2020", "description": "Stefano Zoli, Marche", "price": 32 },
+        { "name": "Piana Grande, Orvieto Classico Superiore Doc 2021", "description": "Grechetto Procanico – Malvasia · Az. Agricola Castello di Corbara, Orvieto, Umbria", "price": 24 },
+        { "name": "Maria Grazia Rosato 2021", "description": "Sangiovese · Az. Agricola Castello di Corbara, Orvieto, Umbria", "price": 25 },
+        { "name": "Cacchione Doc 2021", "description": "Az. Agricola Casa Divina Provvidenza, Lazio", "price": 18 },
+        { "name": "Frascati Superiore Primo Riserva Docg 2018", "description": "Merumalia, Lazio", "price": 30 },
+        { "name": "Malvasia Puntinata, Gallieno 2020 Bio", "description": "Az. Agricola Riserva della Cascina, Lazio", "price": 28 },
+        { "name": "Vermentino di Sardegna Doc 2019, La Giara", "description": "Oristano, Sardegna", "price": 20 },
+        { "name": "Vermentino Pusole Bianco 2018", "description": "Lotzorai (Og), Sardegna", "price": 30 },
+        { "name": "Malvasia, Salina 2021, Secca del Capo", "description": "Colosi, Isole Eolie, Sicilia", "price": 26 },
+        { "name": "Terre Siciliane 2019", "description": "Insolia – Cataratto · Colosi, Isole Eolie, Sicilia", "price": 26 },
+        { "name": "Rina Ianca Doc 2021 Bio", "description": "Grillo – Viognier · Santa Tresa, Sicilia", "price": 30 },
+        { "name": "Negramaro Bianco \"Maccone\" Igp 2020", "description": "Angiuli Donato, Valle d'Itria, Puglia", "price": 22 }
+      ]
+    },
+    {
+      "id": "rossi",
+      "title": "Rossi",
+      "items": [
+        { "name": "Lagrein Rubino, Fratte Alte Doc 2021", "description": "Marco Donati, Trentino Alto Adige", "price": 27 },
+        { "name": "Pinot Nero Centa Doc 2021", "description": "Marco Donati, Trentino Alto Adige", "price": 28 },
+        { "name": "Teroldego Rotaliano Doc 2019, Bagolari", "description": "Marco Donati, Trentino Alto Adige", "price": 28 },
+        { "name": "Merlot, Friuli Colli Orientali Bio, Dop 2020", "description": "Az. Agricola Visintini, Friuli", "price": 27 },
+        { "name": "Cabernet Franc Bio 2018", "description": "Irene Cencig, Cividale del Friuli, Udine, Friuli", "price": 29 },
+        { "name": "Refosco dal Peduncolo Rosso Doc 2019", "description": "Modeano · Azienda Agricola Vialetto, Udine, Friuli", "price": 25 },
+        { "name": "Nebbiolo Langhe Doc 2018, Passeggiando in Vigna", "description": "Gabriele Scaglione, Piemonte", "price": 29 },
+        { "name": "Barolo Doc 2018", "description": "Giovanni Rocca, Piemonte", "price": 46 },
+        { "name": "Langhe Rosso Doc Bio 2017", "description": "Giribaldi, Piemonte", "price": 27 },
+        { "name": "Valpolicella Classico Superiore, Vecio Belo Doc 2016", "description": "Manara, Veneto", "price": 25 },
+        { "name": "Valpolicella Ripasso Classico Superiore, Le Morete Doc 2017", "description": "Manara, Veneto", "price": 30 },
+        { "name": "Rossese di Dolceacqua Doc 2019", "description": "RosMarinus, Perinaldo, Imperia, Liguria", "price": 30 },
+        { "name": "Chianti Classico Docg Bio 2019", "description": "Soc. Agricola Pomona, Toscana", "price": 27 },
+        { "name": "Bolgheri Rosso Bio, Scirè, Doc 2020", "description": "Az. Agricola Ceralti, Castagneto Carducci, Toscana", "price": 30 },
+        { "name": "Rosso di Montepulciano Docg 2019", "description": "Fattoria del Cerro, Siena, Toscana", "price": 20 },
+        { "name": "Offida Rosso Docg 2016, Gran Maestro", "description": "Cantina Castignano, Marche", "price": 30 },
+        { "name": "Lago di Corbara, Sangiovese Doc 2019", "description": "Az. Agricola Castello di Corbara, Orvieto, Umbria", "price": 30 },
+        { "name": "Cesanese del Piglio, Brigante, Docg 2017", "description": "Lazio", "price": 20 },
+        { "name": "Cesanese di Olevano Romano Superiore 2021", "description": "Giacobbe, Lazio", "price": 30 },
+        { "name": "Tintilla del Molise, Lame del Sorbo Doc 2016", "description": "Agricolavinica Le Colline di Ripa, Ripalimosani, Molise", "price": 28 },
+        { "name": "Primitivo 2016, Maccone", "description": "Angiuli Donato, Puglia", "price": 30 },
+        { "name": "Nero di Troia, Hellen Rosso 2020", "description": "Progetto Calcarius, Apricena, Puglia", "price": 30 },
+        { "name": "Nero D'Avola Doc 2020 Bio", "description": "Azienda Agricola Barone di Serramarrocco, Sicilia", "price": 20 },
+        { "name": "Nerello Mascalese Nostru Bio 2020", "description": "Azienda Agricola Cortese, Ragusa, Sicilia", "price": 28 },
+        { "name": "Rosa di Santa Tresa Bio 2020", "description": "Nero d'Avola – Frappato · Santa Tresa, Vittoria (RG), Sicilia", "price": 26 },
+        { "name": "Pollino, Terre di Cosenza Dop 2015", "description": "Magliocco · Giuseppe Calabrese, Cosenza, Calabria", "price": 28 },
+        { "name": "Cannonau di Sardegna Doc 2017", "description": "Azienda Agricola Nino Castiglia, Sassari, Sardegna", "price": 30 }
+      ]
+    },
+    {
+      "id": "esteri",
+      "title": "Vini Esteri",
+      "subsections": [
+        {
+          "title": "Francia — Bollicine",
+          "items": [
+            { "name": "Vouvray Cuvée Clément Brut 2015", "description": "Chenin Blanc · Domaine de la Galinière, Loira", "price": 27 },
+            { "name": "Expression Brut Méthode Traditionelle Aoc", "description": "Gamay · Domaine Claude Vosgien, Lorraine", "price": 30 }
+          ]
+        },
+        {
+          "title": "Francia — Bianchi",
+          "items": [
+            { "name": "Gewurztraminer AOC 2019", "description": "Domaine Leon Faller, Alsace", "price": 30 },
+            { "name": "Chablis \"Le Guilleret\" 2021 Aoc", "description": "Chardonnay · Domaine de la Motte, Bourgogne", "price": 40 },
+            { "name": "Vouvray Tradition 2009 Aoc", "description": "Chenin Blanc · Domaine de la Galinière, Loira", "price": 28 },
+            { "name": "Muscadet Sèvre et Maine sur Lie Bio 2018", "description": "Melon de Bourgogne · Tête de Linotte, Albert Besombe, Loira", "price": 26 },
+            { "name": "Pépin Blanc Sec Bio", "description": "Chardonnay – Riesling – Sylvaner · Domaine Achielleè, Alsazia", "price": 35 },
+            { "name": "Vin de Frantz", "description": "Sauvignon – Chenin Blanc · Frantz Saumon, Montlouis sur Loire", "price": 35 }
+          ]
+        },
+        {
+          "title": "Francia — Rosé",
+          "items": [
+            { "name": "Vin Gris Côtes de Toul Grand Terroir Bio 2020", "description": "Gamay – Pinot Noir · Domaine Claude Vosgien, Lorraine", "price": 30 }
+          ]
+        },
+        {
+          "title": "Francia — Rossi",
+          "items": [
+            { "name": "Cabernet Sauvignon 2020 \"What the Phoque\"", "description": "Albert Besombe, Loira", "price": 25 },
+            { "name": "Merlot Igp Pays d'Oc 2018", "description": "Domaine de L'Herbe Sainte, Languedoc", "price": 25 }
+          ]
+        },
+        {
+          "title": "Germania",
+          "items": [
+            { "name": "Riesling Ambrosia, Kabinett Trocken 2018", "description": "Weingut Gessinger, Mosel", "price": 30 },
+            { "name": "Riesling Spätlese Trocken Alte Reben 2017, Zeltinger", "description": "Weingut Gessinger, Mosel", "price": 40 }
+          ]
+        },
+        {
+          "title": "Austria",
+          "items": [
+            { "name": "Wagram Grüner Veltliner 2021", "description": "Stefan Bauer, Austria", "price": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "birre",
+      "title": "Birre Artigianali",
+      "items": [
+        { "name": "India Pale Ale 7% — 33cl", "description": "Birrificio Plurale, Montoggio, Genova, Liguria", "price": 6 },
+        { "name": "Golden Ale 5,1% — 33cl", "description": "Birrificio Plurale, Montoggio, Genova, Liguria", "price": 6 },
+        { "name": "White Ale 4,5% — 33cl", "description": "Birrificio Plurale, Montoggio, Genova, Liguria", "price": 6 },
+        { "name": "Summer Ale 3,8% — 33cl", "description": "Birrificio Plurale, Montoggio, Genova, Liguria", "price": 6 },
+        { "name": "Bròc, Birra Agricola 6% — 50cl", "description": "Roccalbegna, Toscana", "price": 11 }
+      ]
+    }
+  ]
+}

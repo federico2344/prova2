@@ -1,0 +1,37 @@
+{
+  "name": "L'Altra Osteria",
+  "tagline": "Cucina romana, tra tradizione e rivisitazione",
+  "intro": "La cucina si ispira alla tradizione regionale italiana, con particolare attenzione ai sapori di Roma, senza rinunciare a creatività, ricerca e interpretazioni contemporanee.",
+  "phone": "+39 06 8952 4311",
+  "email": "altraosteria@gmail.com",
+  "address": {
+    "street": "Via Cassia 923",
+    "city": "00189 Roma",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=L%27Altra+Osteria+Via+Cassia+923+Roma"
+  },
+  "hours": [
+    { "day": "Martedì – Sabato", "lunch": "13:00 – 14:45", "dinner": "20:00 – 22:30" },
+    { "day": "Domenica e Lunedì", "closed": true }
+  ],
+  "social": {
+    "instagram": "https://www.instagram.com/laltraosteria/",
+    "facebook": "https://www.facebook.com/laltraosteriaroma/",
+    "tripadvisor": "https://www.tripadvisor.it/Restaurant_Review-g187791-d12501937-Reviews-L_altra_Osteria-Rome_Lazio.html"
+  },
+  "heroSlides": [
+    "/images/hero/slide-1.jpg",
+    "/images/hero/slide-2.jpg",
+    "/images/hero/slide-3.jpg",
+    "/images/hero/slide-4.jpg",
+    "/images/hero/slide-5.jpg"
+  ],
+  "whatsappNumber": "390689524311",
+  "whatsappMessage": "Ciao L'Altra Osteria, vorrei prenotare un tavolo per ... persone, in data ... alle ore ...",
+  "legal": {
+    "companyName": "",
+    "vatNumber": "",
+    "fiscalCode": "",
+    "legalAddress": "",
+    "pec": ""
+  }
+}

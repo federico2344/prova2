@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colori brand di default — sovrascrivibili da ThemeProvider via JSON */
+  --c-brand: 139 26 26;        /* terracotta */
+  --c-gold: 184 135 42;        /* gold */
+  --c-price: 184 135 42;       /* price (default uguale al gold) */
+  --c-cream: 250 246 240;      /* cream */
+  --c-charcoal: 43 38 34;      /* charcoal */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: Inter, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset scroll per la navbar fissa */
+    scroll-padding-top: 5rem;
+    /* Prevenzione testo che si ridimensiona su rotazione iOS */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-body antialiased;
+    /* Nessuno scroll orizzontale su mobile */
+    overflow-x: hidden;
+    /* Scroll fluido su iOS */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+    /* Evita il word-break su titoli lunghi su schermi piccoli */
+    overflow-wrap: break-word;
+  }
+
+  /* Tap highlight rimosso — usiamo i nostri stili di focus */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Focus visibile per accessibilità da tastiera (non tocco) */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-terracotta;
+  }
+
+  /* Area tap minima 44px per tutti i link e bottoni */
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Override per link inline nel testo (es. email, telefono) */
+  p a, li a {
+    min-height: unset;
+    display: inline;
+  }
+
+  img {
+    /* Nessuna immagine più larga del contenitore */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  /* Contenitore centrato con padding laterale safe per notch */
+  .container-x {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+    /* Padding extra per iPhone con notch laterale (landscape) */
+    padding-left: max(1.25rem, env(safe-area-inset-left));
+    padding-right: max(1.25rem, env(safe-area-inset-right));
+  }
+
+  @screen sm {
+    .container-x {
+      padding-left: max(2rem, env(safe-area-inset-left));
+      padding-right: max(2rem, env(safe-area-inset-right));
+    }
+  }
+
+  /* Pulsante primario (terracotta) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-terracotta
+           px-7 py-3 font-medium text-cream shadow-sm transition
+           hover:bg-terracotta-dark hover:shadow-md
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta
+           active:scale-[0.97];
+    min-height: 44px;
+    /* Impedisce che il testo vada a capo nel bottone */
+    white-space: nowrap;
+  }
+
+  /* Pulsante secondario (contorno) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/30
+           px-7 py-3 font-medium text-charcoal transition
+           hover:border-charcoal hover:bg-charcoal hover:text-cream
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-charcoal/40
+           active:scale-[0.97];
+    min-height: 44px;
+    white-space: nowrap;
+  }
+
+  /* Etichetta sopra i titoli di sezione */
+  .eyebrow {
+    @apply mb-3 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-terracotta;
+  }
+}
+
+@layer utilities {
+  /* Animazione comparsa allo scroll — easing più elegante e fluido */
+  .reveal {
+    @apply opacity-0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+  }
+  .reveal-visible {
+    @apply opacity-100;
+    transform: translateY(0);
+    will-change: auto;
+  }
+
+  /* Fade-in istantaneo per contenuto tab (senza aspettare scroll) */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Ken Burns sulla hero */
+  .animate-kenburns {
+    animation: kenburns 18s ease-out forwards;
+  }
+  @keyframes kenburns {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+  }
+
+  /* Scroll orizzontale fluido per tab su mobile */
+  .tabs-scroll {
+    @apply flex gap-3 overflow-x-auto pb-2;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  .tabs-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .tabs-scroll > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}

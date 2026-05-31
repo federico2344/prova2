@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>L'Altra Osteria · Pannello di gestione</title>
+    <style>
+      /* ──────────────────────────────────────────────────────────────
+         Solo lo stile del bottone Guida flottante. Il resto del tema
+         (Notion/Apple light) viene iniettato da JS dopo che Decap
+         monta i suoi stili — è l'unico modo per vincere emotion.
+         ────────────────────────────────────────────────────────────── */
+      #guida-fab {
+        position: fixed; bottom: 22px; right: 22px; z-index: 99999;
+        background: #8B1A1A; color: #fff; text-decoration: none;
+        padding: 11px 18px; border-radius: 999px; font-weight: 500;
+        font-size: 13.5px; letter-spacing: -0.005em;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+        box-shadow: 0 4px 12px rgba(139, 26, 26, 0.22), 0 1px 2px rgba(0,0,0,0.05);
+        display: flex; align-items: center; gap: 7px;
+        transition: background-color 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+                    box-shadow 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      #guida-fab:hover {
+        background: #6B0F0F;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(139, 26, 26, 0.28), 0 2px 4px rgba(0,0,0,0.08);
+      }
+      #guida-fab:active { transform: translateY(0); }
+    </style>
+  </head>
+  <body>
+    <a id="guida-fab" href="/guida-admin" target="_blank" rel="noopener" title="Apri la guida al pannello">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+      </svg>
+      Guida
+    </a>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // ── Stili pannello: iniezione robusta per vincere emotion ──
+      (function injectAdminStyles() {
+        console.log('[admin-style] init');
+        var css = `
+          /* ════════════════════════════════════════════════════════════════
+             ADMIN UI — Reset totale, stile Notion / iOS / Apple
+             Toni chiari, niente bordi pesanti, ombre quasi invisibili,
+             spaziatura ariosa, hover sottilissimi.
+             ════════════════════════════════════════════════════════════════ */
+
+          :root {
+            --bg: #F8F9FA;
+            --surface: #ffffff;
+            --surface-2: #f1f3f5;
+            --ink: #1A1A1A;
+            --ink-soft: #5A5F66;
+            --ink-faint: #8A8F96;
+            --line: rgba(20, 20, 20, 0.08);
+            --divider: rgba(20, 20, 20, 0.12);
+            --brand: #8B1A1A;
+            --brand-dark: #6B0F0F;
+            --brand-soft: rgba(139, 26, 26, 0.06);
+            --brand-tint: rgba(139, 26, 26, 0.12);
+            --shadow-card: 0 4px 12px rgba(0,0,0,0.05);
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+          }
+
+
+          /* TYPOGRAPHY */
+          html body, html body * {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+                         "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          html body {
+            background: var(--bg) !important;
+            color: var(--ink) !important;
+            letter-spacing: -0.005em;
+            font-size: 14px !important;
+          }
+          html body h1, html body h2, html body h3, html body [class*="Heading"] {
+            color: var(--ink) !important;
+            letter-spacing: -0.022em !important;
+          }
+
+          /* HEADER — bianco semitrasparente, dark text */
+          html body header,
+          html body [class*="AppHeader"]:not([class*="Content"]):not([class*="Button"]):not([class*="Nav"]):not([class*="Actions"]) {
+            background: rgba(255, 255, 255, 0.78) !important;
+            -webkit-backdrop-filter: saturate(180%) blur(24px) !important;
+            backdrop-filter: saturate(180%) blur(24px) !important;
+            border-bottom: 1px solid var(--line) !important;
+            box-shadow: none !important;
+            min-height: 52px !important;
+          }
+          /* Centro verticalmente i contenuti del header */
+          html body [class*="AppHeaderContent"] {
+            display: flex !important;
+            align-items: center !important;
+            min-height: 52px !important;
+          }
+          html body [class*="AppHeaderNavList"] {
+            display: flex !important;
+            align-items: center !important;
+            margin: 0 !important;
+          }
+          html body [class*="AppHeaderActions"] {
+            display: flex !important;
+            align-items: center !important;
+          }
+          /* Link Contenuti — pulito, senza chrome da bottone */
+          html body header [class*="AppHeaderNavLink"],
+          html body header [class*="AppHeaderButton"] {
+            color: var(--ink) !important;
+            font-weight: 500 !important;
+            font-size: 14px !important;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 6px !important;
+            padding: 6px 10px !important;
+            box-shadow: none !important;
+            line-height: 1 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            transition: background 0.15s var(--ease) !important;
+          }
+          html body header [class*="AppHeaderNavLink"]:hover,
+          html body header [class*="AppHeaderButton"]:hover {
+            background: rgba(55, 53, 47, 0.06) !important;
+            color: var(--ink) !important;
+            transform: none !important;
+          }
+          html body header [class*="AppHeaderNavLink"].header-link-active {
+            background: transparent !important;
+            color: var(--ink) !important;
+            font-weight: 600 !important;
+          }
+          /* Avatar — niente background, niente quadrato */
+          html body [class*="StyledWrapper"][class*="efqlgsg"],
+          html body [class*="AvatarDropdownButton"],
+          html body [class*="AvatarDropdownButton"] [class*="IconWrapper"],
+          html body [class*="AvatarPlaceholderIcon"],
+          html body [class*="avatarImage"] {
+            background: transparent !important;
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 999px !important;
+            padding: 0 !important;
+          }
+          html body [class*="AvatarDropdownButton"] svg path {
+            fill: var(--ink-soft) !important;
+          }
+          html body [class*="AvatarDropdownButton"] svg [fill] {
+            fill: var(--ink-soft) !important;
+          }
+
+          /* IMPORTANTE: contenitori di LAYOUT trasparenti — niente bordo né bg */
+          html body [class*="EditorContainer"],
+          html body [class*="EntryFormContainer"],
+          html body [class*="ControlPaneContainer"],
+          html body [class*="PreviewPaneContainer"],
+          html body [class*="CollectionContainer"],
+          html body [class*="CollectionMainContainer"],
+          html body [class*="WorkflowContainer"] {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+          }
+
+          /* Header raccolta: SOLO il container esterno è una card, nient'altro
+             dentro deve avere bordo/sfondo (per evitare effetto card-in-card) */
+          html body [class*="CollectionTopContainer"] {
+            background: var(--surface) !important;
+            border: 1px solid var(--line) !important;
+            border-radius: 12px !important;
+            box-shadow: var(--shadow-card) !important;
+            padding: 22px 26px !important;
+          }
+          html body [class*="CollectionTopContainer"] [class*="CollectionHeading"],
+          html body [class*="CollectionTopContainer"] [class*="CollectionTopHeading"],
+          html body [class*="CollectionTopContainer"] [class*="StyledCard"],
+          html body [class*="CollectionTopContainer"] [class*="Card"] {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+          }
+          html body [class*="CollectionTopContainer"] h1,
+          html body [class*="CollectionTopContainer"] h2 {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.022em !important;
+            color: var(--ink) !important;
+            margin: 0 !important;
+          }
+
+          /* Card single — solo entry cards visibili, non i wrapper */
+          html body [class*="EntryListing"] > [class*="StyledCard"],
+          html body [class*="EntryListing"] li > [class*="Card"] {
+            border-radius: 10px !important;
+            border: 1px solid var(--line) !important;
+            background: var(--surface) !important;
+            box-shadow: none !important;
+          }
+
+          /* Bottoni di visualizzazione (lista / griglia) — segmented control */
+          html body [class*="ViewControls"],
+          html body [class*="ViewToggle"] {
+            display: inline-flex !important;
+            background: var(--surface-2) !important;
+            border-radius: 8px !important;
+            padding: 2px !important;
+            gap: 0 !important;
+          }
+          html body [class*="ViewControls"] button,
+          html body [class*="ViewToggle"] button {
+            border: none !important;
+            background: transparent !important;
+            border-radius: 6px !important;
+            padding: 6px 10px !important;
+            color: var(--ink-soft) !important;
+            box-shadow: none !important;
+          }
+          html body [class*="ViewControls"] button[class*="active"],
+          html body [class*="ViewToggle"] button[class*="active"],
+          html body [class*="ViewControls"] [class*="selected"] {
+            background: var(--surface) !important;
+            color: var(--ink) !important;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.06) !important;
+          }
+
+          /* "Ordina per" pulsante */
+          html body [class*="SortControl"] button,
+          html body button[class*="Sort"] {
+            background: transparent !important;
+            border: 1px solid var(--line) !important;
+            color: var(--ink-soft) !important;
+            font-weight: 500 !important;
+            padding: 6px 12px !important;
+            border-radius: 8px !important;
+          }
+          html body [class*="SortControl"] button:hover,
+          html body button[class*="Sort"]:hover {
+            background: var(--surface-2) !important;
+          }
+
+          /* SIDEBAR "Raccolte" — card più ariosa */
+          html body [class*="CollectionTop"]:not([class*="Container"]),
+          html body [class*="SidebarContainer"] {
+            background: var(--surface) !important;
+            border-radius: 14px !important;
+            border: 1px solid var(--line) !important;
+            box-shadow: var(--shadow-card) !important;
+            padding: 18px 14px !important;
+          }
+          html body [class*="CollectionTop"] h2,
+          html body [class*="Sidebar"] h2 {
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.14em !important;
+            color: var(--ink-faint) !important;
+            text-transform: uppercase !important;
+            padding: 4px 10px 18px !important;
+            margin: 0 !important;
+          }
+
+          /* SIDEBAR ITEMS — voci più grandi, padding generoso, look dashboard */
+          html body [class*="NavLink"],
+          html body [class*="CollectionListItem"],
+          html body a[class*="SidebarNavLink"] {
+            border-radius: 10px !important;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            color: var(--ink) !important;
+            background: transparent !important;
+            border: none !important;
+          }
+          html body [class*="NavLink"]:hover,
+          html body [class*="CollectionListItem"]:hover {
+            background-color: var(--surface-2) !important;
+            color: var(--ink) !important;
+          }
+          html body [class*="NavLink"][aria-current="page"],
+          html body a[class*="SidebarNavLink"][aria-current="page"] {
+            background-color: var(--brand-soft) !important;
+            color: var(--brand) !important;
+            font-weight: 600 !important;
+          }
+          /* Nascondo l'icona libro-matita Decap accanto a ogni voce (rumore visivo) */
+          html body [class*="CollectionListItem"] > svg:first-child,
+          html body a[class*="SidebarNavLink"] > svg:first-child {
+            display: none !important;
+          }
+
+          /* SEARCH input */
+          html body [class*="CollectionSearch"] input,
+          html body input[type="search"] {
+            border: 1px solid transparent !important;
+            background: var(--surface-2) !important;
+            border-radius: 6px !important;
+            padding: 6px 12px 6px 32px !important;
+            font-size: 14px !important;
+            color: var(--ink) !important;
+            transition: background 0.15s var(--ease), border-color 0.15s var(--ease) !important;
+          }
+          html body input[type="search"]:focus {
+            background: var(--surface) !important;
+            border-color: var(--line) !important;
+            box-shadow: 0 0 0 2px var(--brand-soft) !important;
+          }
+
+          /* INPUTS / TEXTAREA / SELECT */
+          html body input[type="text"],
+          html body input[type="email"],
+          html body input[type="password"],
+          html body input[type="number"],
+          html body input[type="url"],
+          html body textarea,
+          html body select {
+            border-radius: 6px !important;
+            border: 1px solid var(--line) !important;
+            background: var(--surface) !important;
+            padding: 8px 12px !important;
+            font-size: 14px !important;
+            color: var(--ink) !important;
+            transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease) !important;
+          }
+          html body input:focus,
+          html body textarea:focus,
+          html body select:focus {
+            outline: none !important;
+            border-color: var(--brand) !important;
+            box-shadow: 0 0 0 3px var(--brand-soft) !important;
+          }
+
+          /* BUTTONS — solo quelli "veri" con testo, non tutte le icon-button del CMS */
+          html body [class*="EditorToolbar"] button,
+          html body [class*="ConfirmationDialog"] button,
+          html body [class*="EntryEditor"] [class*="Toolbar"] button {
+            border-radius: 6px !important;
+            font-weight: 500 !important;
+            font-size: 14px !important;
+            padding: 7px 14px !important;
+            border: 1px solid var(--line) !important;
+            background: var(--surface) !important;
+            color: var(--ink) !important;
+            box-shadow: none !important;
+            transition: background 0.15s var(--ease), border-color 0.15s var(--ease) !important;
+          }
+          html body [class*="EditorToolbar"] button:hover,
+          html body [class*="ConfirmationDialog"] button:hover {
+            background: var(--surface-2) !important;
+          }
+          /* Le icon-button piccole dentro alle topbar lasciamole stare */
+          html body [class*="ListItemTopBar"] button,
+          html body [class*="TopBar"] button:not([class*="primary"]):not([class*="success"]) {
+            padding: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+          }
+
+          /* BOTTONI PRIMARI rossi */
+          html body [class*="primary"][class*="Button"],
+          html body [class*="Button"][class*="primary"],
+          html body button[class*="success"] {
+            background: var(--brand) !important;
+            color: #fff !important;
+            border-color: transparent !important;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
+          }
+          html body [class*="primary"][class*="Button"]:hover,
+          html body [class*="Button"][class*="primary"]:hover,
+          html body button[class*="success"]:hover {
+            background: var(--brand-dark) !important;
+          }
+
+          /* Entry card (es. "Dati principali") con ombra leggera — SOLO la card principale,
+             niente regole su ListControl/ObjectControl/ListItemTopBar per non rompere i widget */
+          html body [class*="EntryListing"] > [class*="StyledCard"],
+          html body [class*="EntryListing"] [class*="ListItemContainer"] > [class*="Card"] {
+            background: var(--surface) !important;
+            border-radius: 12px !important;
+            border: 1px solid var(--line) !important;
+            box-shadow: var(--shadow-card) !important;
+          }
+
+          /* LABELS dei campi */
+          html body [class*="ControlLabel"],
+          html body label[class*="Label"] {
+            font-weight: 500 !important;
+            font-size: 13px !important;
+            color: var(--ink-soft) !important;
+            letter-spacing: 0 !important;
+            text-transform: none !important;
+          }
+
+          /* HINTS sotto i campi */
+          html body [class*="ControlHint"],
+          html body [class*="FieldHint"] {
+            font-size: 12.5px !important;
+            color: var(--ink-faint) !important;
+            margin-top: 6px !important;
+          }
+
+          /* DROPDOWN menu (es. Esci, Ordina per) */
+          html body [class*="DropdownList"] {
+            border-radius: 10px !important;
+            border: 1px solid var(--line) !important;
+            background: var(--surface) !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05) !important;
+            padding: 4px !important;
+          }
+          html body [class*="DropdownList"] [role="menuitem"],
+          html body [class*="DropdownList"] [class*="dropdownItem"],
+          html body [class*="StyledMenuItem"] {
+            border-radius: 6px !important;
+            padding: 8px 12px !important;
+            font-size: 14px !important;
+            transition: background 0.1s var(--ease) !important;
+            cursor: pointer !important;
+          }
+          html body [class*="DropdownList"] [role="menuitem"]:hover,
+          html body [class*="StyledMenuItem"]:hover {
+            background: var(--surface-2) !important;
+          }
+
+          /* "Ordina per" link */
+          html body [class*="SortControl"], html body [class*="SortButton"] {
+            color: var(--ink-soft) !important;
+            font-weight: 500 !important;
+          }
+
+          /* SCROLLBAR */
+          ::-webkit-scrollbar { width: 10px; height: 10px; }
+          ::-webkit-scrollbar-track { background: transparent; }
+          ::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.12);
+            border-radius: 5px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+          }
+          ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.22);
+            background-clip: padding-box;
+            border: 2px solid transparent;
+          }
+
+          /* COMPARSA dolce del contenuto principale */
+          /* HIDE: solo elementi NON necessari, niente icone interne ai widget */
+          html body a[href="#/media"],
+          html body [class*="AppHeaderNavList"] > li:nth-child(2),
+          html body input[placeholder*="Cerca su tutto"],
+          html body form[role="search"] {
+            display: none !important;
+          }
+
+          /* ════════════════════════════════════════════════════════════════
+             MODALITÀ HOME — solo card "Raccolte" centrata e grande
+             ════════════════════════════════════════════════════════════════ */
+          /* In home: nascondiamo TUTTO il main e ogni elemento che non sia sidebar */
+          html body.admin-home [class*="CollectionMainContainer"],
+          html body.admin-home [class*="CollectionTopContainer"],
+          html body.admin-home [class*="EntryListing"],
+          html body.admin-home [class*="CollectionMain"],
+          html body.admin-home [class*="CollectionTop"][class*="Container"],
+          html body.admin-home [class*="Sort"],
+          html body.admin-home [class*="View"][class*="Control"],
+          html body.admin-home [class*="View"][class*="Toggle"],
+          html body.admin-home [class*="EntryList"],
+          html body.admin-home [class*="StyledCard"],
+          html body.admin-home [class*="CollectionContainer"] > *:not([class*="SidebarContainer"]):not([class*="Sidebar"]):not([class*="CollectionTop"]:not([class*="Container"])) {
+            display: none !important;
+          }
+          /* Fallback più diretto: tutto ciò che segue la sidebar */
+          html body.admin-home [class*="SidebarContainer"] ~ * {
+            display: none !important;
+          }
+          html body.admin-home [class*="CollectionContainer"] {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: flex-start !important;
+            padding: 80px 24px !important;
+            min-height: calc(100vh - 52px) !important;
+            background: var(--bg) !important;
+          }
+          html body.admin-home [class*="CollectionTop"]:not([class*="Container"]),
+          html body.admin-home [class*="SidebarContainer"] {
+            width: min(520px, 92vw) !important;
+            max-width: none !important;
+            padding: 36px 28px !important;
+            border-radius: 18px !important;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04) !important;
+          }
+          html body.admin-home [class*="CollectionTop"] h2,
+          html body.admin-home [class*="Sidebar"] h2 {
+            text-align: center !important;
+            font-size: 12px !important;
+            letter-spacing: 0.18em !important;
+            padding: 0 0 24px !important;
+            color: var(--ink-faint) !important;
+          }
+          html body.admin-home [class*="NavLink"],
+          html body.admin-home [class*="CollectionListItem"],
+          html body.admin-home a[class*="SidebarNavLink"] {
+            font-size: 17px !important;
+            padding: 16px 20px !important;
+            margin: 4px 0 !important;
+            border-radius: 12px !important;
+          }
+
+          /* TOOLBAR salva/pubblica — discreta */
+          html body [class*="EditorToolbar"] {
+            background: rgba(255, 255, 255, 0.85) !important;
+            -webkit-backdrop-filter: saturate(180%) blur(16px) !important;
+            backdrop-filter: saturate(180%) blur(16px) !important;
+            border-bottom: 1px solid var(--line) !important;
+            box-shadow: none !important;
+          }
+
+          /* Comparsa morbida quando cambi sezione contenuto a destra
+             (NON tocchiamo la sidebar per evitare di rompere i click) */
+          html body [class*="EntryListing"],
+          html body [class*="CollectionTopContainer"] {
+            animation: adminFadeIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+          }
+          @keyframes adminFadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+        `;
+
+        function ensureLast() {
+          var existing = document.getElementById('admin-custom-style');
+          if (existing) existing.parentNode.removeChild(existing);
+          var s = document.createElement('style');
+          s.id = 'admin-custom-style';
+          s.textContent = css;
+          document.head.appendChild(s);
+          console.log('[admin-style] injected, head children:', document.head.children.length);
+        }
+
+        ensureLast();
+
+        // ── Auto-skip + body class per modalità "home" vs "editor" ──
+        var SKIP_MAP = {
+          'info': 'restaurant',
+          'menu': 'menu',
+          'team': 'team',
+          'wines': 'wines',
+          'theme': 'theme',
+        };
+        var userClickedSidebar = false;
+
+        // Intercetta i click SOLO se partono dal DOM della sidebar
+        function isInSidebar(node) {
+          while (node && node !== document.body) {
+            var cls = node.className || '';
+            if (typeof cls === 'string' &&
+                (cls.indexOf('Sidebar') !== -1 ||
+                 cls.indexOf('CollectionListItem') !== -1 ||
+                 cls.indexOf('CollectionTop') !== -1)) {
+              return true;
+            }
+            node = node.parentElement;
+          }
+          return false;
+        }
+        document.addEventListener('click', function(ev) {
+          var t = ev.target;
+          while (t && t !== document.body) {
+            if (t.tagName === 'A' && t.getAttribute('href') && t.getAttribute('href').indexOf('#/collections/') === 0) {
+              if (isInSidebar(t)) {
+                userClickedSidebar = true;
+                // Se l'URL è già uguale al link cliccato, hashchange NON scatta
+                // → forziamo l'autoSkip manualmente con un piccolo delay
+                setTimeout(autoSkip, 60);
+              }
+              return;
+            }
+            t = t.parentElement;
+          }
+        }, true);
+
+        function autoSkip() {
+          updateBodyState();
+          if (!userClickedSidebar) return;
+          try {
+            var h = window.location.hash || '';
+            var m = h.match(/^#\/collections\/([^/?#]+)\/?$/);
+            if (m && SKIP_MAP[m[1]]) {
+              var target = '#/collections/' + m[1] + '/entries/' + SKIP_MAP[m[1]];
+              userClickedSidebar = false;
+              setTimeout(function() {
+                if ((window.location.hash || '') === h) {
+                  window.location.replace(target);
+                }
+              }, 80);
+            }
+          } catch (e) { console.warn('[auto-skip]', e); }
+        }
+        function updateBodyState() {
+          var h = window.location.hash || '';
+          var inEditor = /^#\/collections\/[^/]+\/entries\//.test(h);
+          document.body.classList.toggle('admin-home', !inEditor);
+          document.body.classList.toggle('admin-editor', inEditor);
+        }
+        setTimeout(updateBodyState, 100);
+        window.addEventListener('hashchange', autoSkip);
+
+        // ── Nasconde pulsanti specifici per testo (Ordina per, Controlla l'anteprima) ──
+        var TEXT_HIDE = ['Ordina per', 'Sort by', "Controlla l'anteprima", 'Check preview'];
+        function hideByButtonText() {
+          var btns = document.querySelectorAll('button');
+          for (var i = 0; i < btns.length; i++) {
+            var t = (btns[i].textContent || '').trim();
+            for (var j = 0; j < TEXT_HIDE.length; j++) {
+              if (t === TEXT_HIDE[j] || t.indexOf(TEXT_HIDE[j]) === 0) {
+                btns[i].style.display = 'none';
+              }
+            }
+          }
+        }
+        setTimeout(hideByButtonText, 400);
+        setTimeout(hideByButtonText, 1200);
+        setTimeout(hideByButtonText, 2500);
+        window.addEventListener('hashchange', function() { setTimeout(hideByButtonText, 300); });
+        // Sorveglianza permanente: ogni volta che la toolbar dell'editor cambia, ripuliamo
+        var editorObs = new MutationObserver(function() { hideByButtonText(); });
+        // Aspettiamo che #nc-root sia in pagina, poi osserviamo solo i suoi cambi
+        var observerTimer = setInterval(function() {
+          var root = document.getElementById('nc-root') || document.querySelector('[class*="App"]');
+          if (root) {
+            clearInterval(observerTimer);
+            editorObs.observe(root, { childList: true, subtree: true });
+          }
+        }, 500);
+
+        // Riposiziona sempre i nostri stili come ULTIMI in head
+        var observer = new MutationObserver(function(mutations) {
+          for (var i = 0; i < mutations.length; i++) {
+            var added = mutations[i].addedNodes;
+            for (var j = 0; j < added.length; j++) {
+              if (added[j].id !== 'admin-custom-style' &&
+                  added[j].tagName === 'STYLE') {
+                // emotion ha aggiunto uno style → reinseriamo i nostri in coda
+                requestAnimationFrame(ensureLast);
+                return;
+              }
+            }
+          }
+        });
+        observer.observe(document.head, { childList: true });
+      })();
+
+      // ── Stile anteprime ──────────────────────────────────────────────────
+      // ── Tema corrente: defaults + override da localStorage ─────────────
+      var DEFAULT_THEME = {
+        colorBrand: '#8B1A1A',
+        colorAccent: '#B8872A',
+        colorPrice: '#B8872A',
+        colorBackground: '#FAF6F0',
+        colorText: '#2B2622',
+        fontDisplay: 'Playfair Display',
+        fontBody: 'Inter',
+      };
+      function getTheme() {
+        var t = {};
+        for (var k in DEFAULT_THEME) t[k] = DEFAULT_THEME[k];
+        try {
+          var stored = JSON.parse(localStorage.getItem('admin-theme'));
+          if (stored) for (var k2 in stored) if (stored[k2]) t[k2] = stored[k2];
+        } catch (e) {}
+        return t;
+      }
+      function saveTheme(values) {
+        try { localStorage.setItem('admin-theme', JSON.stringify(values)); } catch (e) {}
+        applyPreviewTheme();
+      }
+      // Iniettiamo/aggiorniamo lo stile delle anteprime in base al tema
+      function applyPreviewTheme() {
+        var t = getTheme();
+        var FF = {
+          'Playfair Display': '"Playfair Display", Georgia, serif',
+          'Cormorant Garamond': '"Cormorant Garamond", Garamond, serif',
+          'DM Serif Display': '"DM Serif Display", "Times New Roman", serif',
+          Inter: 'Inter, system-ui, sans-serif',
+          Manrope: 'Manrope, system-ui, sans-serif',
+          Lora: 'Lora, Georgia, serif',
+        };
+        var css = '* { box-sizing: border-box; }' +
+          'body { font-family: ' + (FF[t.fontBody] || FF.Inter) + ';' +
+          ' background: ' + t.colorBackground + ';' +
+          ' color: ' + t.colorText + '; padding: 2rem; margin: 0; }' +
+          '.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;' +
+          ' text-transform: uppercase; color: ' + t.colorAccent + '; margin-bottom: 0.5rem; }' +
+          'h1 { font-family: ' + (FF[t.fontDisplay] || FF['Playfair Display']) + ';' +
+          ' font-size: 2rem; margin: 0 0 0.5rem; color: ' + t.colorText + '; }' +
+          'h2 { font-family: ' + (FF[t.fontDisplay] || FF['Playfair Display']) + ';' +
+          ' font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;' +
+          ' color: ' + t.colorBrand + '; border-bottom: 1px solid ' + t.colorBrand + '33;' +
+          ' padding-bottom: 0.4rem; margin: 1.5rem 0 0.75rem; }' +
+          'h3 { font-family: ' + (FF[t.fontDisplay] || FF['Playfair Display']) + ';' +
+          ' font-size: 1rem; margin: 0 0 0.2rem; color: ' + t.colorText + '; }' +
+          'p { margin: 0.25rem 0; color: ' + t.colorText + '; opacity: 0.75;' +
+          ' font-size: 0.9rem; line-height: 1.5; }' +
+          '.card { background: white; border-radius: 12px; padding: 1.25rem 1.5rem;' +
+          ' margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }' +
+          '.row { display: flex; justify-content: space-between; align-items: baseline;' +
+          ' padding: 0.6rem 0; border-bottom: 1px solid #f0ebe3; }' +
+          '.row:last-child { border-bottom: none; }' +
+          '.price { color: ' + t.colorPrice + '; font-weight: 700; font-size: 1rem;' +
+          ' white-space: nowrap; margin-left: 1rem; }' +
+          '.fixed-price { color: ' + t.colorBrand + '; font-size: 0.9rem; font-weight: 600; }' +
+          '.note { font-style: italic; color: #888; font-size: 0.82rem; margin-bottom: 0.5rem; }' +
+          '.photo { width: 100%; max-width: 280px; border-radius: 12px;' +
+          ' object-fit: cover; aspect-ratio: 3/4; }' +
+          '.team-card { display: flex; gap: 1.5rem; align-items: flex-start; }' +
+          '.team-info { flex: 1; }' +
+          '.info-row { display: flex; gap: 0.5rem; margin-bottom: 0.4rem; font-size: 0.9rem; }' +
+          '.label { font-weight: 600; min-width: 90px; color: #555; }' +
+          '.tag { background: ' + t.colorBackground + '; border: 1px solid ' + t.colorAccent + ';' +
+          ' color: ' + t.colorAccent + '; padding: 2px 10px; border-radius: 20px;' +
+          ' font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;' +
+          ' display: inline-block; margin-bottom: 0.75rem; }' +
+          '.empty { color: #aaa; font-style: italic; text-align: center; padding: 2rem; }';
+        CMS.registerPreviewStyle(css, { raw: true });
+      }
+      applyPreviewTheme();
+
+      // ── Helper ───────────────────────────────────────────────────────────
+      var h = window.h;
+      var fmt = function(n) {
+        if (n == null || n === '') return '';
+        return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(n);
+      };
+
+      // ── Anteprima MENÙ ───────────────────────────────────────────────────
+      var MenuPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var categories = entry.getIn(['data', 'categories']);
+          if (!categories || !categories.size) return h('p', { className: 'empty' }, 'Nessun dato da mostrare.');
+
+          return h('div', {},
+            categories.map(function(cat, ci) {
+              var sections = cat.get('sections');
+              return h('div', { key: ci },
+                h('div', { className: 'eyebrow' }, cat.get('title') || '—'),
+                h('p', {}, cat.get('description') || ''),
+                sections && sections.map(function(sec, si) {
+                  var dishes = sec.get('dishes');
+                  var fp = sec.get('fixedPrice');
+                  return h('div', { key: si, className: 'card' },
+                    sec.get('title') && h('h2', {}, sec.get('title')),
+                    fp && h('p', { className: 'fixed-price' }, '€ ' + fp + ' a persona'),
+                    sec.get('note') && h('p', { className: 'note' }, sec.get('note')),
+                    dishes && dishes.map(function(dish, di) {
+                      return h('div', { key: di, className: 'row' },
+                        h('div', {},
+                          h('h3', {}, dish.get('name') || '—'),
+                          dish.get('description') && h('p', {}, dish.get('description'))
+                        ),
+                        dish.get('price') != null && h('span', { className: 'price' }, fmt(dish.get('price')))
+                      );
+                    })
+                  );
+                })
+              );
+            })
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('menu', MenuPreview);
+
+      // ── Anteprima VINI ───────────────────────────────────────────────────
+      var WinesPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var sections = entry.getIn(['data', 'sections']);
+          if (!sections || !sections.size) return h('p', { className: 'empty' }, 'Nessun dato da mostrare.');
+
+          return h('div', {},
+            entry.getIn(['data', 'intro']) && h('p', { style: { fontStyle: 'italic', marginBottom: '1.5rem' } }, entry.getIn(['data', 'intro'])),
+            sections.map(function(sec, si) {
+              var items = sec.get('items');
+              var subs = sec.get('subsections');
+              return h('div', { key: si },
+                h('h2', {}, sec.get('title') || '—'),
+                items && items.size > 0 && h('div', { className: 'card' },
+                  items.map(function(wine, wi) {
+                    return h('div', { key: wi, className: 'row' },
+                      h('div', {},
+                        h('h3', {}, wine.get('name') || '—'),
+                        wine.get('description') && h('p', {}, wine.get('description'))
+                      ),
+                      h('span', { className: 'price' }, fmt(wine.get('price')))
+                    );
+                  })
+                ),
+                subs && subs.map(function(sub, subi) {
+                  return h('div', { key: subi },
+                    h('h2', { style: { fontSize: '0.9rem' } }, sub.get('title') || '—'),
+                    h('div', { className: 'card' },
+                      sub.get('items') && sub.get('items').map(function(wine, wi) {
+                        return h('div', { key: wi, className: 'row' },
+                          h('div', {},
+                            h('h3', {}, wine.get('name') || '—'),
+                            wine.get('description') && h('p', {}, wine.get('description'))
+                          ),
+                          h('span', { className: 'price' }, fmt(wine.get('price')))
+                        );
+                      })
+                    )
+                  );
+                })
+              );
+            })
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('wines', WinesPreview);
+
+      // ── Anteprima TEAM ───────────────────────────────────────────────────
+      var TeamPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var people = entry.getIn(['data', 'people']);
+          var getAsset = this.props.getAsset;
+          if (!people || !people.size) return h('p', { className: 'empty' }, 'Nessun dato da mostrare.');
+
+          return h('div', {},
+            people.map(function(person, i) {
+              var photo = person.get('photo');
+              var photoUrl = photo && getAsset ? getAsset(photo) : photo;
+              return h('div', { key: i, className: 'card' },
+                h('div', { className: 'team-card' },
+                  photo && h('img', { src: photoUrl && photoUrl.toString ? photoUrl.toString() : photoUrl, className: 'photo', alt: '' }),
+                  h('div', { className: 'team-info' },
+                    h('span', { className: 'tag' }, person.get('role') || ''),
+                    h('h1', { style: { fontSize: '1.4rem' } }, person.get('name') || '—'),
+                    h('p', {}, person.get('text') || '')
+                  )
+                )
+              );
+            })
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('team', TeamPreview);
+
+      // ── Anteprima RISTORANTE ─────────────────────────────────────────────
+      var RestaurantPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var data = entry.get('data');
+          var addr = data.get('address');
+          var hours = data.get('hours');
+          var social = data.get('social');
+          var slides = data.get('heroSlides');
+          var getAsset = this.props.getAsset;
+
+          return h('div', {},
+            slides && slides.size > 0 && h('div', {},
+              h('h2', {}, 'Slideshow home'),
+              h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.5rem', marginBottom: '1.5rem' } },
+                slides.map(function(src, i) {
+                  var url = src && (typeof src === 'string' ? src : src.get && src.get('src'));
+                  if (!url) return null;
+                  var asset = getAsset ? getAsset(url) : url;
+                  return h('div', { key: i, style: { position: 'relative', aspectRatio: '16/10', borderRadius: '8px', overflow: 'hidden', background: '#eee' } },
+                    h('img', { src: asset.toString ? asset.toString() : asset, style: { width: '100%', height: '100%', objectFit: 'cover' } }),
+                    h('div', { style: { position: 'absolute', top: 6, left: 6, background: 'rgba(0,0,0,0.6)', color: 'white', padding: '2px 8px', borderRadius: '10px', fontSize: '0.7rem', fontWeight: 700 } }, 'Foto ' + (i + 1))
+                  );
+                })
+              )
+            ),
+            h('div', { className: 'eyebrow' }, addr ? addr.get('street') + ' · Roma' : ''),
+            h('h1', {}, data.get('name') || '—'),
+            h('p', { style: { fontStyle: 'italic', marginBottom: '1.5rem' } }, data.get('tagline') || ''),
+            h('p', {}, data.get('intro') || ''),
+
+            h('h2', {}, 'Contatti'),
+            h('div', { className: 'card' },
+              h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Telefono:'), h('span', {}, data.get('phone') || '—')),
+              h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Email:'), h('span', {}, data.get('email') || '—'))
+            ),
+
+            hours && hours.size > 0 && h('div', {},
+              h('h2', {}, 'Orari'),
+              h('div', { className: 'card' },
+                hours.map(function(row, i) {
+                  return h('div', { key: i, className: 'info-row' },
+                    h('span', { className: 'label' }, row.get('day') + ':'),
+                    row.get('closed')
+                      ? h('span', { style: { color: '#8B1A1A' } }, 'Chiuso')
+                      : h('span', {}, (row.get('lunch') || '') + (row.get('lunch') && row.get('dinner') ? ' · ' : '') + (row.get('dinner') || ''))
+                  );
+                })
+              )
+            ),
+
+            social && h('div', {},
+              h('h2', {}, 'Social'),
+              h('div', { className: 'card' },
+                h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Instagram:'), h('span', {}, social.get('instagram') || '—')),
+                h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Facebook:'), h('span', {}, social.get('facebook') || '—')),
+                h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Tripadvisor:'), h('span', {}, social.get('tripadvisor') || '—'))
+              )
+            )
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('restaurant', RestaurantPreview);
+
+      // ── Anteprima TEMA: mostra esempi reali coi colori e font scelti ─────
+      var FONT_FAMILIES = {
+        'Playfair Display': '"Playfair Display", Georgia, serif',
+        'Cormorant Garamond': '"Cormorant Garamond", Garamond, serif',
+        'DM Serif Display': '"DM Serif Display", "Times New Roman", serif',
+        Inter: 'Inter, system-ui, sans-serif',
+        Manrope: 'Manrope, system-ui, sans-serif',
+        Lora: 'Lora, Georgia, serif',
+      };
+      var ThemePreview = createClass({
+        render: function() {
+          var data = this.props.entry.get('data');
+          var brand = data.get('colorBrand') || '#8B1A1A';
+          var accent = data.get('colorAccent') || '#B8872A';
+          var price = data.get('colorPrice') || '#B8872A';
+          var bg = data.get('colorBackground') || '#FAF6F0';
+          var text = data.get('colorText') || '#2B2622';
+          var fontDisplayName = data.get('fontDisplay') || 'Playfair Display';
+          var fontBodyName = data.get('fontBody') || 'Inter';
+          var fontDisplay = FONT_FAMILIES[fontDisplayName] || FONT_FAMILIES['Playfair Display'];
+          var fontBody = FONT_FAMILIES[fontBodyName] || FONT_FAMILIES['Inter'];
+
+          // Persisti il tema per le altre anteprime
+          saveTheme({
+            colorBrand: brand, colorAccent: accent, colorPrice: price,
+            colorBackground: bg, colorText: text,
+            fontDisplay: fontDisplayName, fontBody: fontBodyName,
+          });
+
+          var pageStyle = {
+            background: bg, color: text, padding: '2.5rem 2rem',
+            fontFamily: fontBody, minHeight: '100vh',
+          };
+          var headingStyle = { fontFamily: fontDisplay, color: text, margin: 0 };
+          var eyebrowStyle = {
+            color: accent, fontSize: '0.72rem', fontWeight: 700,
+            letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 6,
+          };
+          var sectionLabelStyle = {
+            fontFamily: fontDisplay, color: brand, fontSize: '1rem',
+            fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
+            borderBottom: '1px solid ' + brand + '33', paddingBottom: 6, marginBottom: 12,
+          };
+          var dishRow = {
+            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+            padding: '12px 0', borderBottom: '1px solid rgba(0,0,0,0.06)',
+          };
+          var dishName = { fontFamily: fontDisplay, fontWeight: 600, fontSize: '1.05rem', margin: 0 };
+          var dishDesc = { color: text, opacity: 0.65, fontSize: '0.88rem', marginTop: 2 };
+          var priceStyle = { color: price, fontFamily: fontDisplay, fontSize: '1.05rem', fontWeight: 600, marginLeft: 16 };
+          var btnStyle = {
+            background: brand, color: '#fff', padding: '12px 24px', borderRadius: 999,
+            fontFamily: fontBody, fontWeight: 600, fontSize: '0.95rem', display: 'inline-block',
+            marginTop: 24,
+          };
+          var badgeStyle = {
+            display: 'inline-block', background: bg, border: '1px solid ' + accent,
+            color: accent, padding: '2px 10px', borderRadius: 999, fontSize: '0.72rem',
+            fontWeight: 600, letterSpacing: '0.05em', marginRight: 8,
+          };
+          var cardStyle = {
+            background: '#fff', padding: '1.5rem 1.75rem', borderRadius: 14,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.04)', marginTop: 18,
+          };
+          var helpStyle = {
+            fontStyle: 'italic', opacity: 0.55, fontSize: '0.78rem', marginTop: 32, textAlign: 'center',
+          };
+
+          return h('div', { style: pageStyle },
+            h('div', { style: eyebrowStyle }, 'Via Cassia · Roma'),
+            h('h1', { style: Object.assign({}, headingStyle, { fontSize: '2.4rem', fontWeight: 700 }) }, "L'Altra Osteria"),
+            h('p', { style: { fontStyle: 'italic', marginTop: 6, opacity: 0.8 } },
+              'Cucina romana, tra tradizione e rivisitazione'),
+            h('p', { style: { marginTop: 12, lineHeight: 1.6, opacity: 0.85 } },
+              "La cucina si ispira alla tradizione regionale italiana, con particolare attenzione " +
+              "ai sapori di Roma, senza rinunciare a creatività e ricerca."),
+            h('a', { style: btnStyle }, '☎ Prenota un tavolo'),
+
+            h('div', { style: cardStyle },
+              h('div', { style: sectionLabelStyle }, 'Antipasti'),
+              h('div', { style: dishRow },
+                h('div', {},
+                  h('h3', { style: dishName }, 'Bruschette'),
+                  h('p', { style: dishDesc }, "Burrata e alici; crema di lardo; pomodorini e basilico.")
+                ),
+                h('span', { style: priceStyle }, '€ 5,00')
+              ),
+              h('div', { style: dishRow },
+                h('div', {},
+                  h('h3', { style: dishName }, 'Tartare di manzo'),
+                  h('p', { style: dishDesc }, "Maionese alla 'nduja, cipolla rossa caramellata.")
+                ),
+                h('span', { style: priceStyle }, '€ 12,00')
+              )
+            ),
+
+            h('div', { style: cardStyle },
+              h('div', { style: badgeStyle }, 'Lo Chef'),
+              h('h2', { style: Object.assign({}, headingStyle, { fontSize: '1.5rem', marginTop: 8 }) }, 'Gianpiero Tomei'),
+              h('p', { style: { marginTop: 8, lineHeight: 1.6, opacity: 0.8, fontSize: '0.92rem' } },
+                "Romano, classe 1979. Dopo aver studiato Giurisprudenza ha scelto di seguire la sua " +
+                "vera passione: la cucina.")
+            ),
+
+            h('p', { style: helpStyle },
+              'Questa è un\'anteprima viva dei colori e font selezionati. Tutte le modifiche si applicano in tempo reale.')
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('theme', ThemePreview);
+    </script>
+  </body>
+</html>

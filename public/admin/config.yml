@@ -1,0 +1,262 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: "it"
+logo_url: /images/general/logo.png
+
+collections:
+
+  # ---------------------------------------------------------------------------
+  # 1) INFORMAZIONI RISTORANTE
+  # ---------------------------------------------------------------------------
+  - name: "info"
+    label: "Informazioni Ristorante"
+    files:
+      - name: "restaurant"
+        label: "Dati principali"
+        file: "src/content/restaurant.json"
+        fields:
+          - { name: "name", label: "Nome ristorante", widget: "string", required: true }
+          - { name: "tagline", label: "Tagline (sotto il nome)", widget: "string", required: true }
+          - { name: "intro", label: "Testo introduttivo (home)", widget: "text", required: true }
+          - { name: "phone", label: "Telefono (es. +39 06 8952 4311)", widget: "string", required: true }
+          - name: "email"
+            label: "Email"
+            widget: "string"
+            required: true
+            pattern: ['^[^\s@]+@[^\s@]+\.[^\s@]+$', "Inserire un'email valida (es. info@ristorante.it)"]
+          - name: "address"
+            label: "Indirizzo"
+            widget: "object"
+            collapsed: true
+            summary: "{{street}} — {{city}}"
+            fields:
+              - { name: "street", label: "Via e numero civico", widget: "string", required: true }
+              - { name: "city", label: "CAP e città", widget: "string", required: true }
+              - name: "mapsUrl"
+                label: "Link Google Maps"
+                widget: "string"
+                required: false
+                pattern: ['^https://.+', "Deve iniziare con https://"]
+          - name: "hours"
+            label: "Orari di apertura"
+            label_singular: "Fascia oraria"
+            widget: "list"
+            collapsed: true
+            summary: "{{day}}"
+            min: 1
+            fields:
+              - { name: "day", label: "Giorni (es. Martedì – Sabato)", widget: "string", required: true }
+              - { name: "lunch", label: "Orario pranzo (es. 13:00 – 14:45)", widget: "string", required: false }
+              - { name: "dinner", label: "Orario cena (es. 20:00 – 22:30)", widget: "string", required: false }
+              - { name: "closed", label: "Giorno di chiusura", widget: "boolean", default: false, required: false }
+          - name: "social"
+            label: "Social"
+            widget: "object"
+            collapsed: true
+            fields:
+              - name: "instagram"
+                label: "Link Instagram"
+                widget: "string"
+                required: false
+                pattern: ['^https://(www\.)?instagram\.com/.+', "Deve essere un link Instagram (es. https://www.instagram.com/laltraosteria/)"]
+              - name: "facebook"
+                label: "Link Facebook"
+                widget: "string"
+                required: false
+                pattern: ['^https://(www\.)?facebook\.com/.+', "Deve essere un link Facebook (es. https://www.facebook.com/laltraosteria)"]
+              - name: "tripadvisor"
+                label: "Link Tripadvisor"
+                widget: "string"
+                required: false
+                pattern: ['^https://(www\.)?tripadvisor\.(it|com)/.+', "Deve essere un link Tripadvisor"]
+          - name: "legal"
+            label: "Dati aziendali (obbligo di legge)"
+            widget: "object"
+            hint: "Dati che per legge devono apparire nel footer del sito (D.Lgs. 70/2003)."
+            collapsed: true
+            fields:
+              - { name: "companyName", label: "Ragione sociale", widget: "string", required: false }
+              - { name: "vatNumber", label: "Partita IVA", widget: "string", required: false }
+              - { name: "fiscalCode", label: "Codice fiscale", widget: "string", required: false }
+              - { name: "legalAddress", label: "Sede legale", widget: "string", required: false }
+              - { name: "pec", label: "Email PEC", widget: "string", required: false }
+          - name: "heroSlides"
+            label: "Foto slideshow (home)"
+            label_singular: "Foto"
+            widget: "list"
+            min: 1
+            hint: "Le foto scorrono automaticamente nella home, nell'ordine in cui appaiono qui. Trascina per riordinare. Consigliato: foto orizzontali e luminose."
+            field:
+              name: "src"
+              label: "Foto slideshow"
+              widget: "image"
+              media_folder: "/public/images/hero"
+              public_folder: "/images/hero"
+              media_library:
+                config:
+                  multiple: false
+
+  # ---------------------------------------------------------------------------
+  # 2) MENÙ
+  # ---------------------------------------------------------------------------
+  - name: "menu"
+    label: "Menù"
+    files:
+      - name: "menu"
+        label: "Categorie del menù"
+        file: "src/content/menu.json"
+        fields:
+          - name: "categories"
+            label: "Categorie"
+            label_singular: "Categoria"
+            widget: "list"
+            collapsed: true
+            summary: "{{title}}"
+            hint: "Trascina le categorie per riordinarle. L'ordine qui = l'ordine dei tab sul sito."
+            min: 1
+            max: 10
+            fields:
+              - { name: "id", widget: "hidden" }
+              - { name: "title", label: "Titolo tab", widget: "string", required: true }
+              - { name: "description", label: "Descrizione", widget: "text", required: false }
+              - name: "sections"
+                label: "Sezioni"
+                label_singular: "Sezione"
+                widget: "list"
+                collapsed: true
+                summary: "{{title}}"
+                min: 1
+                fields:
+                  - { name: "title", label: "Titolo sezione (es. Antipasti)", widget: "string", required: false }
+                  - { name: "note", label: "Nota sotto il titolo", widget: "string", required: false }
+                  - { name: "fixedPrice", label: "Prezzo fisso €/persona (solo degustazione)", widget: "number", required: false, value_type: "float" }
+                  - name: "dishes"
+                    label: "Piatti"
+                    label_singular: "Piatto"
+                    widget: "list"
+                    collapsed: true
+                    summary: "{{name}} — €{{price}}"
+                    hint: "Trascina i piatti per riordinarli."
+                    fields:
+                      - { name: "name", label: "Nome piatto", widget: "string", required: true }
+                      - { name: "description", label: "Descrizione", widget: "text", required: false }
+                      - { name: "price", label: "Prezzo € (lascia vuoto se incluso nel degustazione)", widget: "number", required: false, value_type: "float" }
+
+  # ---------------------------------------------------------------------------
+  # 3) TEAM
+  # ---------------------------------------------------------------------------
+  - name: "team"
+    label: "Chef & Sommelier"
+    files:
+      - name: "team"
+        label: "Persone"
+        file: "src/content/team.json"
+        fields:
+          - name: "people"
+            label: "Membri del team"
+            label_singular: "Persona"
+            widget: "list"
+            collapsed: true
+            summary: "{{name}} — {{role}}"
+            hint: "Trascina per riordinare. L'ordine qui = l'ordine sulla pagina del sito."
+            min: 1
+            fields:
+              - { name: "role", label: "Ruolo (es. Lo Chef)", widget: "string", required: true }
+              - { name: "name", label: "Nome e cognome", widget: "string", required: true }
+              - { name: "text", label: "Biografia", widget: "text", required: true }
+              - name: "photo"
+                label: "Foto"
+                widget: "image"
+                required: false
+                hint: "Consigliato: foto verticale del volto, ben illuminata."
+                media_folder: "/public/images/team"
+                public_folder: "/images/team"
+
+  # ---------------------------------------------------------------------------
+  # 4) CARTA DEI VINI
+  # ---------------------------------------------------------------------------
+  - name: "wines"
+    label: "Carta dei Vini"
+    files:
+      - name: "wines"
+        label: "Vini"
+        file: "src/content/wines.json"
+        fields:
+          - { name: "intro", label: "Testo introduttivo", widget: "text", required: true }
+          - name: "sections"
+            label: "Categorie"
+            label_singular: "Categoria"
+            widget: "list"
+            collapsed: true
+            summary: "{{title}}"
+            min: 1
+            fields:
+              - { name: "id", widget: "hidden" }
+              - { name: "title", label: "Titolo categoria (es. Bianchi)", widget: "string", required: true }
+              - name: "items"
+                label: "Vini"
+                label_singular: "Vino"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "{{name}} — €{{price}}"
+                fields:
+                  - { name: "name", label: "Nome vino", widget: "string", required: true }
+                  - { name: "description", label: "Descrizione (produttore, regione…)", widget: "string", required: false }
+                  - { name: "price", label: "Prezzo €", widget: "number", required: true, value_type: "float" }
+              - name: "subsections"
+                label: "Sottocategorie (solo Vini Esteri)"
+                label_singular: "Sottocategoria"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "{{title}}"
+                fields:
+                  - { name: "title", label: "Titolo (es. Francia — Bianchi)", widget: "string", required: true }
+                  - name: "items"
+                    label: "Vini"
+                    label_singular: "Vino"
+                    widget: "list"
+                    collapsed: true
+                    summary: "{{name}} — €{{price}}"
+                    fields:
+                      - { name: "name", label: "Nome vino", widget: "string", required: true }
+                      - { name: "description", label: "Descrizione", widget: "string", required: false }
+                      - { name: "price", label: "Prezzo €", widget: "number", required: true, value_type: "float" }
+
+  # ---------------------------------------------------------------------------
+  # 5) TEMA DEL SITO (colori e font)
+  # ---------------------------------------------------------------------------
+  - name: "theme"
+    label: "Tema del sito"
+    files:
+      - name: "theme"
+        label: "Colori e Font"
+        file: "src/content/theme.json"
+        fields:
+          - { name: "colorBrand", label: "Colore principale (bottoni, accenti)", widget: "color", default: "#8B1A1A" }
+          - { name: "colorAccent", label: "Colore accento (badge, eyebrow)", widget: "color", default: "#B8872A" }
+          - { name: "colorPrice", label: "Colore dei prezzi (menù e vini)", widget: "color", default: "#B8872A" }
+          - { name: "colorBackground", label: "Colore sfondo", widget: "color", default: "#FAF6F0" }
+          - { name: "colorText", label: "Colore testo principale", widget: "color", default: "#2B2622" }
+          - name: "fontDisplay"
+            label: "Font dei titoli"
+            widget: "select"
+            default: "Playfair Display"
+            options:
+              - "Playfair Display"
+              - "Cormorant Garamond"
+              - "DM Serif Display"
+          - name: "fontBody"
+            label: "Font del corpo del testo"
+            widget: "select"
+            default: "Inter"
+            options:
+              - "Inter"
+              - "Manrope"
+              - "Lora"
