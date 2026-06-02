@@ -5,9 +5,9 @@ import { telLink } from '../lib/utils.js'
 import Logo from './Logo.jsx'
 
 const links = [
-  { to: '/menu', label: 'I Menù' },
-  { to: '/chi-siamo', label: 'Il Ristorante' },
-  { to: '/vini', label: 'Vini' },
+  { to: '/menu', label: 'Cucina & Pizza' },
+  { to: '/vini', label: 'Birreria' },
+  { to: '/chi-siamo', label: 'Il Locale' },
   { to: '/contatti', label: 'Contatti' },
 ]
 
@@ -37,7 +37,9 @@ export default function Navbar() {
   }, [])
 
   const booking = telLink(restaurant.phone)
-  const linkColor = solid ? 'text-charcoal/80' : 'text-cream/90'
+  // Tema scuro: il testo è sempre chiaro, sia su navbar trasparente (sopra la
+  // foto della hero) sia su navbar piena (sfondo scuro translucido).
+  const linkColor = 'text-charcoal/80'
 
   return (
     <header
@@ -48,13 +50,8 @@ export default function Navbar() {
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <nav className="container-x flex h-14 items-center justify-between md:h-20">
-        <Link to="/" className="flex items-center" aria-label="L'Altra Osteria — torna alla home">
-          <Logo
-            variant={solid ? 'dark' : 'light'}
-            className={`h-9 w-auto transition duration-300 md:h-16 ${
-              solid ? 'mix-blend-multiply' : 'brightness-0 invert'
-            }`}
-          />
+        <Link to="/" className="flex items-center" aria-label="Locanda Blues — torna alla home">
+          <Logo size="sm" />
         </Link>
 
         {/* Link desktop */}
@@ -94,17 +91,17 @@ export default function Navbar() {
           <span className="relative flex h-5 w-6 flex-col justify-between">
             <span
               className={`block h-0.5 w-full origin-center rounded transition duration-300 ${
-                solid ? 'bg-charcoal' : 'bg-cream'
+                'bg-charcoal'
               } ${open ? 'translate-y-[9px] rotate-45' : ''}`}
             />
             <span
               className={`block h-0.5 w-full rounded transition duration-300 ${
-                solid ? 'bg-charcoal' : 'bg-cream'
+                'bg-charcoal'
               } ${open ? 'opacity-0' : ''}`}
             />
             <span
               className={`block h-0.5 w-full origin-center rounded transition duration-300 ${
-                solid ? 'bg-charcoal' : 'bg-cream'
+                'bg-charcoal'
               } ${open ? '-translate-y-[9px] -rotate-45' : ''}`}
             />
           </span>

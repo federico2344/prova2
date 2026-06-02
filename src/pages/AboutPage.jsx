@@ -6,8 +6,8 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Il Ristorante"
-        title="La nostra storia"
+        eyebrow="Il Locale"
+        title="Locale, Risto-Pub & Live Club"
         subtitle={restaurant.tagline}
       />
 
@@ -17,7 +17,7 @@ export default function AboutPage() {
             <p className="text-lg leading-relaxed text-charcoal/75">{restaurant.intro}</p>
           </Reveal>
 
-          {/* Chef + Sommelier: card alternate immagine/testo */}
+          {/* Le anime del locale: card alternate immagine/testo */}
           <div className="mt-16 space-y-12 md:space-y-16">
             {team.map((person, i) => (
               <Reveal

@@ -24,7 +24,7 @@ function WineGroup({ title, items }) {
           {title}
         </h3>
       )}
-      <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-charcoal/5 sm:p-6">
+      <div className="surface-card p-5 sm:p-6">
         <ul className="divide-y divide-charcoal/10">
           {items.map((wine) => (
             <WineRow key={wine.name} wine={wine} />
@@ -78,8 +78,8 @@ export default function WineTabs() {
               onClick={() => setActiveId(section.id)}
               className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition ${
                 selected
-                  ? 'bg-gold text-charcoal shadow'
-                  : 'border border-charcoal/15 bg-white text-charcoal/70 hover:border-gold/60 hover:text-gold'
+                  ? 'bg-gold text-ink shadow'
+                  : 'border border-charcoal/15 bg-panel text-charcoal/70 hover:border-gold/60 hover:text-gold'
               }`}
             >
               {section.title}

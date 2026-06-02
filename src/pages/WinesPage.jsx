@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { wines } from '../data/siteData.js'
+import { wines, restaurant } from '../data/siteData.js'
+import { telLink } from '../lib/utils.js'
 import PageHeader from '../components/PageHeader.jsx'
 import WineTabs from '../components/WineTabs.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -8,9 +8,9 @@ export default function WinesPage() {
   return (
     <>
       <PageHeader
-        eyebrow="La Cantina"
-        title="Carta dei Vini"
-        subtitle="Piccoli produttori e cantine artigianali, scelti bottiglia per bottiglia."
+        eyebrow="Le Spine & i Drink"
+        title="Birreria & Mixology"
+        subtitle="Le migliori birre alla spina, birre artigianali in bottiglia, cocktail, whisky e una carta vini onesta."
       />
 
       <section className="bg-blush/40 py-16 md:py-20">
@@ -21,15 +21,17 @@ export default function WinesPage() {
 
           <WineTabs />
 
-          <Reveal className="mx-auto mt-14 max-w-2xl rounded-2xl bg-charcoal p-8 text-center text-cream">
-            <p className="font-display text-2xl text-gold">L'abbinamento giusto, per te</p>
-            <p className="mt-3 text-cream/75">
-              Affidati alla nostra Sommelier: ti guiderà nella scelta del calice perfetto per ogni
-              piatto, raccontandoti la storia di chi l'ha prodotto.
+          <Reveal className="mx-auto mt-14 max-w-2xl surface-card p-8 text-center">
+            <p className="font-display text-2xl uppercase tracking-wide text-gold">
+              Chiedi la birra del momento
             </p>
-            <Link to="/contatti" className="btn-primary mt-6">
+            <p className="mt-3 text-charcoal/75">
+              Spine sempre in rotazione e novità stagionali: fatti consigliare al bancone
+              l'abbinamento giusto per la tua pizza o il tuo concerto.
+            </p>
+            <a href={telLink(restaurant.phone)} className="btn-primary mt-6">
               Prenota un tavolo
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>

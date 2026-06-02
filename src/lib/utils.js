@@ -11,7 +11,7 @@ export function formatPrice(value) {
 
 /**
  * Costruisce il link tel: per aprire il dialer con il numero precompilato.
- * Accetta qualunque formato ("+39 06 8952 4311") e ne estrae le cifre.
+ * Accetta qualunque formato ("+39 06 3031 0097") e ne estrae le cifre.
  */
 export function telLink(phone) {
   const digits = String(phone || '').replace(/\D/g, '')

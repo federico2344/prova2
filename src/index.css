@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 :root {
-  /* Colori brand di default — sovrascrivibili da ThemeProvider via JSON */
-  --c-brand: 139 26 26;        /* terracotta */
-  --c-gold: 184 135 42;        /* gold */
-  --c-price: 184 135 42;       /* price (default uguale al gold) */
-  --c-cream: 250 246 240;      /* cream */
-  --c-charcoal: 43 38 34;      /* charcoal */
-  --font-display: "Playfair Display", Georgia, serif;
+  /* Colori brand di default — sovrascrivibili da ThemeProvider via JSON.
+     Tema "Locanda Blues": fondo scuro espresso, testo crema, accento ambra + blu.
+     NB: --c-cream è la base SCURA (sfondo) e --c-charcoal è il testo CHIARO. */
+  --c-brand: 217 138 28;       /* ambra (brand) */
+  --c-gold: 61 168 220;        /* blu elettrico "Blues" (accento) */
+  --c-price: 226 163 58;       /* prezzo (oro caldo) */
+  --c-cream: 22 18 16;         /* base scura (sfondo) */
+  --c-charcoal: 239 230 216;   /* testo chiaro (crema) */
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
   --font-body: Inter, system-ui, sans-serif;
 }
 
@@ -29,10 +31,16 @@
     overflow-x: hidden;
     /* Scroll fluido su iOS */
     -webkit-overflow-scrolling: touch;
+    /* Alone caldo molto leggero dall'alto — atmosfera "locale la sera" */
+    background-image:
+      radial-gradient(120% 80% at 50% -10%, rgb(var(--c-brand) / 0.08), transparent 60%);
+    background-attachment: fixed;
   }
 
   h1, h2, h3 {
     @apply font-display;
+    /* Oswald è condensato: una spaziatura minima rende i titoli più "da locandina" */
+    letter-spacing: 0.01em;
     /* Evita il word-break su titoli lunghi su schermi piccoli */
     overflow-wrap: break-word;
   }
@@ -109,6 +117,11 @@
   /* Etichetta sopra i titoli di sezione */
   .eyebrow {
     @apply mb-3 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-terracotta;
+  }
+
+  /* Superficie "card" del tema scuro — sostituisce i vecchi bg-white */
+  .surface-card {
+    @apply rounded-2xl bg-panel ring-1 ring-charcoal/10 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset];
   }
 }
 

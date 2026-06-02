@@ -15,7 +15,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Vieni a Trovarci"
         title="Contatti & Orari"
-        subtitle="Sulla Via Cassia, a Roma. Consigliata la prenotazione, soprattutto nel weekend."
+        subtitle="A Roma Nord, sulla Via Cassia (La Giustiniana). Consigliata la prenotazione, soprattutto nelle serate con live."
       />
 
       <section className="bg-blush py-16 md:py-24">
@@ -45,10 +45,14 @@ export default function ContactPage() {
                 <a href={telLink(restaurant.phone)} className="hover:text-terracotta">
                   {restaurant.phone}
                 </a>
-                <br />
-                <a href={`mailto:${restaurant.email}`} className="hover:text-terracotta">
-                  {restaurant.email}
-                </a>
+                {restaurant.email && (
+                  <>
+                    <br />
+                    <a href={`mailto:${restaurant.email}`} className="hover:text-terracotta">
+                      {restaurant.email}
+                    </a>
+                  </>
+                )}
               </p>
             </div>
 
@@ -66,7 +70,7 @@ export default function ContactPage() {
           </Reveal>
 
           {/* Orari */}
-          <Reveal delay={120} className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-charcoal/5">
+          <Reveal delay={120} className="surface-card p-7">
             <h2 className="text-sm font-semibold uppercase tracking-widest text-terracotta">
               Orari di apertura
             </h2>
@@ -98,7 +102,7 @@ export default function ContactPage() {
         <div className="container-x mt-10">
           <Reveal className="overflow-hidden rounded-2xl shadow-sm ring-1 ring-charcoal/5">
             <iframe
-              title="Mappa L'Altra Osteria"
+              title="Mappa Locanda Blues"
               src={mapEmbed}
               className="h-64 w-full border-0 sm:h-80 md:h-[360px]"
               loading="lazy"

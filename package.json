@@ -1,9 +1,9 @@
 {
-  "name": "laltra-osteria",
+  "name": "locanda-blues",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Sito web di L'Altra Osteria Roma - React + Vite + Tailwind, pronto per Decap CMS e Netlify.",
+  "description": "Sito web di Locanda Blues - risto-pub & live music, Roma. React + Vite + Tailwind, pronto per Decap CMS e Netlify.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

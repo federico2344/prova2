@@ -4,20 +4,20 @@
  */
 export default function PageHeader({ eyebrow, title, subtitle }) {
   return (
-    <header className="relative overflow-hidden bg-charcoal pt-28 pb-16 text-cream md:pt-36 md:pb-20">
-      {/* Texture decorativa leggera */}
+    <header className="relative overflow-hidden bg-ink pt-28 pb-16 text-charcoal md:pt-36 md:pb-20">
+      {/* Texture decorativa leggera — aloni ambra/blu (l'anima di Locanda Blues) */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 opacity-[0.12]"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 20% 20%, #B8872A 0, transparent 40%), radial-gradient(circle at 80% 60%, #8B1A1A 0, transparent 45%)',
+            'radial-gradient(circle at 18% 20%, #D98A1C 0, transparent 42%), radial-gradient(circle at 82% 70%, #3DA8DC 0, transparent 46%)',
         }}
       />
       <div className="container-x relative text-center">
         {eyebrow && <p className="eyebrow text-gold">{eyebrow}</p>}
-        <h1 className="text-4xl font-bold sm:text-5xl">{title}</h1>
+        <h1 className="text-4xl font-bold uppercase tracking-tight sm:text-5xl">{title}</h1>
         {subtitle && (
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-cream/70">{subtitle}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-charcoal/70">{subtitle}</p>
         )}
       </div>
     </header>

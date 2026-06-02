@@ -1,23 +1,21 @@
 {
-  "name": "L'Altra Osteria",
-  "tagline": "Cucina romana, tra tradizione e rivisitazione",
-  "intro": "La cucina si ispira alla tradizione regionale italiana, con particolare attenzione ai sapori di Roma, senza rinunciare a creatività, ricerca e interpretazioni contemporanee.",
-  "phone": "+39 06 8952 4311",
-  "email": "altraosteria@gmail.com",
+  "name": "Locanda Blues",
+  "tagline": "Cucina, birre e musica dal vivo a Roma Nord",
+  "intro": "Locanda Blues è il risto-pub e live club della Cassia, a Roma Nord. Pizza al forno a legna con farina di tipo 1, hamburger fatti in casa, fritti, carni alla griglia e dolci della casa, accompagnati dalle migliori birre alla spina e da una serata di musica dal vivo. Da anni un punto di riferimento per chi vuole mangiare bene e ascoltare buon rock.",
+  "phone": "+39 06 3031 0097",
+  "email": "",
   "address": {
-    "street": "Via Cassia 923",
+    "street": "Via Cassia 1284 (La Giustiniana)",
     "city": "00189 Roma",
-    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=L%27Altra+Osteria+Via+Cassia+923+Roma"
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Locanda+Blues+Via+Cassia+1284+Roma"
   },
   "hours": [
-    { "day": "Martedì – Sabato", "lunch": "13:00 – 14:45", "dinner": "20:00 – 22:30" },
-    { "day": "Domenica e Lunedì", "closed": true }
+    { "day": "Martedì – Venerdì", "dinner": "19:30 – 00:30" },
+    { "day": "Sabato", "lunch": "12:30 – 15:00", "dinner": "19:30 – 01:00" },
+    { "day": "Domenica", "lunch": "12:30 – 15:00", "dinner": "19:30 – 00:00" },
+    { "day": "Lunedì", "closed": true }
   ],
-  "social": {
-    "instagram": "https://www.instagram.com/laltraosteria/",
-    "facebook": "https://www.facebook.com/laltraosteriaroma/",
-    "tripadvisor": "https://www.tripadvisor.it/Restaurant_Review-g187791-d12501937-Reviews-L_altra_Osteria-Rome_Lazio.html"
-  },
+  "social": {},
   "heroSlides": [
     "/images/hero/slide-1.jpg",
     "/images/hero/slide-2.jpg",
@@ -25,8 +23,8 @@
     "/images/hero/slide-4.jpg",
     "/images/hero/slide-5.jpg"
   ],
-  "whatsappNumber": "390689524311",
-  "whatsappMessage": "Ciao L'Altra Osteria, vorrei prenotare un tavolo per ... persone, in data ... alle ore ...",
+  "whatsappNumber": "390630310097",
+  "whatsappMessage": "Ciao Locanda Blues, vorrei prenotare un tavolo per ... persone, in data ... alle ore ...",
   "legal": {
     "companyName": "",
     "vatNumber": "",

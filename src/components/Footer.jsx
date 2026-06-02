@@ -4,11 +4,18 @@ import { telLink } from '../lib/utils.js'
 import Logo from './Logo.jsx'
 
 const navLinks = [
-  { to: '/menu', label: 'I Menù' },
-  { to: '/chi-siamo', label: 'Il Ristorante' },
-  { to: '/vini', label: 'Carta dei Vini' },
+  { to: '/menu', label: 'Cucina & Pizza' },
+  { to: '/vini', label: 'Birreria & Drink' },
+  { to: '/chi-siamo', label: 'Il Locale' },
   { to: '/contatti', label: 'Contatti' },
 ]
+
+const socialLabels = {
+  instagram: 'Instagram',
+  facebook: 'Facebook',
+  tripadvisor: 'Tripadvisor',
+  youtube: 'YouTube',
+}
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -17,18 +24,15 @@ export default function Footer() {
 
   return (
     <footer
-      className="bg-charcoal py-14 text-cream/80"
+      className="border-t border-charcoal/10 bg-ink py-14 text-charcoal/70"
       style={{ paddingBottom: 'max(3.5rem, env(safe-area-inset-bottom))' }}
     >
       <div className="container-x">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           {/* Brand + indirizzo */}
           <div>
-            <Logo
-              variant="light"
-              className="h-14 w-auto brightness-0 invert"
-            />
-            <p className="mt-4 text-sm leading-relaxed text-cream/60">
+            <Logo size="lg" />
+            <p className="mt-4 text-sm leading-relaxed text-charcoal/55">
               {restaurant.address.street}
               <br />
               {restaurant.address.city}
@@ -46,7 +50,7 @@ export default function Footer() {
 
           {/* Navigazione */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-cream/50">Naviga</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-charcoal/45">Naviga</h3>
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((l) => (
                 <li key={l.to}>
@@ -60,34 +64,42 @@ export default function Footer() {
 
           {/* Contatti + social */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-cream/50">Contatti</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-charcoal/45">Contatti</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
                 <a href={telLink(restaurant.phone)} className="transition hover:text-gold">
                   {restaurant.phone}
                 </a>
               </li>
-              <li>
-                <a href={`mailto:${restaurant.email}`} className="transition hover:text-gold">
-                  {restaurant.email}
-                </a>
-              </li>
+              {restaurant.email && (
+                <li>
+                  <a href={`mailto:${restaurant.email}`} className="transition hover:text-gold">
+                    {restaurant.email}
+                  </a>
+                </li>
+              )}
             </ul>
-            <div className="mt-5 flex flex-wrap gap-4 text-sm">
-              <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="transition hover:text-gold">
-                Instagram
-              </a>
-              <a href={social.facebook} target="_blank" rel="noopener noreferrer" className="transition hover:text-gold">
-                Facebook
-              </a>
-              <a href={social.tripadvisor} target="_blank" rel="noopener noreferrer" className="transition hover:text-gold">
-                Tripadvisor
-              </a>
-            </div>
+            {social && Object.values(social).some(Boolean) && (
+              <div className="mt-5 flex flex-wrap gap-4 text-sm">
+                {Object.entries(social)
+                  .filter(([, url]) => url)
+                  .map(([key, url]) => (
+                    <a
+                      key={key}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition hover:text-gold"
+                    >
+                      {socialLabels[key] ?? key}
+                    </a>
+                  ))}
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="mt-12 border-t border-cream/10 pt-6 text-center text-xs text-cream/50 space-y-2">
+        <div className="mt-12 border-t border-charcoal/10 pt-6 text-center text-xs text-charcoal/45 space-y-2">
           {restaurant.legal && (restaurant.legal.companyName || restaurant.legal.vatNumber) && (
             <p>
               {restaurant.legal.companyName && <>{restaurant.legal.companyName} — </>}

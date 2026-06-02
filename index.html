@@ -7,47 +7,55 @@
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="preload" as="image" href="/images/hero/slide-1.jpg" fetchpriority="high" />
 
-    <!-- SEO: il vecchio sito aveva <title>.</title> — qui lo impostiamo correttamente -->
-    <title>L'Altra Osteria Roma - Cucina Tradizionale e Rivisitata</title>
+    <!-- Font "da locandina rock": Oswald (display condensato) + Kaushan Script (logo "Blues") -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- SEO -->
+    <title>Locanda Blues — Risto-Pub & Live Music · Roma Cassia</title>
     <meta
       name="description"
-      content="L'Altra Osteria a Roma (Via Cassia): cucina romana e italiana tra tradizione e rivisitazione, con vini di piccoli produttori artigianali. Prenota un tavolo."
+      content="Locanda Blues: risto-pub e live club a Roma Nord (Via Cassia, La Giustiniana). Pizza al forno a legna, hamburger fatti in casa, le migliori birre alla spina e musica dal vivo. Prenota un tavolo."
     />
-    <meta name="theme-color" content="#B5512E" />
+    <meta name="theme-color" content="#161210" />
 
     <!-- Open Graph per anteprime social (WhatsApp, Facebook, Instagram) -->
     <meta property="og:type" content="restaurant" />
     <meta property="og:locale" content="it_IT" />
-    <meta property="og:title" content="L'Altra Osteria Roma - Cucina Tradizionale e Rivisitata" />
+    <meta property="og:title" content="Locanda Blues — Risto-Pub & Live Music · Roma" />
     <meta
       property="og:description"
-      content="Cucina romana e italiana tra tradizione e rivisitazione. Via Cassia 923, Roma."
+      content="Pizza al forno a legna, le migliori birre alla spina e musica dal vivo. Via Cassia 1284, Roma."
     />
-    <meta property="og:url" content="https://laltraosteria2.netlify.app/" />
-    <meta property="og:site_name" content="L'Altra Osteria" />
-    <meta property="og:image" content="https://laltraosteria2.netlify.app/images/hero/slide-1.jpg" />
+    <meta property="og:url" content="https://locandablues.netlify.app/" />
+    <meta property="og:site_name" content="Locanda Blues" />
+    <meta property="og:image" content="https://locandablues.netlify.app/images/general/logo.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="L'Altra Osteria - Cucina romana a Via Cassia" />
+    <meta property="og:image:alt" content="Locanda Blues — Risto-Pub & Live Music" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="L'Altra Osteria Roma - Cucina Tradizionale e Rivisitata" />
-    <meta name="twitter:description" content="Cucina romana e italiana tra tradizione e rivisitazione. Via Cassia 923, Roma." />
-    <meta name="twitter:image" content="https://laltraosteria2.netlify.app/images/hero/slide-1.jpg" />
+    <meta name="twitter:title" content="Locanda Blues — Risto-Pub & Live Music · Roma" />
+    <meta name="twitter:description" content="Pizza al forno a legna, birre alla spina e musica dal vivo. Via Cassia 1284, Roma." />
+    <meta name="twitter:image" content="https://locandablues.netlify.app/images/general/logo.jpg" />
 
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "L'Altra Osteria",
-      "image": "https://laltraosteria2.netlify.app/images/general/logo.png",
-      "url": "https://laltraosteria2.netlify.app",
-      "telephone": "+390689524311",
-      "email": "altraosteria@gmail.com",
+      "@type": ["Restaurant", "BarOrPub"],
+      "name": "Locanda Blues",
+      "description": "Risto-pub e live club a Roma Nord: pizza al forno a legna, hamburger fatti in casa, birre alla spina e musica dal vivo.",
+      "image": "https://locandablues.netlify.app/images/general/logo.jpg",
+      "url": "https://locandablues.netlify.app",
+      "telephone": "+390630310097",
       "priceRange": "€€",
-      "servesCuisine": ["Italian", "Roman", "Mediterranean"],
+      "servesCuisine": ["Pizza", "Italian", "Pub Food"],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Via Cassia 923",
+        "streetAddress": "Via Cassia 1284 (La Giustiniana)",
         "postalCode": "00189",
         "addressLocality": "Roma",
         "addressRegion": "RM",
@@ -56,23 +64,18 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "13:00",
-          "closes": "14:45"
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "19:30",
+          "closes": "00:30"
         },
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "20:00",
-          "closes": "22:30"
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "12:30",
+          "closes": "01:00"
         }
       ],
-      "sameAs": [
-        "https://www.instagram.com/laltraosteria/",
-        "https://www.facebook.com/laltraosteriaroma/",
-        "https://www.tripadvisor.it/Restaurant_Review-g187791-d12501937-Reviews-L_altra_Osteria-Rome_Lazio.html"
-      ],
-      "hasMenu": "https://laltraosteria2.netlify.app/menu",
+      "hasMenu": "https://locandablues.netlify.app/menu",
       "acceptsReservations": "True"
     }
     </script>

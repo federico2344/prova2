@@ -15,20 +15,25 @@ export default {
     },
     extend: {
       colors: {
+        // Legni scuri — usati per tessere/superfici di fallback
         olive: {
-          DEFAULT: '#5A5A3C',
-          light: '#7A7A52',
+          DEFAULT: '#3A2A1E',
+          light: '#4A372A',
         },
-        // Brand color (configurabile via CMS → restaurant.theme.colorBrand)
+        // Brand color (configurabile via CMS → restaurant.theme.colorBrand) = ambra
         terracotta: {
           DEFAULT: 'rgb(var(--c-brand) / <alpha-value>)',
-          dark:    '#6B0F0F',
+          dark:    '#A8650F',
         },
-        blush: '#EDE0D0',
+        // Banda/superficie scura calda (ex "blush", ora versione notturna)
+        blush: '#241B14',
+        // Superfici del tema scuro
+        panel: '#1E1712',   // card / pannelli rialzati
+        ink:   '#100C0A',   // sezioni profonde (footer, hero, page header)
         // Configurabili via CMS
-        cream:   'rgb(var(--c-cream) / <alpha-value>)',
-        charcoal:'rgb(var(--c-charcoal) / <alpha-value>)',
-        gold:    'rgb(var(--c-gold) / <alpha-value>)',
+        cream:   'rgb(var(--c-cream) / <alpha-value>)',   // base scura (sfondo)
+        charcoal:'rgb(var(--c-charcoal) / <alpha-value>)', // testo chiaro
+        gold:    'rgb(var(--c-gold) / <alpha-value>)',     // accento blu "Blues"
         price:   'rgb(var(--c-price) / <alpha-value>)',
       },
 

@@ -1,6 +1,6 @@
-# L'Altra Osteria — Sito web (React + Vite + Tailwind)
+# Locanda Blues — Sito web (React + Vite + Tailwind)
 
-Restyling moderno, veloce e **client-proof** per L'Altra Osteria (Via Cassia, Roma).
+Restyling moderno, veloce e **client-proof** per Locanda Blues, risto-pub & live music (Via Cassia, Roma).
 Sito **multi-pagina** in React (React Router), stilizzato con Tailwind CSS, pronto
 per **Netlify** e predisposto per **Decap CMS** (ex Netlify CMS) per l'aggiornamento
 autonomo di menù, testi e foto.
@@ -38,7 +38,7 @@ npm run preview  # anteprima della build di produzione
 │  ├─ admin/                # Decap CMS (pannello di gestione)
 │  │  ├─ index.html
 │  │  └─ config.yml         # definisce i campi modificabili dal ristoratore
-│  └─ images/               # hero.jpg, chef.jpg, sommelier.jpg
+│  └─ images/               # hero/slide-*.jpg, general/, team/
 └─ src/
    ├─ data/siteData.js      # ⭐️ TUTTI i contenuti (info, menù, vini, team)
    ├─ lib/utils.js          # formattazione prezzi + link WhatsApp
@@ -50,9 +50,9 @@ npm run preview  # anteprima della build di produzione
 
 ## Modificare i contenuti (oggi, da codice)
 
-Apri **`src/data/siteData.js`**: prezzi, piatti, orari, testi dello Chef e della
-Sommelier, numero WhatsApp e messaggio precompilato sono tutti lì. È l'unico file
-da toccare per aggiornare il sito finché il CMS non è collegato.
+I contenuti vivono nei JSON in **`src/content/`** (restaurant, menu, wines, team,
+theme), letti da `src/data/siteData.js`: prezzi, piatti, drink, orari, testi delle
+sezioni del locale, numero WhatsApp e messaggio precompilato sono tutti lì.
 
 ## Prenotazione WhatsApp
 
@@ -60,8 +60,8 @@ Il pulsante "Prenota un Tavolo" apre `https://wa.me/<numero>?text=<messaggio>`.
 Si configurano in `siteData.js`:
 
 ```js
-whatsappNumber: '390689524311',         // solo cifre, con prefisso internazionale
-whatsappMessage: 'Ciao L\'Altra Osteria, vorrei prenotare un tavolo per ...',
+whatsappNumber: '390630310097',         // solo cifre, con prefisso internazionale
+whatsappMessage: 'Ciao Locanda Blues, vorrei prenotare un tavolo per ...',
 ```
 
 ## Deploy su Netlify
@@ -129,5 +129,6 @@ cambiano: continuano a leggere `menuData`, `restaurant`, ecc.
 
 ## Immagini
 
-Carica `hero.jpg`, `chef.jpg`, `sommelier.jpg` in `public/images/`
-(vedi `public/images/README.txt`). Se mancano, il sito mostra fallback eleganti.
+Carica le foto in `public/images/` — `hero/slide-*.jpg` (slideshow),
+`general/` e `team/` (vedi `public/images/README.txt`). Se mancano, il sito mostra
+fallback eleganti.

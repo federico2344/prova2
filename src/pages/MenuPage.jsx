@@ -5,9 +5,9 @@ export default function MenuPage() {
   return (
     <>
       <PageHeader
-        eyebrow="La Tavola"
-        title="I nostri menù"
-        subtitle="Le proposte cambiano con le stagioni e con il mercato. Qui le nostre tre anime: pranzo, sera e degustazione."
+        eyebrow="Cucina & Forno a Legna"
+        title="Il Menù"
+        subtitle="Pizza al forno a legna con farina di tipo 1, hamburger fatti in casa, fritti, carni alla griglia e dolci della casa."
       />
       <section className="bg-cream py-16 md:py-20">
         <div className="container-x">

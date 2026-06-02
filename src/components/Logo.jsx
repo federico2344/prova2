@@ -1,62 +1,40 @@
-import { useState } from 'react'
-
 /**
- * Mostra il logo PNG se disponibile, altrimenti un fallback testuale
- * con i colori del brand (olive + crimson), identico al logo reale.
+ * Logotype testuale "Locanda Blues" — niente dipendenza da immagini, sempre nitido.
+ *  - "Locanda"  → Oswald condensato, ambra (brand)
+ *  - "Blues"    → corsivo Kaushan Script, blu elettrico (accento)
+ *  - sottotitolo → "Risto-Pub · Live Music"
  *
  * Props:
- *  - variant: 'dark' | 'light'
- *    'dark'  → usato su navbar con sfondo chiaro (colori originali logo)
- *    'light' → usato su navbar trasparente o footer scuro (tutto bianco)
- *  - className: classi aggiuntive per dimensioni / blend mode
+ *  - size: 'sm' (navbar) | 'lg' (footer)
+ *  - variant: mantenuto per compatibilità (il tema è sempre scuro)
+ *  - className: classi extra (margini ecc.)
  */
-export default function Logo({ variant = 'dark', className = '' }) {
-  const [broken, setBroken] = useState(false)
-
-  if (!broken) {
-    return (
-      <img
-        src="/images/general/logo.png"
-        alt="L'Altra Osteria Roma"
-        className={className}
-        onError={() => setBroken(true)}
-      />
-    )
-  }
-
-  /* ── Fallback testuale ────────────────────────────────────────────── */
-  const isLight = variant === 'light'
+export default function Logo({ size = 'sm', className = '' }) {
+  const big = size === 'lg'
 
   return (
-    <span className="flex flex-col leading-none select-none">
-      <span
-        className="font-display italic tracking-wide"
-        style={{
-          fontSize: '1.1em',
-          color: isLight ? '#fff' : '#5A5A3C', // olive del logo
-        }}
-      >
-        L'altra
+    <span className={`flex flex-col leading-none select-none ${className}`}>
+      <span className="flex items-end gap-1.5">
+        <span
+          className={`font-display font-bold uppercase tracking-[0.06em] text-terracotta ${
+            big ? 'text-4xl' : 'text-2xl md:text-[1.7rem]'
+          }`}
+        >
+          Locanda
+        </span>
+        <span
+          className={`text-gold ${big ? 'text-4xl -mb-1' : 'text-2xl md:text-3xl -mb-0.5'}`}
+          style={{ fontFamily: '"Kaushan Script", cursive' }}
+        >
+          Blues
+        </span>
       </span>
       <span
-        className="font-display font-semibold tracking-widest uppercase"
-        style={{
-          fontSize: '1.25em',
-          color: isLight ? '#fff' : '#8B1A1A', // crimson del logo
-          letterSpacing: '0.05em',
-        }}
+        className={`mt-1 font-body uppercase text-charcoal/55 ${
+          big ? 'text-[0.62rem] tracking-[0.34em]' : 'text-[0.5rem] tracking-[0.28em] md:text-[0.58rem]'
+        }`}
       >
-        Osteria
-      </span>
-      <span
-        className="font-body tracking-[0.3em] uppercase"
-        style={{
-          fontSize: '0.55em',
-          color: isLight ? 'rgba(255,255,255,0.7)' : '#9E8B7A',
-          marginTop: '2px',
-        }}
-      >
-        Roma
+        Risto-Pub · Live Music
       </span>
     </span>
   )

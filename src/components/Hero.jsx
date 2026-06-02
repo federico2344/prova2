@@ -5,7 +5,7 @@ import { telLink } from '../lib/utils.js'
 
 function HeroSlideshow({ slides, current }) {
   return (
-    <div className="absolute inset-0 bg-charcoal">
+    <div className="absolute inset-0 bg-ink">
       {slides.map((src, i) => (
         <img
           key={src}
@@ -15,11 +15,15 @@ function HeroSlideshow({ slides, current }) {
           loading={i === 0 ? 'eager' : 'lazy'}
           fetchpriority={i === 0 ? 'high' : 'auto'}
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            i === current ? 'animate-kenburns' : ''
+          }`}
           style={{ opacity: i === current ? 1 : 0 }}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/75 via-charcoal/60 to-charcoal/85" />
+      {/* Doppio velo scuro: la base + un gradiente dal basso per i testi */}
+      <div className="absolute inset-0 bg-ink/55" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/20" />
     </div>
   )
 }
@@ -42,17 +46,25 @@ export default function Hero() {
       <HeroSlideshow slides={slides} current={current} />
 
       <div
-        className="container-x relative z-10 py-28 text-cream"
+        className="container-x relative z-10 py-28 text-charcoal"
         style={{ paddingTop: 'calc(7rem + env(safe-area-inset-top))' }}
       >
-        <p className="eyebrow text-gold">{restaurant.address.street} · Roma</p>
-        <h1 className="max-w-3xl text-4xl font-bold leading-tight drop-shadow-sm sm:text-6xl md:text-7xl">
+        <p className="eyebrow text-terracotta">Risto-Pub · Birreria · Live Music</p>
+
+        <h1 className="max-w-4xl font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight drop-shadow sm:text-7xl md:text-8xl">
           {restaurant.name}
         </h1>
-        <p className="mt-4 max-w-xl text-base text-cream/90 sm:text-xl">
-          {restaurant.tagline}. Un'osteria piccola e accogliente dove la cucina
-          della tradizione incontra la ricerca.
+
+        <p className="mt-5 max-w-xl text-base text-charcoal/85 sm:text-xl">
+          {restaurant.tagline}
         </p>
+
+        {/* Badge orari serata — la sera si cena, poi si suona */}
+        <div className="mt-6 inline-flex flex-wrap items-center gap-x-3 gap-y-1 rounded-full border border-charcoal/20 bg-ink/40 px-4 py-2 text-sm text-charcoal/80 backdrop-blur-sm">
+          <span className="font-semibold text-terracotta">Cena dalle 20:00</span>
+          <span className="text-charcoal/40">·</span>
+          <span className="font-semibold text-gold">Live dalle 22:00</span>
+        </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href={booking} className="btn-primary w-full justify-center sm:w-auto">
@@ -63,9 +75,9 @@ export default function Hero() {
           </a>
           <Link
             to="/menu"
-            className="btn-secondary w-full justify-center border-cream/40 text-cream hover:bg-cream hover:text-charcoal sm:w-auto"
+            className="btn-secondary w-full justify-center border-charcoal/40 text-charcoal hover:bg-charcoal hover:text-cream sm:w-auto"
           >
-            Vedi il Menù
+            Cucina &amp; Pizza
           </Link>
         </div>
 
@@ -82,7 +94,7 @@ export default function Hero() {
                 className="flex items-center px-0.5 py-3"
               >
                 <span className={`block h-0.5 rounded-full transition-all duration-500 ${
-                  i === current ? 'w-6 bg-cream' : 'w-2 bg-cream/40 hover:bg-cream/70'
+                  i === current ? 'w-6 bg-terracotta' : 'w-2 bg-charcoal/40 hover:bg-charcoal/70'
                 }`} />
               </button>
             ))}

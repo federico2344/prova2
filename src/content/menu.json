@@ -1,394 +1,256 @@
 {
   "categories": [
     {
-      "id": "pranzo",
-      "title": "Menù Pranzo",
-      "description": "Dal martedì al sabato a pranzo. Piatti della tradizione, semplici e genuini.",
+      "id": "pizze",
+      "title": "Pizzeria",
+      "description": "Forno a legna, farina di tipo 1 ad alto contenuto di fibre. Con glutine e derivati del latte.",
+      "sections": [
+        {
+          "title": "Focacce",
+          "dishes": [
+            { "name": "Olio e rosmarino", "price": 4 },
+            { "name": "Con mortadella", "price": 6 },
+            { "name": "Con prosciutto", "price": 6 },
+            { "name": "Con pomodoro fresco e rucola", "price": 6 }
+          ]
+        },
+        {
+          "title": "Pizze Rosse",
+          "dishes": [
+            { "name": "Margherita", "description": "Pomodoro e mozzarella.", "price": 7 },
+            { "name": "Mare e Capperi", "description": "Pomodoro, origano, aglio, alici, capperi, olive.", "price": 8 },
+            { "name": "Croccantina", "description": "Pomodoro, parmigiano, peperoncino, basilico.", "price": 8 },
+            { "name": "Napoli", "description": "Pomodoro, mozzarella, alici.", "price": 8 },
+            { "name": "Diavola", "description": "Pomodoro, mozzarella, salame piccante.", "price": 8 },
+            { "name": "Speciale", "description": "Pomodoro, mozzarella, pachino e parmigiano.", "price": 8.5 },
+            { "name": "Funghi", "description": "Pomodoro, mozzarella, funghi champignon.", "price": 8 },
+            { "name": "Capricciosa", "description": "Pomodoro, mozzarella, funghi, uovo sodo, olive nere, carciofi.", "price": 9 },
+            { "name": "Parmigiana", "description": "Pomodoro, mozzarella, melanzane, parmigiano.", "price": 8.5 },
+            { "name": "Hard Rock", "description": "Pomodoro, pecorino, pancetta, cipolla.", "price": 8.5, "tags": ["Signature"] },
+            { "name": "Matta", "description": "Metà margherita, metà calzone.", "price": 8 },
+            { "name": "Cornuta", "description": "Pomodoro, mozzarella, peperoni e salame piccante.", "price": 9 },
+            { "name": "Bomba e Scappa", "description": "Pomodoro, mozzarella, 'nduja, tabasco.", "price": 9, "tags": ["Signature"] },
+            { "name": "Frescansalata", "description": "Pomodoro, mozzarella, funghi, rucola, olive, noci.", "price": 9 }
+          ]
+        },
+        {
+          "title": "Pizze Bianche",
+          "dishes": [
+            { "name": "Marchigiana", "description": "Mozzarella, rucola, ciauscolo e pomodoro fresco.", "price": 9 },
+            { "name": "Crostino", "description": "Mozzarella, prosciutto cotto.", "price": 8 },
+            { "name": "Sorrento", "description": "Bufala, pancetta, limone.", "price": 9 },
+            { "name": "Patate e rosmarino", "price": 8 },
+            { "name": "Fumè", "description": "Provola, mozzarella, radicchio e speck.", "price": 9 },
+            { "name": "Boscaiola", "description": "Mozzarella, funghi e salsiccia.", "price": 9 },
+            { "name": "Fiori de Zucca", "description": "Mozzarella, fiori di zucca, alici.", "price": 8 },
+            { "name": "Bufala", "description": "Mozzarella di bufala, pomodori pachino.", "price": 9 },
+            { "name": "Porcini", "description": "Mozzarella, funghi porcini.", "price": 9 },
+            { "name": "Quinta Stagione", "description": "Bufala, speck, carciofini e pomodoro fresco.", "price": 9 },
+            { "name": "Primavera", "description": "Mozzarella di bufala a crudo, pachino, rucola.", "price": 9 },
+            { "name": "Blues", "description": "Cipolla, pecorino, pepe, pancetta.", "price": 8, "tags": ["Signature"] },
+            { "name": "Locanda", "description": "Mozzarella, verdure di stagione.", "price": 9 },
+            { "name": "Bracco", "description": "Mozzarella, tartufo e salsiccia.", "price": 9 },
+            { "name": "Viola d'Autunno", "description": "Mozzarella, radicchio, noci e gorgonzola.", "price": 9 },
+            { "name": "Bufala e Salsiccia", "description": "Bufala, pomodoro fresco e salsiccia fresca.", "price": 9.5 }
+          ]
+        },
+        {
+          "title": "Calzoni",
+          "note": "Tutti i calzoni € 8,50. Con glutine e derivati del latte.",
+          "dishes": [
+            { "name": "Western", "description": "Mozzarella, prosciutto cotto.", "price": 8.5 },
+            { "name": "Diciotto", "description": "Mozzarella, pancetta, zucchine, uovo sodo.", "price": 8.5 },
+            { "name": "Dora e Luna", "description": "Mozzarella, verdure di stagione.", "price": 8.5 },
+            { "name": "Radicchio", "description": "Mozzarella, gorgonzola, funghi, radicchio.", "price": 8.5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cucina",
+      "title": "Cucina",
+      "description": "Antipasti, primi della tradizione, carni alla griglia e contorni.",
       "sections": [
         {
           "title": "Antipasti",
           "dishes": [
-            {
-              "name": "Bruschette",
-              "description": "Burrata e alici; crema di lardo; patè di olive e capperi; pomodorini e basilico; fegatini di pollo.",
-              "price": 5
-            },
-            {
-              "name": "Baccalà mantecato",
-              "description": "Con carciofi fritti e salsa di acciughe ed aglio dolce.",
-              "price": 10
-            },
-            {
-              "name": "Polpette fritte di bollito",
-              "description": "Con maionese al rafano e cipolla rossa agrodolce.",
-              "price": 10
-            },
-            {
-              "name": "Tartare di manzo",
-              "description": "Maionese alla 'nduja, cipolla rossa caramellata e mollica di focaccia croccante.",
-              "price": 10
-            },
-            {
-              "name": "Alici fritte",
-              "description": "Burrata e cipolla rossa agrodolce.",
-              "price": 10
-            },
-            {
-              "name": "Trippa fritta",
-              "description": "Con fonduta, cacio pepe e menta.",
-              "price": 10
-            },
-            {
-              "name": "Carpaccio di manzo marinato",
-              "description": "Con stracciatella e puntarelle alle alici.",
-              "price": 10
-            },
-            {
-              "name": "Caesar salad",
-              "description": "Pollo alla griglia, crostini di pane, grana e guanciale croccante.",
-              "price": 10
-            }
+            { "name": "Locanda", "description": "Salumi, verdure di stagione, bruschetta, formaggio.", "price": 10 },
+            { "name": "Tagliere Marchigiano", "description": "Affettati misti e formaggio.", "price": 12 },
+            { "name": "Vegetariano", "description": "Verdure di stagione grigliate o gratinate.", "price": 8 },
+            { "name": "Prosciutto e Bufala", "price": 8 },
+            { "name": "Bruschette", "description": "Pomodoro / patè di olive / crema di carciofi.", "price": 2.5 },
+            { "name": "Bruschette", "description": "Ciauscolo / crema di tartufo.", "price": 3 },
+            { "name": "Fagioli all'uccelletto", "description": "Pomodoro e origano.", "price": 6 },
+            { "name": "Fagioli all'uccelletto", "description": "Con salsiccia.", "price": 7.5 },
+            { "name": "Caprese", "description": "Mozzarella di bufala e pomodoro.", "price": 8 }
           ]
         },
         {
-          "title": "Primi",
+          "title": "Primi Piatti",
           "dishes": [
-            {
-              "name": "Primo della tradizione romana",
-              "description": "Con tonnarelli all'uovo fatti in casa.",
-              "price": 11
-            },
-            {
-              "name": "Primo del giorno di carne",
-              "price": 11
-            },
-            {
-              "name": "Primo del giorno di pesce",
-              "price": 12
-            },
-            {
-              "name": "Zuppa del giorno",
-              "price": 10
-            },
-            {
-              "name": "Insalata tiepida di farro",
-              "description": "Verdure di stagione, pomodorini e feta greca.",
-              "price": 10
-            }
+            { "name": "Fettuccine ai funghi porcini", "price": 10 },
+            { "name": "Spaghetti alla carbonara", "price": 10 },
+            { "name": "Bombolotti all'amatriciana", "price": 9 },
+            { "name": "Tonnarelli cacio e pepe", "price": 9 }
           ]
         },
         {
-          "title": "Secondi",
+          "title": "Secondi Piatti",
           "dishes": [
-            {
-              "name": "Roastbeef di manzo",
-              "description": "Salsa al pepe e patate al forno.",
-              "price": 13
-            },
-            {
-              "name": "Polpette di manzo",
-              "description": "Salsa alla cacciatora e patate al forno, oppure polpette al sugo.",
-              "price": 13
-            },
-            {
-              "name": "Tacos di maiale sfilacciato",
-              "description": "Con insalatina di cavolo.",
-              "price": 12
-            },
-            {
-              "name": "Pollo al curry",
-              "description": "Con riso basmati.",
-              "price": 13
-            },
-            {
-              "name": "Treccia di spigola in crosta di pane",
-              "description": "Tzatziki ed insalatina con vinaigrette al balsamico.",
-              "price": 13
-            },
-            {
-              "name": "Tagliata di tonno alla piastra",
-              "description": "Con stracciatella e datterini.",
-              "price": 15
-            },
-            {
-              "name": "Saltimbocca alla romana",
-              "description": "Con purè di patate.",
-              "price": 14
-            },
-            {
-              "name": "Cotoletta di pollo fritta",
-              "description": "Patate al forno e maionese agli agrumi.",
-              "price": 12
-            }
+            { "name": "Cicoria, salsiccia (sminuzzata) e pomodoro", "price": 8 },
+            { "name": "Salsicce marchigiane (2)", "price": 6 },
+            { "name": "Arrosticini di pecora abruzzesi XL (10)", "price": 12 },
+            { "name": "Arrosticini di pecora abruzzesi XL (5)", "price": 6 },
+            { "name": "Petto di pollo", "description": "Alla piastra o al limone.", "price": 9 },
+            { "name": "Tagliata di manzo semplice (350 gr)", "price": 16 },
+            { "name": "Tagliata di manzo all'aceto balsamico", "price": 17 },
+            { "name": "Tagliata di manzo rucola e parmigiano", "price": 17 },
+            { "name": "Tagliata di manzo all'unghia del diavolo", "price": 17 },
+            { "name": "Tagliata di manzo ai porcini", "price": 18 },
+            { "name": "Bistecca di manzo entrecôte Italia s/o (400 gr)", "price": 17 },
+            { "name": "Bistecca DK danese", "price": 20 },
+            { "name": "Grigliata mista", "price": 17 }
           ]
         },
         {
           "title": "Contorni",
+          "note": "Tutti i contorni € 4,00.",
           "dishes": [
-            {
-              "name": "Verdure del giorno ripassate",
-              "price": 5
-            },
-            {
-              "name": "Patate al forno",
-              "price": 5
-            }
-          ]
-        },
-        {
-          "title": "Dolci",
-          "dishes": [
-            {
-              "name": "Tiramisù",
-              "price": 4
-            },
-            {
-              "name": "Semifreddo allo zenzero",
-              "description": "Con salsa al mango.",
-              "price": 6
-            },
-            {
-              "name": "Crumble caldo alle mandorle",
-              "description": "Mele verdi caramellate e gelato alla vaniglia.",
-              "price": 6
-            },
-            {
-              "name": "Torta al cioccolato",
-              "description": "Con panna.",
-              "price": 5
-            },
-            {
-              "name": "Biscottini al vino fatti in casa",
-              "price": 4
-            },
-            {
-              "name": "Ricciarelli alle mandorle fatti in casa",
-              "description": "Al pezzo.",
-              "price": 2
-            }
+            { "name": "Patate al forno a legna", "price": 4 },
+            { "name": "Verdure alla griglia o gratinate", "price": 4 },
+            { "name": "Cicoria ripassata", "price": 4 },
+            { "name": "Insalata verde mista", "price": 4 }
           ]
         }
       ]
     },
     {
-      "id": "serale",
-      "title": "Menù Serale & Sabato",
-      "description": "La sera e il sabato a pranzo. La nostra proposta più ricercata, tra stagionalità e rivisitazioni della tradizione.",
+      "id": "panini",
+      "title": "Panini & Sfizi",
+      "description": "Hamburger fatti in casa con pane del forno, crescia marchigiana, insalatone e fritti.",
       "sections": [
         {
-          "title": "Antipasti",
+          "title": "Panini",
+          "note": "Con hamburger fatto in casa e pane del forno.",
           "dishes": [
-            {
-              "name": "Focaccia al padellino",
-              "description": "Formaggio di capra, miele e misticanza ripassata.",
-              "price": 11
-            },
-            {
-              "name": "Uovo pochet",
-              "description": "Verdure alla vignarola e guanciale croccante.",
-              "price": 11
-            },
-            {
-              "name": "Maritozzo fatto in casa",
-              "description": "Stracciatella di bufala, crudo di gambero rosso e zest di limone candito.",
-              "price": 12
-            },
-            {
-              "name": "Salame fatto in casa alla piastra",
-              "description": "Agretti, purè di patate al limone e fondo bruno al finocchio.",
-              "price": 11
-            }
+            { "name": "Hamburger", "description": "Hamburger (160 gr), pomodoro, lattuga, salsa rosa.", "price": 6.5 },
+            { "name": "Bacon Cheeseburger", "description": "Hamburger, pomodoro, lattuga, salsa rosa, cheese, bacon.", "price": 7 },
+            { "name": "Chicken Burger", "description": "Cotoletta di pollo impanata, lattuga, pomodoro e maionese.", "price": 7 },
+            { "name": "Red Hot Chili Burger", "description": "Hamburger, cipolla fresca, radicchio, cheese e salsa chili.", "price": 7 },
+            { "name": "BBQ Pork", "description": "Bistecchina di maiale, pomodoro fresco, rucola e salsa BBQ.", "price": 7 },
+            { "name": "Hot-Dog", "price": 4.5 },
+            { "name": "Double Bacon Cheeseburger", "description": "Con 2 hamburger.", "price": 9.5 },
+            { "name": "Monster Burger", "description": "Hamburger, salsiccia, uovo, bacon, cheese, pomodoro e cicoria.", "price": 9.5, "tags": ["Signature"] },
+            { "name": "Veggy Burger", "description": "Di spinaci, carote e patate con lattuga e radicchio.", "price": 7 }
           ]
         },
         {
-          "title": "I classici dell'osteria",
+          "title": "Crescia Marchigiana",
+          "note": "Tutte le crescie € 7,50.",
           "dishes": [
-            {
-              "name": "Tartare di manzo",
-              "description": "Maionese alla 'nduja, cipolla rossa caramellata e mollica di focaccia croccante.",
-              "price": 12
-            },
-            {
-              "name": "Baccalà mantecato",
-              "description": "Con carciofi fritti e salsa di acciughe ed aglio dolce.",
-              "price": 12
-            },
-            {
-              "name": "Trippa fritta",
-              "description": "Su fonduta alla cacio, pepe e menta.",
-              "price": 11
-            },
-            {
-              "name": "Polpette fritte di bollito (2pz)",
-              "description": "Salsa verde e giardiniera di verdure fatta in casa.",
-              "price": 10
-            }
+            { "name": "Verdure ripassate e pecorino", "price": 7.5 },
+            { "name": "Verdure ripassate, pecorino e salsiccia di fegato", "price": 7.5 },
+            { "name": "Vegetariana", "description": "Zucchine e melanzane.", "price": 7.5 },
+            { "name": "Prosciutto stagionato e pecorino dolce", "price": 7.5 }
           ]
         },
         {
-          "title": "Primi",
+          "title": "Insalatone",
+          "note": "Tutte le insalatone € 7,50.",
           "dishes": [
-            {
-              "name": "\"Come un risotto\"",
-              "description": "Frascarelli mantecati con verdure alla vignarola e guanciale croccante.",
-              "price": 14
-            },
-            {
-              "name": "Fettuccine all'uovo fatte a mano",
-              "description": "Al ragù di cortile.",
-              "price": 14
-            },
-            {
-              "name": "Bottoni di pasta all'uovo ripieni alla cacio e pepe",
-              "description": "Bisque di crostacei, crudo di gamberi e lime.",
-              "price": 15
-            }
+            { "name": "Golosa", "description": "Lattuga, radicchio, mais, tonno, uovo sodo, olive nere.", "price": 7.5 },
+            { "name": "Gamberetti", "description": "Lattuga, gamberetti, mais, maionese.", "price": 7.5 },
+            { "name": "Bufalina", "description": "Lattuga, mozzarella di bufala, pomodoro, basilico.", "price": 7.5 },
+            { "name": "Salmone", "description": "Lattuga, rucola, salmone, mais, limone.", "price": 7.5 },
+            { "name": "Ricca", "description": "Lattuga, fontina, prosciutto cotto, mais, olive nere.", "price": 7.5 },
+            { "name": "Romana", "description": "Lattuga, ceci, rucola, mais, pecorino.", "price": 7.5 }
           ]
         },
         {
-          "title": "I primi della tradizione",
-          "note": "Tonnarelli all'uovo fatti in casa o rigatoni di grano duro alla:",
+          "title": "Fritti",
+          "note": "I prodotti surgelati sono indicati al personale.",
           "dishes": [
-            {
-              "name": "Cacio e pepe",
-              "price": 13
-            },
-            {
-              "name": "Carbonara",
-              "price": 13
-            },
-            {
-              "name": "Amatriciana",
-              "price": 13
-            },
-            {
-              "name": "Gricia",
-              "price": 13
-            }
-          ]
-        },
-        {
-          "title": "Secondi",
-          "dishes": [
-            {
-              "name": "Terrina di agnello alla piastra",
-              "description": "Con il suo fondo, purè di patate al limone e vignarola.",
-              "price": 20
-            },
-            {
-              "name": "Arrosticini di pannicolo di manzo alla griglia",
-              "description": "Misticanza ripassata e salsa al pepe verde e grani di senape.",
-              "price": 18
-            },
-            {
-              "name": "Saltimbocca di vitella alla romana",
-              "description": "Con patate rosticciate alla salvia.",
-              "price": 18
-            },
-            {
-              "name": "Fritto misto alla romana",
-              "description": "Cervello, animelle e carciofi.",
-              "price": 19
-            },
-            {
-              "name": "Baccalà fritto",
-              "description": "Hummus di fave, cipolla rossa agrodolce, limone fermentato e pecorino.",
-              "price": 19
-            }
-          ]
-        },
-        {
-          "title": "Dolci",
-          "dishes": [
-            {
-              "name": "Tiramisù",
-              "price": 7
-            },
-            {
-              "name": "Mini tiramisù",
-              "price": 4
-            },
-            {
-              "name": "Maritozzo caldo fatto in casa",
-              "description": "Con la panna.",
-              "price": 7
-            },
-            {
-              "name": "Semifreddo allo zenzero",
-              "description": "Con salsa al mango e arancia.",
-              "price": 7
-            },
-            {
-              "name": "Torta al cioccolato dell'Osteria",
-              "description": "Con panna.",
-              "price": 6
-            },
-            {
-              "name": "Biscottini al vino fatti in casa",
-              "price": 4
-            },
-            {
-              "name": "Ricciarelli alle mandorle fatti in casa",
-              "description": "Al pezzo.",
-              "price": 2.5
-            }
+            { "name": "Supplì fatti in casa", "price": 2.5 },
+            { "name": "Supplì", "description": "All'arrabbiata, alla carbonara, cacio e pepe.", "price": 2.5 },
+            { "name": "Salvia fritta pastellata", "price": 4 },
+            { "name": "Ortaggi misti pastellati", "price": 4 },
+            { "name": "Stick di polenta fritta o alla piastra", "price": 4 },
+            { "name": "Nuggets di pollo", "description": "Con corn flakes e salsa ranch.", "price": 5 },
+            { "name": "Jalapeño panati ripieni di formaggio", "price": 6 },
+            { "name": "Filetto di baccalà (2)", "price": 4 },
+            { "name": "Olive all'ascolana o al tartufo", "price": 4.5 },
+            { "name": "Cremini fritti", "price": 4.5 },
+            { "name": "Cacio fritto marchigiano", "price": 4.5 },
+            { "name": "Patatine stick", "price": 4 },
+            { "name": "Sfoglie di patata semplici con patata fresca", "price": 4 },
+            { "name": "Sfoglie di patate con pepe e pecorino", "price": 4.5 },
+            { "name": "Sfoglie di patate con bacon croccante e cheddar fuso", "price": 5 },
+            { "name": "Mozzarelline", "price": 4 },
+            { "name": "Fiori di zucca (2)", "price": 4 },
+            { "name": "Onion rings", "description": "Anellini di cipolla.", "price": 4 },
+            { "name": "Fritto misto", "description": "Onion rings, 1 cacio, 2 olive, salvia, 2 nuggets, supplì.", "price": 8 }
           ]
         }
       ]
     },
     {
-      "id": "degustazione",
-      "title": "Menù Degustazione",
-      "description": "Due percorsi a prezzo fisso pensati dallo Chef.",
+      "id": "dolci",
+      "title": "Dolci & Gelati",
+      "description": "Dolci fatti in casa e gelati artigianali.",
       "sections": [
         {
-          "title": "I classici dell'Osteria",
-          "fixedPrice": 35,
+          "title": "Dolci Fatti in Casa",
+          "note": "Tutti i dolci € 4,50.",
           "dishes": [
-            {
-              "name": "Baccalà mantecato, carciofi fritti",
-              "description": "Salsa di acciughe ed aglio dolce."
-            },
-            {
-              "name": "Polpetta fritta di bollito",
-              "description": "Salsa verde e giardiniera di verdure fatta in casa."
-            },
-            {
-              "name": "Primo della tradizione"
-            },
-            {
-              "name": "Saltimbocca di vitella alla romana",
-              "description": "Con patate rosticciate alla salvia."
-            },
-            {
-              "name": "Tiramisù"
-            }
+            { "name": "Tiramisù Pan di Stelle", "price": 4.5 },
+            { "name": "Panna cotta", "description": "Frutti di bosco o cioccolato.", "price": 4.5 },
+            { "name": "Cheesecake ai frutti di bosco", "price": 4.5 },
+            { "name": "Cheesecake Oreo", "price": 4.5 },
+            { "name": "Crema catalana", "price": 4.5 }
           ]
         },
         {
-          "title": "Primavera 2026",
-          "fixedPrice": 39,
+          "title": "Gelati",
+          "note": "Tutti i gelati € 5,00.",
           "dishes": [
-            {
-              "name": "Focaccia al padellino",
-              "description": "Formaggio di capra, miele e misticanza di verdure ripassata."
-            },
-            {
-              "name": "Salame fatto in casa alla piastra",
-              "description": "Agretti, purè di patate al limone e salsa al finocchio."
-            },
-            {
-              "name": "Bottoni di pasta all'uovo ripieni alla cacio e pepe",
-              "description": "Bisque di crostacei, crudo di gamberi e lime."
-            },
-            {
-              "name": "Arrosticini di pannicolo di manzo alla griglia",
-              "description": "Misticanza e salsa al pepe verde e grani di senape."
-            },
-            {
-              "name": "Maritozzo caldo",
-              "description": "Con panna."
-            }
+            { "name": "Dubai", "price": 5 },
+            { "name": "Tartufo nero", "price": 5 },
+            { "name": "Tartufo bianco", "price": 5 },
+            { "name": "Soufflé", "price": 5 },
+            { "name": "Limone", "price": 5 },
+            { "name": "Babà cioccolato e rum", "price": 5 },
+            { "name": "Cocco", "price": 5 },
+            { "name": "Cuore di fragola", "price": 5 },
+            { "name": "Crêpes alla fragola", "price": 5 },
+            { "name": "Bacio Rocher", "price": 5 },
+            { "name": "Cocco e mango", "price": 5 },
+            { "name": "Crema di pistacchio", "price": 5 },
+            { "name": "Biscotto", "price": 5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fissi",
+      "title": "Menù Fissi",
+      "description": "Spettacolo dal vivo incluso. Disponibili per l'intero tavolo.",
+      "sections": [
+        {
+          "title": "Menù Pizza",
+          "fixedPrice": 25,
+          "note": "Bibite incluse: acqua, coca cola, vino della casa e caraffe di birra. Spettacolo incluso.",
+          "dishes": [
+            { "name": "Antipasto", "description": "Bruschette, affettati, verdure grigliate e fritti misti." },
+            { "name": "Pizza o Hamburger a scelta" }
+          ]
+        },
+        {
+          "title": "Menù Carne",
+          "fixedPrice": 30,
+          "note": "Bibite incluse: acqua, coca cola, vino della casa e caraffe di birra. Spettacolo incluso.",
+          "dishes": [
+            { "name": "Antipasto", "description": "Bruschette, affettati, verdure grigliate e fritti misti." },
+            { "name": "Grigliata mista con contorni" }
           ]
         }
       ]

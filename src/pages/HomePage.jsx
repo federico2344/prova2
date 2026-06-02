@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import { restaurant, menuData, team, wines } from '../data/siteData.js'
+import { restaurant, menuData, team } from '../data/siteData.js'
 import { telLink } from '../lib/utils.js'
 import Hero from '../components/Hero.jsx'
 import Reveal from '../components/Reveal.jsx'
 
 /**
- * Home: vetrina che dà l'identità del locale e indirizza alle pagine interne.
- * Niente menù completo qui — solo un assaggio che porta a /menu.
+ * Home: vetrina che dà l'identità del locale (risto-pub + live club) e
+ * indirizza alle pagine interne. Niente menù completo qui — solo un assaggio.
  */
 export default function HomePage() {
   // Piatti "Signature" pescati dai dati per il teaser
@@ -25,12 +25,12 @@ export default function HomePage() {
         <div className="container-x grid items-center gap-12 md:grid-cols-2">
           <Reveal>
             <p className="eyebrow">Benvenuti</p>
-            <h2 className="text-3xl font-bold text-charcoal sm:text-4xl">
-              Una piccola osteria calda e accogliente sulla Via Cassia.
+            <h2 className="text-3xl font-bold uppercase tracking-tight text-charcoal sm:text-4xl">
+              Cucina, birre e musica dal vivo.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-charcoal/75">{restaurant.intro}</p>
             <Link to="/chi-siamo" className="btn-secondary mt-7">
-              Scopri la nostra storia
+              Scopri il locale
             </Link>
           </Reveal>
 
@@ -39,16 +39,16 @@ export default function HomePage() {
             <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-blush">
               <img
                 src="/images/general/1.jpg"
-                alt=""
+                alt="La sala del Locanda Blues durante una serata"
                 className="h-full w-full object-cover"
                 loading="lazy"
                 onError={(e) => (e.currentTarget.style.display = 'none')}
               />
             </div>
-            <div className="mt-8 aspect-[3/4] overflow-hidden rounded-2xl bg-olive/20">
+            <div className="mt-8 aspect-[3/4] overflow-hidden rounded-2xl bg-olive/30">
               <img
-                src="/images/general/2.webp"
-                alt=""
+                src="/images/general/2.jpg"
+                alt="Le birre alla spina del Locanda Blues"
                 className="h-full w-full object-cover"
                 loading="lazy"
                 onError={(e) => (e.currentTarget.style.display = 'none')}
@@ -58,96 +58,142 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Teaser piatti signature */}
+      {/* Teaser pizze signature */}
       {signatures.length > 0 && (
-        <section className="bg-charcoal py-20 text-cream md:py-28">
+        <section className="bg-ink py-20 text-charcoal md:py-28">
           <div className="container-x">
             <Reveal className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow text-gold">Dalla cucina</p>
-              <h2 className="text-3xl font-bold sm:text-4xl">I piatti che ci raccontano</h2>
+              <p className="eyebrow text-gold">Dal forno a legna</p>
+              <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl">
+                Le pizze che ci somigliano
+              </h2>
             </Reveal>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {signatures.map((dish, i) => (
                 <Reveal
                   key={dish.name}
                   delay={i * 120}
-                  className="rounded-2xl border border-cream/10 bg-cream/[0.04] p-7"
+                  className="rounded-2xl border border-charcoal/10 bg-panel p-7"
                 >
-                  <h3 className="font-display text-xl text-gold">{dish.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-cream/70">{dish.description}</p>
+                  <h3 className="font-display text-xl uppercase tracking-wide text-terracotta">{dish.name}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-charcoal/70">{dish.description}</p>
                 </Reveal>
               ))}
             </div>
             <div className="mt-12 text-center">
               <Link to="/menu" className="btn-primary">
-                Vedi tutti i menù
+                Vedi tutto il menù
               </Link>
             </div>
           </div>
         </section>
       )}
 
-      {/* Teaser team */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="container-x grid gap-10 md:grid-cols-2">
-          {team.map((person, i) => (
-            <Reveal
-              key={person.name}
-              delay={i * 120}
-              className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-charcoal/5"
-            >
-              <p className="eyebrow mb-2">{person.role}</p>
-              <h3 className="text-2xl font-semibold text-charcoal">{person.name}</h3>
-              <p className="mt-3 leading-relaxed text-charcoal/70 line-clamp-4">{person.text}</p>
-            </Reveal>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
-          <Link to="/chi-siamo" className="btn-secondary">
-            Conosci lo Chef e la Sommelier
-          </Link>
+      {/* Live Music — l'anima del locale */}
+      <section className="relative overflow-hidden py-24 text-charcoal md:py-32">
+        <img
+          src="/images/hero/slide-1.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-ink/80" />
+        <div className="container-x relative text-center">
+          <Reveal className="mx-auto max-w-2xl">
+            <p className="eyebrow text-gold">Live Club</p>
+            <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-5xl">
+              Musica dal vivo, soprattutto rock
+            </h2>
+            <p className="mt-5 text-lg text-charcoal/80">
+              Concerti, tribute band e serate live. Si cena dalle 20:00, si suona dalle 22:00:
+              prenota un tavolo e goditi lo spettacolo.
+            </p>
+            <a href={telLink(restaurant.phone)} className="btn-primary mt-8">
+              Prenota la tua serata
+            </a>
+          </Reveal>
         </div>
       </section>
 
-      {/* Teaser vini */}
-      <section className="bg-blush py-20 md:py-28">
+      {/* Le tre anime del locale (ex "team") */}
+      <section className="bg-cream py-20 md:py-28">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">La Cantina</p>
-            <h2 className="text-3xl font-bold text-charcoal sm:text-4xl">Carta dei Vini</h2>
-            <p className="mt-4 text-charcoal/70">{wines.intro}</p>
+            <p className="eyebrow">Tutto in un posto solo</p>
+            <h2 className="text-3xl font-bold uppercase tracking-tight text-charcoal sm:text-4xl">
+              Le anime del Locanda
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {team.map((person, i) => (
+              <Reveal
+                key={person.name}
+                delay={i * 120}
+                className="surface-card overflow-hidden"
+              >
+                <div className="aspect-[16/10] overflow-hidden bg-blush">
+                  <img
+                    src={person.photo}
+                    alt={person.name}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    onError={(e) => (e.currentTarget.style.display = 'none')}
+                  />
+                </div>
+                <div className="p-7">
+                  <p className="eyebrow mb-2 text-gold">{person.role}</p>
+                  <h3 className="text-2xl font-semibold uppercase tracking-wide text-charcoal">{person.name}</h3>
+                  <p className="mt-3 leading-relaxed text-charcoal/70">{person.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Teaser birreria */}
+      <section className="bg-blush/40 py-20 md:py-28">
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Al bancone</p>
+            <h2 className="text-3xl font-bold uppercase tracking-tight text-charcoal sm:text-4xl">Birreria & Mixology</h2>
+            <p className="mt-4 text-charcoal/70">
+              Le migliori birre alla spina, artigianali in bottiglia, cocktail e una scelta di
+              whisky, rum e distillati.
+            </p>
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-3">
             {[
-              { label: 'Bollicine', count: wines.sections.find(s => s.id === 'bollicine')?.items.length },
-              { label: 'Bianchi & Rossi', count: (wines.sections.find(s => s.id === 'bianchi')?.items.length ?? 0) + (wines.sections.find(s => s.id === 'rossi')?.items.length ?? 0) },
-              { label: 'Vini Esteri & Birre', count: null },
+              { label: 'Birre alla Spina', note: 'Sempre in rotazione' },
+              { label: 'Cocktail & Mixology', note: 'Signature della Locanda' },
+              { label: 'Whisky · Rum · Vini', note: 'Carta selezionata' },
             ].map((item, i) => (
-              <Reveal key={item.label} delay={i * 100} className="rounded-2xl bg-white p-6 text-center shadow-sm ring-1 ring-charcoal/5">
-                <span className="font-display text-3xl text-gold">✦</span>
-                <p className="mt-2 font-semibold text-charcoal">{item.label}</p>
-                {item.count && <p className="mt-1 text-sm text-charcoal/60">{item.count} etichette</p>}
+              <Reveal key={item.label} delay={i * 100} className="surface-card p-6 text-center">
+                <span className="font-display text-3xl text-gold">♫</span>
+                <p className="mt-2 font-semibold uppercase tracking-wide text-charcoal">{item.label}</p>
+                <p className="mt-1 text-sm text-charcoal/60">{item.note}</p>
               </Reveal>
             ))}
           </div>
           <div className="mt-10 text-center">
             <Link to="/vini" className="btn-primary">
-              Sfoglia la carta dei vini
+              Sfoglia la birreria
             </Link>
           </div>
         </div>
       </section>
 
       {/* CTA finale */}
-      <section className="bg-terracotta py-16 text-cream">
+      <section className="bg-terracotta py-16 text-ink">
         <div className="container-x flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
           <div>
-            <h2 className="text-3xl font-bold">Ti aspettiamo a tavola</h2>
-            <p className="mt-2 text-cream/85">
-              {restaurant.address.street}, {restaurant.address.city} · Mar–Sab, pranzo e cena
+            <h2 className="text-3xl font-bold uppercase tracking-tight">Cena, birra e live</h2>
+            <p className="mt-2 text-ink/80">
+              {restaurant.address.street}, {restaurant.address.city} · Roma Nord
             </p>
           </div>
-          <a href={telLink(restaurant.phone)} className="btn-secondary border-cream text-cream hover:bg-cream hover:text-terracotta">
+          <a href={telLink(restaurant.phone)} className="btn-secondary border-ink text-ink hover:bg-ink hover:text-terracotta">
             Chiama per prenotare
           </a>
         </div>

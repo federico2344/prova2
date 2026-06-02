@@ -1,141 +1,320 @@
 {
-  "intro": "La nostra carta privilegia piccoli produttori e cantine artigianali: agricoltura attenta, basse rese, lavorazioni naturali. Etichette scelte bottiglia per bottiglia, che raccontano un territorio e una persona.",
+  "intro": "Le migliori birre alla spina sempre in rotazione, oltre trenta birre artigianali in bottiglia, cocktail e mixology, una carta vini onesta e una scelta di whisky, rum e distillati. Chiedi al bancone le novità e le birre stagionali.",
   "sections": [
     {
-      "id": "bollicine",
-      "title": "Bollicine",
+      "id": "spina",
+      "title": "Birre alla Spina",
       "items": [
-        { "name": "Metodo Classico Brut 2015 Docg, Oltrepò Pavese", "description": "Pinot Nero – Chardonnay · Piero Torti, Lombardia", "price": 35 },
-        { "name": "Franciacorta Brut Docg", "description": "Chardonnay – Pinot Nero · La Fioca, Nigoline di Corte Francia, Brescia, Lombardia", "price": 35 },
-        { "name": "Franciacorta SoloUva Dosaggio Zero", "description": "Chardonnay · Az. Agricola SoloUva, Erbusco (Bs), Lombardia", "price": 35 },
-        { "name": "Oltrepò Pavese \"Suspir\" Docg Brut Rosé, Metodo Classico", "description": "Pinot Nero · Azienda Agricola La Piotta, Lombardia", "price": 30 },
-        { "name": "Vino Frizzante Jonny Gambato", "description": "Pinot Nero – Vitigni bianchi · Cascina Baricchi, Neviglie, Lombardia", "price": 25 },
-        { "name": "Vino Spumante Brut Bianco \"Rù Maccone\" Igp 2017", "description": "Maresco, Metodo Ancestrale · Angiuli Donato, Adelfia, Puglia", "price": 28 },
-        { "name": "Terrebianche Zero, Metodo Ancestrale Bio", "description": "Dosaggio Zero · Grechetto · Terraquilla (Mo), Emilia Romagna", "price": 20 },
-        { "name": "Prosecco Doc Millesimato Brut 2021", "description": "Glera · Terra Vizina, Az. Agricola Cesare, Veneto", "price": 20 }
+        { "name": "Heineken", "description": "Lager premium dorata a bassa fermentazione, 5%. 25cl € 3,00 · 50cl € 6,50" },
+        { "name": "Ichnusa Non Filtrata", "description": "Ambrata, lieviti in sospensione, note luppolate, 5%. 25cl € 3,50 · 50cl € 6,50" },
+        { "name": "Aria — Session IPA", "description": "Gialla, frutta esotica, finale amaro, 4,6%. 25cl € 3,50 · 50cl € 6,50" },
+        { "name": "Bulldog Strong Lager", "description": "Doppio malto inglese, corposa, 8%. 20cl € 3,50 · 50cl € 6,50" },
+        { "name": "Kilkenny Irish Ale", "description": "Ambrata cremosa dal colorito vivace, 4,3%. 20cl € 3,50 · 50cl € 6,50" },
+        { "name": "Erdinger Weissbräu", "description": "Bianca di frumento (Weisse), note di banana e agrumi, 5,3%. 25cl € 3,50 · 50cl € 6,50" }
       ]
     },
     {
-      "id": "bianchi",
-      "title": "Bianchi",
-      "items": [
-        { "name": "Chardonnay, Meriggio 2019", "description": "Marco Donati, Trentino", "price": 28 },
-        { "name": "Sylvaner Doc 2021, Pacher Hof", "description": "Sudtirol, Valle Isarco, Trentino Alto Adige", "price": 35 },
-        { "name": "Sauvignon Blanc Vette 2021", "description": "Tenuta San Leonardo, Avio, Trentino Alto Adige", "price": 30 },
-        { "name": "Ribolla Gialla Bio Dop 2020", "description": "Friuli Colli Orientali · Az. Agricola Visentini, Friuli", "price": 27 },
-        { "name": "Malvasia Istriana Doc 2020", "description": "Modeano · Az. Agricola Vialetto Gabriele, Udine, Friuli", "price": 25 },
-        { "name": "Arneis Langhe Docg 2021", "description": "Mario Garibaldi, Milandola, Piemonte", "price": 25 },
-        { "name": "Chardonnay Langhe 2020", "description": "Giovanni Rocca, Monteforte d'Alba, Piemonte", "price": 20 },
-        { "name": "Albana Secco di Romagna Docg 2021", "description": "FattoriaMonticino Rosso, Montecatone di Imola, Emilia Romagna", "price": 22 },
-        { "name": "Pecorino, Aufinum 2021", "description": "Terre di Chieti · Cantina Valle Traiana, Abruzzo", "price": 18 },
-        { "name": "Passerina 2021", "description": "Cantine di Castignano, Marche", "price": 18 },
-        { "name": "Pecorino Offida Docg 2021, Montemisio", "description": "Cantine di Castignano, Marche", "price": 22 },
-        { "name": "Verdicchio di Matelica Doc 2020", "description": "Stefano Zoli, Marche", "price": 32 },
-        { "name": "Piana Grande, Orvieto Classico Superiore Doc 2021", "description": "Grechetto Procanico – Malvasia · Az. Agricola Castello di Corbara, Orvieto, Umbria", "price": 24 },
-        { "name": "Maria Grazia Rosato 2021", "description": "Sangiovese · Az. Agricola Castello di Corbara, Orvieto, Umbria", "price": 25 },
-        { "name": "Cacchione Doc 2021", "description": "Az. Agricola Casa Divina Provvidenza, Lazio", "price": 18 },
-        { "name": "Frascati Superiore Primo Riserva Docg 2018", "description": "Merumalia, Lazio", "price": 30 },
-        { "name": "Malvasia Puntinata, Gallieno 2020 Bio", "description": "Az. Agricola Riserva della Cascina, Lazio", "price": 28 },
-        { "name": "Vermentino di Sardegna Doc 2019, La Giara", "description": "Oristano, Sardegna", "price": 20 },
-        { "name": "Vermentino Pusole Bianco 2018", "description": "Lotzorai (Og), Sardegna", "price": 30 },
-        { "name": "Malvasia, Salina 2021, Secca del Capo", "description": "Colosi, Isole Eolie, Sicilia", "price": 26 },
-        { "name": "Terre Siciliane 2019", "description": "Insolia – Cataratto · Colosi, Isole Eolie, Sicilia", "price": 26 },
-        { "name": "Rina Ianca Doc 2021 Bio", "description": "Grillo – Viognier · Santa Tresa, Sicilia", "price": 30 },
-        { "name": "Negramaro Bianco \"Maccone\" Igp 2020", "description": "Angiuli Donato, Valle d'Itria, Puglia", "price": 22 }
-      ]
-    },
-    {
-      "id": "rossi",
-      "title": "Rossi",
-      "items": [
-        { "name": "Lagrein Rubino, Fratte Alte Doc 2021", "description": "Marco Donati, Trentino Alto Adige", "price": 27 },
-        { "name": "Pinot Nero Centa Doc 2021", "description": "Marco Donati, Trentino Alto Adige", "price": 28 },
-        { "name": "Teroldego Rotaliano Doc 2019, Bagolari", "description": "Marco Donati, Trentino Alto Adige", "price": 28 },
-        { "name": "Merlot, Friuli Colli Orientali Bio, Dop 2020", "description": "Az. Agricola Visintini, Friuli", "price": 27 },
-        { "name": "Cabernet Franc Bio 2018", "description": "Irene Cencig, Cividale del Friuli, Udine, Friuli", "price": 29 },
-        { "name": "Refosco dal Peduncolo Rosso Doc 2019", "description": "Modeano · Azienda Agricola Vialetto, Udine, Friuli", "price": 25 },
-        { "name": "Nebbiolo Langhe Doc 2018, Passeggiando in Vigna", "description": "Gabriele Scaglione, Piemonte", "price": 29 },
-        { "name": "Barolo Doc 2018", "description": "Giovanni Rocca, Piemonte", "price": 46 },
-        { "name": "Langhe Rosso Doc Bio 2017", "description": "Giribaldi, Piemonte", "price": 27 },
-        { "name": "Valpolicella Classico Superiore, Vecio Belo Doc 2016", "description": "Manara, Veneto", "price": 25 },
-        { "name": "Valpolicella Ripasso Classico Superiore, Le Morete Doc 2017", "description": "Manara, Veneto", "price": 30 },
-        { "name": "Rossese di Dolceacqua Doc 2019", "description": "RosMarinus, Perinaldo, Imperia, Liguria", "price": 30 },
-        { "name": "Chianti Classico Docg Bio 2019", "description": "Soc. Agricola Pomona, Toscana", "price": 27 },
-        { "name": "Bolgheri Rosso Bio, Scirè, Doc 2020", "description": "Az. Agricola Ceralti, Castagneto Carducci, Toscana", "price": 30 },
-        { "name": "Rosso di Montepulciano Docg 2019", "description": "Fattoria del Cerro, Siena, Toscana", "price": 20 },
-        { "name": "Offida Rosso Docg 2016, Gran Maestro", "description": "Cantina Castignano, Marche", "price": 30 },
-        { "name": "Lago di Corbara, Sangiovese Doc 2019", "description": "Az. Agricola Castello di Corbara, Orvieto, Umbria", "price": 30 },
-        { "name": "Cesanese del Piglio, Brigante, Docg 2017", "description": "Lazio", "price": 20 },
-        { "name": "Cesanese di Olevano Romano Superiore 2021", "description": "Giacobbe, Lazio", "price": 30 },
-        { "name": "Tintilla del Molise, Lame del Sorbo Doc 2016", "description": "Agricolavinica Le Colline di Ripa, Ripalimosani, Molise", "price": 28 },
-        { "name": "Primitivo 2016, Maccone", "description": "Angiuli Donato, Puglia", "price": 30 },
-        { "name": "Nero di Troia, Hellen Rosso 2020", "description": "Progetto Calcarius, Apricena, Puglia", "price": 30 },
-        { "name": "Nero D'Avola Doc 2020 Bio", "description": "Azienda Agricola Barone di Serramarrocco, Sicilia", "price": 20 },
-        { "name": "Nerello Mascalese Nostru Bio 2020", "description": "Azienda Agricola Cortese, Ragusa, Sicilia", "price": 28 },
-        { "name": "Rosa di Santa Tresa Bio 2020", "description": "Nero d'Avola – Frappato · Santa Tresa, Vittoria (RG), Sicilia", "price": 26 },
-        { "name": "Pollino, Terre di Cosenza Dop 2015", "description": "Magliocco · Giuseppe Calabrese, Cosenza, Calabria", "price": 28 },
-        { "name": "Cannonau di Sardegna Doc 2017", "description": "Azienda Agricola Nino Castiglia, Sassari, Sardegna", "price": 30 }
-      ]
-    },
-    {
-      "id": "esteri",
-      "title": "Vini Esteri",
+      "id": "bottiglia",
+      "title": "Birre in Bottiglia",
       "subsections": [
         {
-          "title": "Francia — Bollicine",
+          "title": "IPA — 33cl",
           "items": [
-            { "name": "Vouvray Cuvée Clément Brut 2015", "description": "Chenin Blanc · Domaine de la Galinière, Loira", "price": 27 },
-            { "name": "Expression Brut Méthode Traditionelle Aoc", "description": "Gamay · Domaine Claude Vosgien, Lorraine", "price": 30 }
+            { "name": "Birra della Locanda IPA", "description": "Prodotta da Agrilab · 6%", "price": 5 },
+            { "name": "Hibu Dama Bianca White IPA", "description": "Artigianale · 5,6%", "price": 5 },
+            { "name": "Lagunitas IPA", "description": "6,2%", "price": 5 },
+            { "name": "McGargles Retro IPA", "description": "6,4%", "price": 5 },
+            { "name": "Hibu Thribu IPA", "description": "Artigianale italiana · 6,5%", "price": 5 }
           ]
         },
         {
-          "title": "Francia — Bianchi",
+          "title": "Easy Rider — 33cl",
           "items": [
-            { "name": "Gewurztraminer AOC 2019", "description": "Domaine Leon Faller, Alsace", "price": 30 },
-            { "name": "Chablis \"Le Guilleret\" 2021 Aoc", "description": "Chardonnay · Domaine de la Motte, Bourgogne", "price": 40 },
-            { "name": "Vouvray Tradition 2009 Aoc", "description": "Chenin Blanc · Domaine de la Galinière, Loira", "price": 28 },
-            { "name": "Muscadet Sèvre et Maine sur Lie Bio 2018", "description": "Melon de Bourgogne · Tête de Linotte, Albert Besombe, Loira", "price": 26 },
-            { "name": "Pépin Blanc Sec Bio", "description": "Chardonnay – Riesling – Sylvaner · Domaine Achielleè, Alsazia", "price": 35 },
-            { "name": "Vin de Frantz", "description": "Sauvignon – Chenin Blanc · Frantz Saumon, Montlouis sur Loire", "price": 35 }
+            { "name": "Moretti Radler", "description": "Al limone · 2%", "price": 4 },
+            { "name": "Guinness", "description": "La regina delle Stout · 4,2%", "price": 4 },
+            { "name": "Pilsner Urquell", "description": "4,4%", "price": 4 },
+            { "name": "Blanche de Bruxelles", "description": "4,5%", "price": 4.5 },
+            { "name": "Corona", "description": "4,5%", "price": 4 },
+            { "name": "Menabrea", "description": "4,8%", "price": 4 },
+            { "name": "Bud", "description": "5%", "price": 4 },
+            { "name": "Beck's", "description": "5%", "price": 4 },
+            { "name": "Birra dello Stretto", "description": "5%", "price": 4 },
+            { "name": "Desperados", "description": "5%", "price": 4 },
+            { "name": "Leffe Blond", "description": "6,6%", "price": 4 }
           ]
         },
         {
-          "title": "Francia — Rosé",
+          "title": "Strong — 33cl",
           "items": [
-            { "name": "Vin Gris Côtes de Toul Grand Terroir Bio 2020", "description": "Gamay – Pinot Noir · Domaine Claude Vosgien, Lorraine", "price": 30 }
+            { "name": "Chimay Rouge", "description": "La Première della casa · 7%", "price": 5 },
+            { "name": "Chimay Bleue", "description": "Grande Réserve · 9%", "price": 5 },
+            { "name": "Tennent's", "description": "9%", "price": 4 },
+            { "name": "Faxe", "description": "Birra danese dal 1901 · 10%", "price": 4 },
+            { "name": "Bière du Boucanier", "description": "Golden Ale · 11%", "price": 4 }
           ]
         },
         {
-          "title": "Francia — Rossi",
+          "title": "Gluten Free — 33cl",
           "items": [
-            { "name": "Cabernet Sauvignon 2020 \"What the Phoque\"", "description": "Albert Besombe, Loira", "price": 25 },
-            { "name": "Merlot Igp Pays d'Oc 2018", "description": "Domaine de L'Herbe Sainte, Languedoc", "price": 25 }
+            { "name": "Tennent's Gluten Free", "description": "5%", "price": 4 },
+            { "name": "Daura Gluten Free", "description": "5,4%", "price": 4 }
           ]
         },
         {
-          "title": "Germania",
+          "title": "Alcool Free — 33cl",
           "items": [
-            { "name": "Riesling Ambrosia, Kabinett Trocken 2018", "description": "Weingut Gessinger, Mosel", "price": 30 },
-            { "name": "Riesling Spätlese Trocken Alte Reben 2017, Zeltinger", "description": "Weingut Gessinger, Mosel", "price": 40 }
-          ]
-        },
-        {
-          "title": "Austria",
-          "items": [
-            { "name": "Wagram Grüner Veltliner 2021", "description": "Stefan Bauer, Austria", "price": 30 }
+            { "name": "Heineken 0.0", "description": "Zero alcool · 0%", "price": 4 },
+            { "name": "Moretti Zero", "description": "Zero alcool · 0%", "price": 4 }
           ]
         }
       ]
     },
     {
-      "id": "birre",
-      "title": "Birre Artigianali",
-      "items": [
-        { "name": "India Pale Ale 7% — 33cl", "description": "Birrificio Plurale, Montoggio, Genova, Liguria", "price": 6 },
-        { "name": "Golden Ale 5,1% — 33cl", "description": "Birrificio Plurale, Montoggio, Genova, Liguria", "price": 6 },
-        { "name": "White Ale 4,5% — 33cl", "description": "Birrificio Plurale, Montoggio, Genova, Liguria", "price": 6 },
-        { "name": "Summer Ale 3,8% — 33cl", "description": "Birrificio Plurale, Montoggio, Genova, Liguria", "price": 6 },
-        { "name": "Bròc, Birra Agricola 6% — 50cl", "description": "Roccalbegna, Toscana", "price": 11 }
+      "id": "cocktail",
+      "title": "Cocktail & Mixology",
+      "subsections": [
+        {
+          "title": "Aperitivi",
+          "items": [
+            { "name": "Spritz Aperol o Campari", "price": 6 },
+            { "name": "Martini Royal", "price": 6 },
+            { "name": "Sbagliato", "price": 6 }
+          ]
+        },
+        {
+          "title": "Cocktail List",
+          "items": [
+            { "name": "Mojito", "description": "Rum, menta, zucchero di canna, lime, soda.", "price": 7 },
+            { "name": "Caipirinha", "description": "Cachaça, zucchero di canna, lime.", "price": 7 },
+            { "name": "Moscow Mule", "description": "Vodka, lime, ginger beer.", "price": 7 },
+            { "name": "Whiskey o Amaretto Sour", "price": 7 },
+            { "name": "Caipiroska", "description": "Vodka, frutta a scelta, lime.", "price": 7 },
+            { "name": "Sex on the Beach", "description": "Vodka alla pesca, succo d'arancia, cranberry.", "price": 7 },
+            { "name": "Piña Colada", "description": "Batida de Coco, rum, succo d'ananas.", "price": 7 },
+            { "name": "Kamikaze", "description": "Vodka, triple sec, lime.", "price": 7 },
+            { "name": "Tequila Sunrise", "description": "Tequila, succo d'arancia, granatina.", "price": 7 },
+            { "name": "Hemingway Special", "description": "Rum chiaro, pompelmo, maraschino, lime.", "price": 7 },
+            { "name": "Long Island Ice Tea", "description": "Vodka, gin, triple sec, rum, Coca-Cola.", "price": 7 },
+            { "name": "Japanese Ice Tea", "description": "Vodka, gin, rum, Midori, lemon soda.", "price": 7 },
+            { "name": "White Russian", "description": "Vodka, Kahlúa, panna.", "price": 7 },
+            { "name": "Negroni", "description": "Gin, Campari, vermouth rosso.", "price": 7 },
+            { "name": "Margarita", "description": "Tequila, triple sec, lime.", "price": 7 },
+            { "name": "Tommy's Margarita", "description": "Tequila, sciroppo d'agave, lime.", "price": 7 },
+            { "name": "Cosmopolitan", "description": "Vodka, triple sec, lime, cranberry.", "price": 7 },
+            { "name": "Pink Lady", "description": "Gin, Martini rosa, lime.", "price": 7 },
+            { "name": "Mai Tai", "description": "Rum, triple sec, orzata, lime, ananas.", "price": 7 },
+            { "name": "Hurricane", "description": "Rum, Passoã, lime, granatina, succo d'arancia.", "price": 7 },
+            { "name": "Espresso Martini", "description": "Vodka, Kahlúa, caffè.", "price": 7 },
+            { "name": "Atlantic Blue", "description": "Vodka, mirtillo, Blue Curaçao, Malibu, sambuco.", "price": 7 },
+            { "name": "Gin Tonic Premium", "description": "Chiedere al personale.", "price": 7 }
+          ]
+        },
+        {
+          "title": "Cocktail della Locanda",
+          "items": [
+            { "name": "Tropical Dream", "description": "Rum, Malibu, arancia, ananas, banana.", "price": 7 },
+            { "name": "L'Habitué", "description": "Vodka, triple sec, lime, passion fruit.", "price": 7 },
+            { "name": "L'Avvelenata", "description": "Gin, Jack Daniel's, Apple, vermouth dry.", "price": 7 },
+            { "name": "Claver Glad", "description": "Gin, Jack Daniel's Fire, lime, cranberry, soda.", "price": 7 },
+            { "name": "Monkey Glad", "description": "Gin, arancia, assenzio, granatina.", "price": 7 },
+            { "name": "Batida White Chocolate", "description": "Gin, white chocolate, Batida de Coco.", "price": 7 },
+            { "name": "Sex in Sardegna", "description": "Vodka alla pesca, ananas, Mirto.", "price": 7 },
+            { "name": "Sex in Japan", "description": "Midori, vodka, arancia, fragola.", "price": 7 },
+            { "name": "Livuoiqueikiwi", "description": "Vodka, ananas, kiwi.", "price": 7 },
+            { "name": "Mango Mort", "description": "Vodka, Red Bull al mango, lime.", "price": 7 },
+            { "name": "Death by Chocolate", "description": "Vodka, liquore al cacao, Kahlúa, latte.", "price": 7 },
+            { "name": "Final Fantasy", "description": "A fantasia del barman.", "price": 7 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vini",
+      "title": "Vini",
+      "subsections": [
+        {
+          "title": "Bianchi al bicchiere",
+          "items": [
+            { "name": "Marche IGT dalla botte", "price": 3 },
+            { "name": "Pecorino", "price": 4 },
+            { "name": "Chardonnay", "price": 4 },
+            { "name": "Traminer", "price": 4.5 },
+            { "name": "Marche Bianco Provima — caraffa", "description": "1 litro € 9,00 · ½ litro € 6,00" }
+          ]
+        },
+        {
+          "title": "Bianchi in bottiglia (75cl)",
+          "items": [
+            { "name": "Ribona Conte Brachetti Pieretti", "price": 16 },
+            { "name": "Verdicchio di Matelica Provima", "price": 14 },
+            { "name": "Ego Bio di Matelica Provima", "price": 20 },
+            { "name": "Joco Pecorino Bio Fontezoppa", "price": 15 },
+            { "name": "Incrocio Bruni Pecorino-Verdicchio Fontezoppa", "price": 18 },
+            { "name": "Materga Verdicchio Riserva", "price": 19 },
+            { "name": "Pascorino Pecorino-Passerina", "price": 14 },
+            { "name": "A Pois Rosato Fontezoppa", "price": 18 },
+            { "name": "Bianchello del Metauro", "price": 14 },
+            { "name": "Mevante Grechetto Spoletino", "price": 16 },
+            { "name": "Chardonnay Paladin", "price": 14 },
+            { "name": "Vermentino di Sardegna", "price": 16 },
+            { "name": "Soave San Michele", "price": 16 },
+            { "name": "Müller Thurgau Roeno", "price": 16 },
+            { "name": "Satrico Casale del Giglio", "price": 16 },
+            { "name": "Sauvignon Blanc Bosco del Merlo", "price": 16 },
+            { "name": "Ribolla Gialla Bosco del Merlo", "price": 16 },
+            { "name": "Pinot Grigio Roeno", "price": 16 },
+            { "name": "Traminer Paladin", "price": 16 }
+          ]
+        },
+        {
+          "title": "Rossi al bicchiere",
+          "items": [
+            { "name": "Marche IGT dalla botte", "price": 3 },
+            { "name": "Chianti", "price": 4 },
+            { "name": "Rosso Piceno DOC", "price": 4 },
+            { "name": "Sirah", "price": 4.5 },
+            { "name": "Marche Rosso Provima — caraffa", "description": "1 litro € 9,00 · ½ litro € 6,00" }
+          ]
+        },
+        {
+          "title": "Rossi in bottiglia (75cl)",
+          "items": [
+            { "name": "Vocabolo Rosso Marche barrique", "price": 18 },
+            { "name": "Porpora Il Pollenza Marche Riserva", "price": 18 },
+            { "name": "Rusus Rosso Piceno Riserva", "price": 18 },
+            { "name": "Pepato Bio Serrapetrona", "price": 18 },
+            { "name": "Vardo Sangiovese-Cabernet Fontezoppa", "price": 25 },
+            { "name": "Rosso Conero Fontezoppa", "price": 16 },
+            { "name": "Pergola Terracruda", "price": 15 },
+            { "name": "Cesanese del Piglio", "price": 16 },
+            { "name": "Montepulciano", "price": 15 },
+            { "name": "Nero d'Avola Branciforti", "price": 16 },
+            { "name": "Chianti Banfi", "price": 16 },
+            { "name": "Chianti Gallo Nero Riserva Lodoliaio", "price": 18 },
+            { "name": "Montefalco Omero", "price": 18 },
+            { "name": "Morellino di Scansano Cerreto Piano", "price": 16 },
+            { "name": "Merlot Riserva Bosco del Merlo", "price": 17 },
+            { "name": "Cabernet Sauvignon Bosco del Merlo", "price": 16 },
+            { "name": "Sirah Paladin", "price": 16 },
+            { "name": "Valpolicella Ca' Rugate", "price": 18 },
+            { "name": "Nebbiolo delle Langhe", "price": 18 },
+            { "name": "Pinot Nero Kossler", "price": 18 },
+            { "name": "Rosso di Montalcino", "price": 18 },
+            { "name": "Brunello di Montalcino", "price": 30 },
+            { "name": "Amarone della Valpolicella", "price": 35 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bollicine",
+      "title": "Bollicine & Liquori",
+      "subsections": [
+        {
+          "title": "Bollicine",
+          "items": [
+            { "name": "Fragolino", "price": 15 },
+            { "name": "Prosecco di Valdobbiadene", "price": 15 },
+            { "name": "Prosecco di Valdobbiadene Millesimato", "price": 16 },
+            { "name": "Asti Dolce", "price": 14 },
+            { "name": "Brachetto d'Acqui", "price": 15 },
+            { "name": "Franciacorta", "price": 25 },
+            { "name": "Ferrari", "price": 25 },
+            { "name": "Champagne", "price": 50 }
+          ]
+        },
+        {
+          "title": "Vini liquorosi & Grappe",
+          "items": [
+            { "name": "Passito di Pantelleria — Duca di Castelmonte", "price": 4 },
+            { "name": "Gambrinus", "price": 4 },
+            { "name": "Porto Sandeman", "price": 4 },
+            { "name": "Grappe bianche", "description": "Castagner, 903, Cortalta, Dolcevite.", "price": 4 },
+            { "name": "Grappe barrique", "description": "Dolce Vite, 903, Castagner.", "price": 4 }
+          ]
+        },
+        {
+          "title": "Amari",
+          "items": [
+            { "name": "Jägermeister, Averna, Del Capo, Montenegro, Lucano", "price": 4 },
+            { "name": "Abruzzese, Nerone, Fernet, Disaronno, Unicum, Petrus, Formidabile", "price": 4 },
+            { "name": "Jefferson", "price": 5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spirits",
+      "title": "Whisky · Rum · Vodka",
+      "subsections": [
+        {
+          "title": "Whisky",
+          "items": [
+            { "name": "Irish — Jameson, Bushmills, Tullamore", "price": 6 },
+            { "name": "Irish — Jameson Black, Bushmills Black", "price": 7 },
+            { "name": "Bourbon — Four Roses, Jim Beam, Bulleit, Wild Turkey", "price": 6 },
+            { "name": "Tennessee — Jack Daniel's (Black, Fire, Apple, Honey)", "price": 6 },
+            { "name": "Scotch — Glen Grant 5y, Johnnie Walker Red, Ballantine's", "price": 5 },
+            { "name": "Scotch — J. Walker Black, Talisker, Laphroaig, Glenfiddich, Bowmore, Caol Ila, Glenlivet, Glenmorangie", "price": 7 }
+          ]
+        },
+        {
+          "title": "Rum",
+          "items": [
+            { "name": "Santa Teresa, Pampero Aniversario, Appleton", "price": 5 },
+            { "name": "Saint James, Belly (agricolo)", "price": 6 },
+            { "name": "Captain Morgan (speziato)", "price": 6 },
+            { "name": "Legendario (elixir de Cuba)", "price": 6 },
+            { "name": "Matusalem, Diplomático, Don Papa", "price": 6 },
+            { "name": "Kraken, Baron Samedi", "price": 6 },
+            { "name": "Zacapa 23y", "price": 8 }
+          ]
+        },
+        {
+          "title": "Vodka & Liquori",
+          "items": [
+            { "name": "Sky, Moskovskaya, Wyborowa, Absolut", "price": 5 },
+            { "name": "Belvedere, Grey Goose", "price": 6 },
+            { "name": "Mirto, Genziana, Sambuca, Baileys, Sheridan, Cointreau, Midori, Grand Marnier, Borghetti, Anima Nera, Mela Verde, Limoncello", "price": 4 },
+            { "name": "Southern Comfort", "price": 5 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soft",
+      "title": "Soft & Caffè",
+      "subsections": [
+        {
+          "title": "Cocktail analcolici",
+          "items": [
+            { "name": "Virgin Colada", "description": "Ananas, crema di latte, cocco.", "price": 6 },
+            { "name": "Virgin Mojito", "description": "Sweet'n sour, menta, soda.", "price": 6 },
+            { "name": "Florida", "description": "Sweet'n sour, menta, pompelmo, arancia, soda.", "price": 6 },
+            { "name": "Jolly Esotico", "description": "Ananas, arancia, cocco, soda.", "price": 6 },
+            { "name": "Banana Jo", "description": "Ananas, banana, mango, pera.", "price": 6 },
+            { "name": "Verde Mary", "description": "Mela verde, ananas, kiwi.", "price": 6 },
+            { "name": "Mr Sweety Summer", "description": "Crema di latte, pera, fragola.", "price": 6 },
+            { "name": "Passion Bomb", "description": "Passion fruit, ananas, panna, zenzero.", "price": 6 }
+          ]
+        },
+        {
+          "title": "Bibite & Analcolici",
+          "items": [
+            { "name": "Coca-Cola / Life / Zero, Fanta, Sprite, Red Bull, Monster", "price": 3 },
+            { "name": "The freddo", "description": "Pesca, limone, verde.", "price": 3 },
+            { "name": "Schweppes, Lemon/Orange Soda, Chinotto Neri", "price": 2.5 },
+            { "name": "Succhi di frutta", "price": 2.5 },
+            { "name": "Crodino", "price": 2.5 }
+          ]
+        },
+        {
+          "title": "Caffetteria",
+          "items": [
+            { "name": "Caffè espresso", "price": 1 },
+            { "name": "Decaffeinato", "price": 1 }
+          ]
+        }
       ]
     }
   ]

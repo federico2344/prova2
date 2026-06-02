@@ -61,8 +61,8 @@ export default function AdminGuidePage() {
             <li><a href="#editor" className="text-terracotta hover:underline">4. La schermata di modifica</a></li>
             <li><a href="#info" className="text-terracotta hover:underline">5. Modificare le informazioni del ristorante</a></li>
             <li><a href="#menu" className="text-terracotta hover:underline">6. Gestire il menù</a></li>
-            <li><a href="#vini" className="text-terracotta hover:underline">7. Gestire la carta dei vini</a></li>
-            <li><a href="#team" className="text-terracotta hover:underline">8. Gestire chef e sommelier</a></li>
+            <li><a href="#vini" className="text-terracotta hover:underline">7. Gestire la birreria &amp; i drink</a></li>
+            <li><a href="#team" className="text-terracotta hover:underline">8. Gestire le anime del locale</a></li>
             <li><a href="#tema" className="text-terracotta hover:underline">9. Personalizzare colori e font del sito (Tema)</a></li>
             <li><a href="#foto" className="text-terracotta hover:underline">10. Caricare e gestire le foto</a></li>
             <li><a href="#pubblica" className="text-terracotta hover:underline">11. Salvare e pubblicare le modifiche</a></li>
@@ -89,8 +89,8 @@ export default function AdminGuidePage() {
             <li>Cambiare nome del ristorante, descrizione, telefono, email, indirizzo</li>
             <li>Modificare orari di apertura</li>
             <li>Aggiungere, modificare o eliminare piatti del menù</li>
-            <li>Aggiornare la carta dei vini con nuove etichette e prezzi</li>
-            <li>Cambiare le foto dello slideshow nella home e le foto dello chef e sommelier</li>
+            <li>Aggiornare la birreria e i drink con nuove voci e prezzi</li>
+            <li>Cambiare le foto dello slideshow nella home e le foto delle sezioni del locale</li>
             <li>Aggiornare i link a Instagram, Facebook, Tripadvisor</li>
             <li><strong>Personalizzare colori e font del sito</strong></li>
             <li>Modificare i dati aziendali (P.IVA, codice fiscale, ecc.) richiesti per legge</li>
@@ -115,7 +115,7 @@ export default function AdminGuidePage() {
               In alto, dove di solito scrivi gli indirizzi dei siti (la "barra degli indirizzi"),
               <strong> cancella tutto</strong> e scrivi l'indirizzo del tuo sito seguito da
               <code>/admin</code>. Esempio:{' '}
-              <code>laltraosteria.it/admin</code>
+              <code>locandablues.it/admin</code>
               {' '}o l'URL temporaneo Netlify se non avete ancora un dominio.
             </li>
             <li>Premi il tasto <strong>Invio</strong> della tastiera.</li>
@@ -178,9 +178,9 @@ export default function AdminGuidePage() {
           </p>
           <ul>
             <li><strong>Informazioni Ristorante</strong> — nome, orari, indirizzo, telefono, foto slideshow, dati aziendali</li>
-            <li><strong>Menù</strong> — tutti i piatti suddivisi per categoria (Pranzo, Serale, Degustazione) e per portata (Antipasti, Primi, ecc.)</li>
-            <li><strong>Chef &amp; Sommelier</strong> — nome, biografia e foto del personale</li>
-            <li><strong>Carta dei Vini</strong> — vini suddivisi per categoria</li>
+            <li><strong>Menù</strong> — tutti i piatti suddivisi per categoria (Pizzeria, Cucina, Panini &amp; Sfizi, Dolci, Menù Fissi) e per sezione (Antipasti, Pizze, ecc.)</li>
+            <li><strong>Le anime del locale</strong> — le sezioni Cucina &amp; Pizzeria, Birreria e Live Club</li>
+            <li><strong>Birreria &amp; Drink</strong> — birre, cocktail e vini suddivisi per categoria</li>
             <li><strong>Tema del sito</strong> — colori e font del sito (con anteprima live)</li>
           </ul>
           <p>
@@ -237,11 +237,11 @@ export default function AdminGuidePage() {
           <ul>
             <li>
               <strong>Nome ristorante</strong>: il nome che appare in tutti i titoli del sito
-              e nei link di prenotazione. Es: "L'Altra Osteria".
+              e nei link di prenotazione. Es: "Locanda Blues".
             </li>
             <li>
               <strong>Tagline</strong>: la frase corta che appare sotto il nome nella home.
-              Tipo "Cucina romana, tra tradizione e rivisitazione".
+              Tipo "Cucina, birre e musica dal vivo a Roma Nord".
             </li>
             <li>
               <strong>Testo introduttivo (home)</strong>: il paragrafo più lungo che appare
@@ -253,7 +253,7 @@ export default function AdminGuidePage() {
           <ul>
             <li>
               <strong>Telefono</strong>: il numero come preferisci scriverlo, anche con spazi
-              ed il prefisso (esempio: <code>+39 06 8952 4311</code>). Il sito ricava in
+              ed il prefisso (esempio: <code>+39 06 3031 0097</code>). Il sito ricava in
               automatico la versione "tutto attaccato" per i link "chiama" sui cellulari.
             </li>
             <li>
@@ -265,7 +265,7 @@ export default function AdminGuidePage() {
 
           <h3>Indirizzo</h3>
           <ul>
-            <li><strong>Via e numero civico</strong>: es. "Via Cassia 923".</li>
+            <li><strong>Via e numero civico</strong>: es. "Via Cassia 1284 (La Giustiniana)".</li>
             <li><strong>CAP e città</strong>: es. "00189 Roma".</li>
             <li>
               <strong>Link Google Maps</strong>: opzionale ma consigliato. Apri Google Maps, cerca
@@ -281,8 +281,8 @@ export default function AdminGuidePage() {
           </p>
           <ul>
             <li><strong>Giorni</strong>: testo libero, esempio "Martedì – Sabato" o "Domenica e Lunedì".</li>
-            <li><strong>Orario pranzo</strong>: opzionale, esempio "13:00 – 14:45".</li>
-            <li><strong>Orario cena</strong>: opzionale, esempio "20:00 – 22:30".</li>
+            <li><strong>Orario pranzo</strong>: opzionale, esempio "12:30 – 15:00".</li>
+            <li><strong>Orario cena</strong>: opzionale, esempio "19:30 – 00:30".</li>
             <li>
               <strong>Giorno di chiusura</strong>: una casella da spuntare. Se la spunti, quei
               giorni siete chiusi e gli orari vengono ignorati.
@@ -302,7 +302,7 @@ export default function AdminGuidePage() {
             <li>
               <strong>Link Instagram</strong>: devi incollare l'URL completo della pagina, deve
               iniziare con <code>https://www.instagram.com/</code>. Se incolli solo
-              "@laltraosteria" il sistema ti dà errore.
+              "@locandablues" il sistema ti dà errore.
             </li>
             <li>
               <strong>Link Facebook</strong>: stesso discorso, deve iniziare con
@@ -346,34 +346,34 @@ export default function AdminGuidePage() {
             Dalla home centrale clicca <strong>"Tema del sito"</strong> (la 5ª voce). Si apre
             una schermata divisa in due: a sinistra i campi per cambiare colori e font, a
             destra <strong>l'anteprima live</strong> che ti mostra un esempio realistico del
-            sito (titolo, descrizione, antipasti con prezzi, bottone Prenota, scheda Chef) che
+            sito (titolo, descrizione, pizze con prezzi, bottone Prenota, scheda Live Club) che
             <strong> si aggiorna istantaneamente</strong> mentre modifichi.
           </p>
           <p>
             È una funzione potente: <strong>cambia visivamente tutto il sito</strong>.
           </p>
 
-          <h3>I 4 colori personalizzabili</h3>
+          <h3>I 5 colori personalizzabili</h3>
           <ul>
             <li>
               <strong>Colore principale</strong>: usato per <em>bottoni, link, titoli sezione</em>
-              come "ANTIPASTI", "PRIMI". Default: rosso vino (#8B1A1A).
+              come "ANTIPASTI", "PIZZE". Default: ambra (#D98A1C).
             </li>
             <li>
               <strong>Colore accento</strong>: usato per <em>badge, eyebrow</em> (le scritte
-              piccole sopra ai titoli, tipo "Dalla cucina"). Default: oro (#B8872A).
+              piccole sopra ai titoli, tipo "Dal forno a legna"). Default: blu elettrico (#3DA8DC).
             </li>
             <li>
-              <strong>Colore dei prezzi</strong>: usato per i <em>prezzi del menù e dei vini</em>.
-              Categoria separata perché è frequente volerli di un colore diverso. Default: oro.
+              <strong>Colore dei prezzi</strong>: usato per i <em>prezzi del menù e dei drink</em>.
+              Categoria separata perché è frequente volerli di un colore diverso. Default: oro (#E2A33A).
             </li>
             <li>
-              <strong>Colore sfondo</strong>: il colore di base di tutto il sito. Default: crema
-              caldo (#FAF6F0).
+              <strong>Colore sfondo</strong>: il colore di base di tutto il sito. Default: scuro
+              espresso (#161210).
             </li>
             <li>
               <strong>Colore testo principale</strong>: il colore del corpo del testo (descrizioni,
-              paragrafi). Default: marrone molto scuro (#2B2622).
+              paragrafi). Default: crema chiaro (#EFE6D8).
             </li>
           </ul>
           <p>
@@ -387,9 +387,10 @@ export default function AdminGuidePage() {
           <ul>
             <li>
               <strong>Font dei titoli</strong>: il font usato per nomi di piatti, titoli sezione,
-              titolo del ristorante. Scegli da un elenco di 3:
+              titolo del ristorante. Scegli da un elenco di 4:
               <ul>
-                <li><em>Playfair Display</em> (default): serif elegante, classico romantico</li>
+                <li><em>Oswald</em> (default): condensato, stile "locandina concerto"</li>
+                <li><em>Playfair Display</em>: serif elegante, classico romantico</li>
                 <li><em>Cormorant Garamond</em>: serif rinascimentale, più sottile</li>
                 <li><em>DM Serif Display</em>: serif moderno, più "design contemporaneo"</li>
               </ul>
@@ -424,7 +425,7 @@ export default function AdminGuidePage() {
           <p>Il menù è organizzato a tre livelli:</p>
           <ol>
             <li>
-              <strong>Categorie</strong> (es. "Menù Pranzo", "Menù Serale", "Menù Degustazione"):
+              <strong>Categorie</strong> (es. "Pizzeria", "Cucina", "Panini &amp; Sfizi", "Menù Fissi"):
               sono i tab principali che il cliente vede in cima alla pagina /menu del sito.
             </li>
             <li>
@@ -488,66 +489,66 @@ export default function AdminGuidePage() {
             <strong> L'ordine qui = l'ordine sul sito.</strong>
           </p>
 
-          <h3>Menù degustazione (prezzo fisso)</h3>
+          <h3>Menù fissi (prezzo fisso)</h3>
           <p>
-            Per i menù degustazione (es. "Primavera 2026"), la sezione ha un campo
+            Per i menù fissi (es. "Menù Pizza", "Menù Carne"), la sezione ha un campo
             <strong> "Prezzo fisso €/persona"</strong>. Compila quel campo con il prezzo per
-            persona (es. <code>35</code>) e <strong>lascia VUOTO il prezzo dei singoli piatti</strong>
+            persona (es. <code>25</code>) e <strong>lascia VUOTO il prezzo dei singoli piatti</strong>
             della sezione. Sul sito apparirà il totale in alto e l'elenco dei piatti senza
             prezzi accanto.
           </p>
 
           {/* ─────────────────────────────────────────────────────────────── */}
-          <h2 id="vini">7. Gestire la carta dei vini</h2>
+          <h2 id="vini">7. Gestire la birreria &amp; i drink</h2>
           <p>
-            Dalla home clicca <strong>"Carta dei Vini"</strong>. La struttura è simile al menù
-            ma con 2 livelli principali (3 per i vini esteri):
+            Dalla home clicca <strong>"Birreria &amp; Drink"</strong>. La struttura è simile al menù
+            ma con 2 livelli principali (3 quando servono le sottocategorie):
           </p>
           <ul>
-            <li><strong>Categorie</strong>: "Bianchi", "Rossi", "Rosati", "Bollicine", "Vini Esteri".</li>
-            <li><strong>Vini</strong>: nome, descrizione (produttore/regione/annata), prezzo.</li>
+            <li><strong>Categorie</strong>: "Birre alla Spina", "Birre in Bottiglia", "Cocktail &amp; Mixology", "Vini", "Bollicine &amp; Liquori".</li>
+            <li><strong>Voci</strong>: nome, descrizione (stile, gradazione, formato…), prezzo.</li>
             <li>
-              <strong>Sottocategorie</strong> (solo per "Vini Esteri"): permettono di
-              suddividere ulteriormente, esempio "Francia — Bianchi", "Francia — Rossi".
+              <strong>Sottocategorie</strong>: permettono di suddividere ulteriormente una
+              categoria, esempio "IPA — 33cl", "Easy Rider", "Cocktail della Locanda".
             </li>
           </ul>
           <p>
-            <strong>Tutti i vini DEVONO avere un prezzo numerico</strong> (a differenza dei
-            piatti del menù degustazione). Il sistema non ti fa salvare se manca un prezzo.
+            <strong>Il prezzo è facoltativo</strong>: per le birre alla spina (che hanno più
+            formati) puoi lasciarlo vuoto e indicare i prezzi nella descrizione.
           </p>
           <p>Le procedure per aggiungere/modificare/eliminare/riordinare sono identiche al menù.</p>
 
           {/* ─────────────────────────────────────────────────────────────── */}
-          <h2 id="team">8. Gestire chef e sommelier</h2>
+          <h2 id="team">8. Gestire le anime del locale</h2>
           <p>
-            Dalla home clicca <strong>"Chef &amp; Sommelier"</strong>. Vedi l'elenco delle
-            persone. Per ognuna puoi modificare:
+            Dalla home clicca <strong>"Le anime del locale"</strong>. Vedi l'elenco delle
+            sezioni (Cucina &amp; Pizzeria, Birreria, Live Club). Per ognuna puoi modificare:
           </p>
           <ul>
             <li>
-              <strong>Ruolo</strong>: esempio "Lo Chef", "La Sommelier", "Il Maître", "Il Pasticcere".
+              <strong>Ruolo</strong>: esempio "Cucina &amp; Pizzeria", "Birreria &amp; Mixology", "Live Club".
             </li>
             <li>
-              <strong>Nome e cognome</strong> della persona.
+              <strong>Nome</strong> della sezione (es. "Il Forno a Legna", "Le Spine").
             </li>
             <li>
-              <strong>Biografia</strong>: testo che racconta chi è. Appare sul sito sotto la foto.
+              <strong>Biografia</strong>: testo che la racconta. Appare sul sito sotto la foto.
               Tipicamente 3-5 righe.
             </li>
             <li>
-              <strong>Foto</strong>: una foto verticale del volto, ben illuminata. Vedi sezione
+              <strong>Foto</strong>: una foto rappresentativa, ben illuminata. Vedi sezione
               10 per come caricarla.
             </li>
           </ul>
 
-          <h3>Aggiungere una persona nuova</h3>
+          <h3>Aggiungere una sezione nuova</h3>
           <p>
             Clicca <strong>"Aggiungi Persona"</strong> in fondo all'elenco. Compila i campi
-            del nuovo membro.
+            della nuova sezione.
           </p>
 
-          <h3>Riordinare il team</h3>
-          <p>Trascina le persone su o giù con l'icona drag. L'ordine = l'ordine sulla pagina Chi siamo.</p>
+          <h3>Riordinare le sezioni</h3>
+          <p>Trascina le voci su o giù con l'icona drag. L'ordine = l'ordine sulla pagina Il Locale.</p>
 
           {/* ─────────────────────────────────────────────────────────────── */}
           <h2 id="foto">10. Caricare e gestire le foto</h2>
@@ -696,7 +697,7 @@ export default function AdminGuidePage() {
             Sotto al campo trovi un messaggio rosso che spiega cosa non va. Esempi tipici:
           </p>
           <ul>
-            <li><strong>Email senza @</strong>: aggiungi @ e dominio (es. info@laltraosteria.it)</li>
+            <li><strong>Email senza @</strong>: aggiungi @ e dominio (es. info@locandablues.it)</li>
             <li>
               <strong>Link Instagram/Facebook senza https://</strong>: incolla il link completo
               che inizia con <code>https://www.instagram.com/</code> o simili
@@ -707,7 +708,7 @@ export default function AdminGuidePage() {
             </li>
             <li>
               <strong>Telefono "solo cifre" con spazi</strong>: scrivi solo numeri,
-              es. 390689524311 (questo non ti riguarda, ora c'è un campo unico)
+              es. 390630310097 (questo non ti riguarda, ora c'è un campo unico)
             </li>
           </ul>
 
@@ -761,12 +762,12 @@ export default function AdminGuidePage() {
             valori di default che trovi qui:
           </p>
           <ul>
-            <li>Colore principale: <code>#8B1A1A</code></li>
-            <li>Colore accento: <code>#B8872A</code></li>
-            <li>Colore dei prezzi: <code>#B8872A</code></li>
-            <li>Colore sfondo: <code>#FAF6F0</code></li>
-            <li>Colore testo principale: <code>#2B2622</code></li>
-            <li>Font dei titoli: <em>Playfair Display</em></li>
+            <li>Colore principale: <code>#D98A1C</code></li>
+            <li>Colore accento: <code>#3DA8DC</code></li>
+            <li>Colore dei prezzi: <code>#E2A33A</code></li>
+            <li>Colore sfondo: <code>#161210</code></li>
+            <li>Colore testo principale: <code>#EFE6D8</code></li>
+            <li>Font dei titoli: <em>Oswald</em></li>
             <li>Font del corpo: <em>Inter</em></li>
           </ul>
           <p>Salva e pubblica. Torni allo stile originale.</p>

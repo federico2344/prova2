@@ -1,16 +1,22 @@
 {
   "people": [
     {
-      "role": "Lo Chef",
-      "name": "Gianpiero Tomei",
-      "text": "Romano, classe 1979. Dopo aver studiato Giurisprudenza ha scelto di seguire la sua vera passione: la cucina. Dietro ai fornelli porta rigore e dedizione, trasformando i piatti della tradizione in esperienze contemporanee senza mai tradirne l'anima.",
-      "photo": "/images/team/chef.jpg"
+      "role": "Cucina & Pizzeria",
+      "name": "Il Forno a Legna",
+      "text": "Pizza con farina di tipo 1 ad alto contenuto di fibre, hamburger fatti in casa con pane del forno, fritti sfiziosi, carni alla griglia e dolci della casa. Sapori schietti e porzioni generose, dal pranzo fino a tarda sera.",
+      "photo": "/images/team/cucina.jpg"
     },
     {
-      "role": "La Sommelier",
-      "name": "Gabriela Burgos",
-      "text": "Cura una carta dei vini fatta di piccoli produttori e cantine artigianali, con etichette ricercate a prezzi onesti. Il suo lavoro è trovare il vino giusto per ogni piatto e per ogni ospite, raccontando ciò che c'è dietro ogni bottiglia.",
-      "photo": "/images/team/sommelier.jpg"
+      "role": "Birreria & Mixology",
+      "name": "Le Spine",
+      "text": "Le migliori birre alla spina sempre in rotazione, oltre trenta birre artigianali in bottiglia, cocktail e una selezione di whisky, rum e distillati. Il bancone è il cuore della serata.",
+      "photo": "/images/team/birreria.jpg"
+    },
+    {
+      "role": "Live Club",
+      "name": "La Musica dal Vivo",
+      "text": "Concerti, tribute band e serate rock: si cena dalle 20:00 e si suona dalle 22:00. E poi la vineria, la sala chalet per le feste private, biliardo e calcio balilla, e d'estate il giardino nel verde.",
+      "photo": "/images/team/live.jpg"
     }
   ]
 }

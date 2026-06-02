@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>L'Altra Osteria · Pannello di gestione</title>
+    <title>Locanda Blues · Pannello di gestione</title>
     <style>
       /* ──────────────────────────────────────────────────────────────
          Solo lo stile del bottone Guida flottante. Il resto del tema
@@ -989,39 +989,39 @@
           };
 
           return h('div', { style: pageStyle },
-            h('div', { style: eyebrowStyle }, 'Via Cassia · Roma'),
-            h('h1', { style: Object.assign({}, headingStyle, { fontSize: '2.4rem', fontWeight: 700 }) }, "L'Altra Osteria"),
+            h('div', { style: eyebrowStyle }, 'Via Cassia · Roma Nord'),
+            h('h1', { style: Object.assign({}, headingStyle, { fontSize: '2.4rem', fontWeight: 700 }) }, "Locanda Blues"),
             h('p', { style: { fontStyle: 'italic', marginTop: 6, opacity: 0.8 } },
-              'Cucina romana, tra tradizione e rivisitazione'),
+              'Risto-Pub & Live Music'),
             h('p', { style: { marginTop: 12, lineHeight: 1.6, opacity: 0.85 } },
-              "La cucina si ispira alla tradizione regionale italiana, con particolare attenzione " +
-              "ai sapori di Roma, senza rinunciare a creatività e ricerca."),
+              "Pizza al forno a legna, hamburger fatti in casa, le migliori birre alla spina " +
+              "e musica dal vivo, a Roma Nord."),
             h('a', { style: btnStyle }, '☎ Prenota un tavolo'),
 
             h('div', { style: cardStyle },
-              h('div', { style: sectionLabelStyle }, 'Antipasti'),
+              h('div', { style: sectionLabelStyle }, 'Pizze Rosse'),
               h('div', { style: dishRow },
                 h('div', {},
-                  h('h3', { style: dishName }, 'Bruschette'),
-                  h('p', { style: dishDesc }, "Burrata e alici; crema di lardo; pomodorini e basilico.")
+                  h('h3', { style: dishName }, 'Hard Rock'),
+                  h('p', { style: dishDesc }, "Pomodoro, pecorino, pancetta, cipolla.")
                 ),
-                h('span', { style: priceStyle }, '€ 5,00')
+                h('span', { style: priceStyle }, '€ 8,50')
               ),
               h('div', { style: dishRow },
                 h('div', {},
-                  h('h3', { style: dishName }, 'Tartare di manzo'),
-                  h('p', { style: dishDesc }, "Maionese alla 'nduja, cipolla rossa caramellata.")
+                  h('h3', { style: dishName }, 'Diavola'),
+                  h('p', { style: dishDesc }, "Pomodoro, mozzarella, salame piccante.")
                 ),
-                h('span', { style: priceStyle }, '€ 12,00')
+                h('span', { style: priceStyle }, '€ 8,00')
               )
             ),
 
             h('div', { style: cardStyle },
-              h('div', { style: badgeStyle }, 'Lo Chef'),
-              h('h2', { style: Object.assign({}, headingStyle, { fontSize: '1.5rem', marginTop: 8 }) }, 'Gianpiero Tomei'),
+              h('div', { style: badgeStyle }, 'Live Club'),
+              h('h2', { style: Object.assign({}, headingStyle, { fontSize: '1.5rem', marginTop: 8 }) }, 'Musica dal vivo'),
               h('p', { style: { marginTop: 8, lineHeight: 1.6, opacity: 0.8, fontSize: '0.92rem' } },
-                "Romano, classe 1979. Dopo aver studiato Giurisprudenza ha scelto di seguire la sua " +
-                "vera passione: la cucina.")
+                "Concerti, tribute band e serate rock: si cena dalle 20:00 " +
+                "e si suona dalle 22:00.")
             ),
 
             h('p', { style: helpStyle },

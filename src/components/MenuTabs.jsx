@@ -30,7 +30,7 @@ function Dish({ dish }) {
 
 function Section({ section }) {
   return (
-    <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-charcoal/5 sm:p-8">
+    <div className="surface-card p-6 sm:p-8">
       {section.title && (
         <div className="mb-4 border-b border-charcoal/10 pb-3">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -107,8 +107,8 @@ export default function MenuTabs() {
               onClick={() => setActiveId(cat.id)}
               className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition ${
                 selected
-                  ? 'bg-terracotta text-cream shadow'
-                  : 'border border-charcoal/15 bg-white text-charcoal/70 hover:border-terracotta/40 hover:text-terracotta'
+                  ? 'bg-terracotta text-ink shadow'
+                  : 'border border-charcoal/15 bg-panel text-charcoal/70 hover:border-terracotta/50 hover:text-terracotta'
               }`}
             >
               {cat.title}
