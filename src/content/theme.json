@@ -1,9 +1,9 @@
 {
-  "colorBrand": "#D98A1C",
-  "colorAccent": "#3DA8DC",
-  "colorPrice": "#E2A33A",
-  "colorBackground": "#161210",
-  "colorText": "#EFE6D8",
-  "fontDisplay": "Oswald",
+  "colorBrand": "#8C2E22",
+  "colorAccent": "#B17A2C",
+  "colorPrice": "#9A5B1F",
+  "colorBackground": "#F4EAD7",
+  "colorText": "#2B1C13",
+  "fontDisplay": "Bitter",
   "fontBody": "Inter"
 }

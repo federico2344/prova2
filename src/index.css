@@ -4,14 +4,14 @@
 
 :root {
   /* Colori brand di default — sovrascrivibili da ThemeProvider via JSON.
-     Tema "Locanda Blues": fondo scuro espresso, testo crema, accento ambra + blu.
-     NB: --c-cream è la base SCURA (sfondo) e --c-charcoal è il testo CHIARO. */
-  --c-brand: 217 138 28;       /* ambra (brand) */
-  --c-gold: 61 168 220;        /* blu elettrico "Blues" (accento) */
-  --c-price: 226 163 58;       /* prezzo (oro caldo) */
-  --c-cream: 22 18 16;         /* base scura (sfondo) */
-  --c-charcoal: 239 230 216;   /* testo chiaro (crema) */
-  --font-display: "Oswald", "Arial Narrow", sans-serif;
+     Tema "Locanda Blues": birreria di legno — base carta/panna chiara, testo
+     legno scuro, rosso mattone e ottone/ambra come accenti. */
+  --c-brand: 140 46 34;        /* rosso mattone (brand) */
+  --c-gold: 177 122 44;        /* ottone/ambra (accento) */
+  --c-price: 154 91 31;        /* prezzo (ambra scura) */
+  --c-cream: 244 234 215;      /* carta/panna (sfondo chiaro) */
+  --c-charcoal: 43 28 19;      /* legno scuro (testo) */
+  --font-display: "Bitter", Georgia, serif;
   --font-body: Inter, system-ui, sans-serif;
 }
 
@@ -31,16 +31,15 @@
     overflow-x: hidden;
     /* Scroll fluido su iOS */
     -webkit-overflow-scrolling: touch;
-    /* Alone caldo molto leggero dall'alto — atmosfera "locale la sera" */
+    /* Leggerissima carta calda: due aloni morbidi mattone/ottone */
     background-image:
-      radial-gradient(120% 80% at 50% -10%, rgb(var(--c-brand) / 0.08), transparent 60%);
+      radial-gradient(80% 55% at 50% 0%, rgba(140, 46, 34, 0.05), transparent 70%),
+      radial-gradient(60% 50% at 100% 100%, rgba(177, 122, 44, 0.06), transparent 70%);
     background-attachment: fixed;
   }
 
   h1, h2, h3 {
     @apply font-display;
-    /* Oswald è condensato: una spaziatura minima rende i titoli più "da locandina" */
-    letter-spacing: 0.01em;
     /* Evita il word-break su titoli lunghi su schermi piccoli */
     overflow-wrap: break-word;
   }
@@ -119,9 +118,17 @@
     @apply mb-3 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-terracotta;
   }
 
-  /* Superficie "card" del tema scuro — sostituisce i vecchi bg-white */
+  /* Superficie "card" su carta chiara */
   .surface-card {
-    @apply rounded-2xl bg-panel ring-1 ring-charcoal/10 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset];
+    @apply rounded-2xl bg-panel ring-1 ring-charcoal/10 shadow-sm;
+  }
+
+  /* Banda di legno scuro: venatura verticale leggera per le sezioni "wood" */
+  .wood {
+    @apply bg-ink;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 72px),
+      linear-gradient(rgba(255, 255, 255, 0.025), transparent 40%);
   }
 }
 

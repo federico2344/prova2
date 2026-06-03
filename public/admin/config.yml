@@ -284,17 +284,17 @@ collections:
         label: "Colori e Font"
         file: "src/content/theme.json"
         fields:
-          - { name: "colorBrand", label: "Colore principale (bottoni, accenti)", widget: "color", default: "#D98A1C" }
-          - { name: "colorAccent", label: "Colore accento (badge, eyebrow)", widget: "color", default: "#3DA8DC" }
-          - { name: "colorPrice", label: "Colore dei prezzi (menù e drink)", widget: "color", default: "#E2A33A" }
-          - { name: "colorBackground", label: "Colore sfondo", widget: "color", default: "#161210" }
-          - { name: "colorText", label: "Colore testo principale", widget: "color", default: "#EFE6D8" }
+          - { name: "colorBrand", label: "Colore principale (bottoni, accenti)", widget: "color", default: "#8C2E22" }
+          - { name: "colorAccent", label: "Colore accento (badge, eyebrow)", widget: "color", default: "#B17A2C" }
+          - { name: "colorPrice", label: "Colore dei prezzi (menù e drink)", widget: "color", default: "#9A5B1F" }
+          - { name: "colorBackground", label: "Colore sfondo", widget: "color", default: "#F4EAD7" }
+          - { name: "colorText", label: "Colore testo principale", widget: "color", default: "#2B1C13" }
           - name: "fontDisplay"
             label: "Font dei titoli"
             widget: "select"
-            default: "Oswald"
+            default: "Bitter"
             options:
-              - "Oswald"
+              - "Bitter"
               - "Playfair Display"
               - "Cormorant Garamond"
               - "DM Serif Display"

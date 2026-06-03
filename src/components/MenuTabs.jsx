@@ -107,7 +107,7 @@ export default function MenuTabs() {
               onClick={() => setActiveId(cat.id)}
               className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition ${
                 selected
-                  ? 'bg-terracotta text-ink shadow'
+                  ? 'bg-terracotta text-cream shadow'
                   : 'border border-charcoal/15 bg-panel text-charcoal/70 hover:border-terracotta/50 hover:text-terracotta'
               }`}
             >

@@ -15,25 +15,25 @@ export default {
     },
     extend: {
       colors: {
-        // Legni scuri — usati per tessere/superfici di fallback
+        // Legno caldo — tessere/superfici di fallback
         olive: {
-          DEFAULT: '#3A2A1E',
-          light: '#4A372A',
+          DEFAULT: '#6B4A2E',
+          light: '#856237',
         },
-        // Brand color (configurabile via CMS → restaurant.theme.colorBrand) = ambra
+        // Brand color (configurabile via CMS → restaurant.theme.colorBrand) = rosso mattone
         terracotta: {
           DEFAULT: 'rgb(var(--c-brand) / <alpha-value>)',
-          dark:    '#A8650F',
+          dark:    '#6E2419',
         },
-        // Banda/superficie scura calda (ex "blush", ora versione notturna)
-        blush: '#241B14',
-        // Superfici del tema scuro
-        panel: '#1E1712',   // card / pannelli rialzati
-        ink:   '#100C0A',   // sezioni profonde (footer, hero, page header)
+        // Banda chiara calda (carta più calda dello sfondo)
+        blush: '#ECDCC2',
+        // Superfici del tema
+        panel: '#FCF6EA',   // card su carta chiara
+        ink:   '#2C1B12',   // legno scuro (footer, bande, hero overlay)
         // Configurabili via CMS
-        cream:   'rgb(var(--c-cream) / <alpha-value>)',   // base scura (sfondo)
-        charcoal:'rgb(var(--c-charcoal) / <alpha-value>)', // testo chiaro
-        gold:    'rgb(var(--c-gold) / <alpha-value>)',     // accento blu "Blues"
+        cream:   'rgb(var(--c-cream) / <alpha-value>)',   // carta/panna (sfondo)
+        charcoal:'rgb(var(--c-charcoal) / <alpha-value>)', // legno scuro (testo)
+        gold:    'rgb(var(--c-gold) / <alpha-value>)',     // ottone/ambra (accento)
         price:   'rgb(var(--c-price) / <alpha-value>)',
       },
 

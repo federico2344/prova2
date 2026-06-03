@@ -24,15 +24,15 @@ export default function Footer() {
 
   return (
     <footer
-      className="border-t border-charcoal/10 bg-ink py-14 text-charcoal/70"
+      className="wood py-14 text-cream/70"
       style={{ paddingBottom: 'max(3.5rem, env(safe-area-inset-bottom))' }}
     >
       <div className="container-x">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           {/* Brand + indirizzo */}
           <div>
-            <Logo size="lg" />
-            <p className="mt-4 text-sm leading-relaxed text-charcoal/55">
+            <Logo size="lg" variant="light" />
+            <p className="mt-4 text-sm leading-relaxed text-cream/55">
               {restaurant.address.street}
               <br />
               {restaurant.address.city}
@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* Navigazione */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-charcoal/45">Naviga</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-cream/45">Naviga</h3>
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((l) => (
                 <li key={l.to}>
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Contatti + social */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-charcoal/45">Contatti</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-cream/45">Contatti</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
                 <a href={telLink(restaurant.phone)} className="transition hover:text-gold">
@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-charcoal/10 pt-6 text-center text-xs text-charcoal/45 space-y-2">
+        <div className="mt-12 border-t border-cream/10 pt-6 text-center text-xs text-cream/45 space-y-2">
           {restaurant.legal && (restaurant.legal.companyName || restaurant.legal.vatNumber) && (
             <p>
               {restaurant.legal.companyName && <>{restaurant.legal.companyName} — </>}

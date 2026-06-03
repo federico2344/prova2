@@ -358,23 +358,23 @@ export default function AdminGuidePage() {
           <ul>
             <li>
               <strong>Colore principale</strong>: usato per <em>bottoni, link, titoli sezione</em>
-              come "ANTIPASTI", "PIZZE". Default: ambra (#D98A1C).
+              come "ANTIPASTI", "PIZZE". Default: rosso mattone (#8C2E22).
             </li>
             <li>
               <strong>Colore accento</strong>: usato per <em>badge, eyebrow</em> (le scritte
-              piccole sopra ai titoli, tipo "Dal forno a legna"). Default: blu elettrico (#3DA8DC).
+              piccole sopra ai titoli, tipo "Dal forno a legna"). Default: ottone/ambra (#B17A2C).
             </li>
             <li>
               <strong>Colore dei prezzi</strong>: usato per i <em>prezzi del menù e dei drink</em>.
-              Categoria separata perché è frequente volerli di un colore diverso. Default: oro (#E2A33A).
+              Categoria separata perché è frequente volerli di un colore diverso. Default: ambra scura (#9A5B1F).
             </li>
             <li>
-              <strong>Colore sfondo</strong>: il colore di base di tutto il sito. Default: scuro
-              espresso (#161210).
+              <strong>Colore sfondo</strong>: il colore di base di tutto il sito. Default: carta/panna
+              chiara (#F4EAD7).
             </li>
             <li>
               <strong>Colore testo principale</strong>: il colore del corpo del testo (descrizioni,
-              paragrafi). Default: crema chiaro (#EFE6D8).
+              paragrafi). Default: legno scuro (#2B1C13).
             </li>
           </ul>
           <p>
@@ -390,7 +390,7 @@ export default function AdminGuidePage() {
               <strong>Font dei titoli</strong>: il font usato per nomi di piatti, titoli sezione,
               titolo del ristorante. Scegli da un elenco di 4:
               <ul>
-                <li><em>Oswald</em> (default): condensato, stile "locandina concerto"</li>
+                <li><em>Bitter</em> (default): slab serif caldo, stile "menù di legno"</li>
                 <li><em>Playfair Display</em>: serif elegante, classico romantico</li>
                 <li><em>Cormorant Garamond</em>: serif rinascimentale, più sottile</li>
                 <li><em>DM Serif Display</em>: serif moderno, più "design contemporaneo"</li>
@@ -763,12 +763,12 @@ export default function AdminGuidePage() {
             valori di default che trovi qui:
           </p>
           <ul>
-            <li>Colore principale: <code>#D98A1C</code></li>
-            <li>Colore accento: <code>#3DA8DC</code></li>
-            <li>Colore dei prezzi: <code>#E2A33A</code></li>
-            <li>Colore sfondo: <code>#161210</code></li>
-            <li>Colore testo principale: <code>#EFE6D8</code></li>
-            <li>Font dei titoli: <em>Oswald</em></li>
+            <li>Colore principale: <code>#8C2E22</code></li>
+            <li>Colore accento: <code>#B17A2C</code></li>
+            <li>Colore dei prezzi: <code>#9A5B1F</code></li>
+            <li>Colore sfondo: <code>#F4EAD7</code></li>
+            <li>Colore testo principale: <code>#2B1C13</code></li>
+            <li>Font dei titoli: <em>Bitter</em></li>
             <li>Font del corpo: <em>Inter</em></li>
           </ul>
           <p>Salva e pubblica. Torni allo stile originale.</p>

@@ -5,7 +5,7 @@ const FONT_STACKS = {
   'Playfair Display': '"Playfair Display", Georgia, serif',
   'Cormorant Garamond': '"Cormorant Garamond", Garamond, serif',
   'DM Serif Display': '"DM Serif Display", "Times New Roman", serif',
-  Oswald: '"Oswald", "Arial Narrow", system-ui, sans-serif',
+  Bitter: '"Bitter", Georgia, serif',
   Inter: 'Inter, system-ui, sans-serif',
   Manrope: 'Manrope, system-ui, sans-serif',
   Lora: 'Lora, Georgia, serif',
