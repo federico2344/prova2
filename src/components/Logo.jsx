@@ -1,19 +1,33 @@
+import { useState } from 'react'
+
 /**
- * Logotype testuale "Locanda Blues":
- *  - "Locanda"  → Bitter slab, rosso mattone (o panna su sfondo scuro)
- *  - "Blues"    → corsivo Kaushan Script, blu (come l'insegna in legno)
- *  - sottotitolo → "Risto-Pub · Live Music"
+ * Logo del locale. Usa l'immagine scontornata (PNG con sfondo trasparente) in
+ * /images/general/logo-nav.png. Se il file manca, mostra un fallback testuale
+ * così l'header non resta mai vuoto.
  *
  * Props:
  *  - size: 'sm' (navbar) | 'lg' (footer)
- *  - variant: 'dark' (su sfondo chiaro) | 'light' (su foto/legno scuro)
+ *  - variant: 'dark' (su sfondo chiaro) | 'light' (su legno/foto scuri) — usato dal fallback
  */
 const BLUES = { dark: '#2F6E8F', light: '#A7CCE0' }
 
 export default function Logo({ size = 'sm', variant = 'dark', className = '' }) {
+  const [broken, setBroken] = useState(false)
   const big = size === 'lg'
   const light = variant === 'light'
 
+  if (!broken) {
+    return (
+      <img
+        src="/images/general/logo-nav.png"
+        alt="Locanda Blues — Risto-Pub · Live Music"
+        onError={() => setBroken(true)}
+        className={`${big ? 'h-20' : 'h-12 md:h-14'} w-auto ${className}`}
+      />
+    )
+  }
+
+  /* ── Fallback testuale ──────────────────────────────────────────────── */
   return (
     <span className={`flex flex-col leading-none select-none ${className}`}>
       <span className="flex items-end gap-1.5">
