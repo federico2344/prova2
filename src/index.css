@@ -123,6 +123,21 @@
     @apply rounded-2xl bg-panel ring-1 ring-charcoal/10 shadow-sm;
   }
 
+  /* Etichetta a "timbro" — sostituisce gli eyebrow del template */
+  .stamp {
+    @apply inline-block rounded-[3px] border border-terracotta/40 bg-terracotta/10
+           px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-terracotta;
+  }
+
+  /* Riga di menù "stampato": nome … prezzo con puntini di guida */
+  .menu-row {
+    @apply flex items-baseline gap-2;
+  }
+  .menu-leader {
+    @apply min-w-[1.25rem] flex-1 self-end border-b border-dotted border-charcoal/35;
+    transform: translateY(-0.28em);
+  }
+
   /* Banda di legno scuro: venatura verticale leggera per le sezioni "wood" */
   .wood {
     @apply bg-ink;

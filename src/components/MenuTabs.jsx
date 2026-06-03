@@ -1,114 +1,63 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import { menuData } from '../data/siteData.js'
 import { formatPrice } from '../lib/utils.js'
 
-function Dish({ dish }) {
+function DishRow({ dish }) {
+  const hasPrice = dish.price != null
   return (
-    <li className="flex items-baseline gap-4 py-4 first:pt-0 last:pb-0">
-      <div className="flex-1">
-        <div className="flex flex-wrap items-center gap-2">
-          <h4 className="font-semibold text-charcoal">{dish.name}</h4>
-          {dish.tags?.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-gold/15 px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-gold"
-            >
-              {tag}
+    <li className="py-2.5">
+      <div className="menu-row">
+        <span className="font-semibold text-charcoal">
+          {dish.name}
+          {dish.tags?.map((t) => (
+            <span key={t} className="ml-2 align-middle text-[0.62rem] font-semibold uppercase tracking-wider text-gold">
+              · {t}
             </span>
           ))}
-        </div>
-        {dish.description && (
-          <p className="mt-1 text-sm leading-relaxed text-charcoal/60">{dish.description}</p>
-        )}
+        </span>
+        {hasPrice && <span className="menu-leader" aria-hidden="true" />}
+        {hasPrice && <span className="font-display font-semibold text-price">{formatPrice(dish.price)}</span>}
       </div>
-      {dish.price != null && (
-        <span className="shrink-0 font-display text-lg text-price">{formatPrice(dish.price)}</span>
-      )}
+      {dish.description && <p className="mt-0.5 text-sm leading-snug text-charcoal/60">{dish.description}</p>}
     </li>
   )
 }
 
 function Section({ section }) {
   return (
-    <div className="surface-card p-6 sm:p-8">
-      {section.title && (
-        <div className="mb-4 border-b border-charcoal/10 pb-3">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="font-display text-xl font-semibold text-charcoal">{section.title}</h3>
-            {section.fixedPrice != null && (
-              <span className="font-display text-lg text-terracotta">
-                {formatPrice(section.fixedPrice)} a persona
-              </span>
-            )}
-          </div>
-          {section.note && <p className="mt-1 text-sm italic text-charcoal/60">{section.note}</p>}
-        </div>
-      )}
-      <ul className="divide-y divide-charcoal/10">
-        {section.dishes.map((dish) => (
-          <Dish key={dish.name} dish={dish} />
+    <div className="mb-9 break-inside-avoid">
+      <div className="mb-2 flex items-baseline justify-between gap-3 border-b-2 border-terracotta/30 pb-2">
+        <h3 className="font-display text-xl font-bold uppercase tracking-wide text-charcoal">{section.title}</h3>
+        {section.fixedPrice != null && <span className="stamp shrink-0">{formatPrice(section.fixedPrice)} a persona</span>}
+      </div>
+      {section.note && <p className="mb-2 text-sm italic text-charcoal/60">{section.note}</p>}
+      <ul>
+        {section.dishes.map((d) => (
+          <DishRow key={`${d.name}-${d.description ?? ''}-${d.price ?? ''}`} dish={d} />
         ))}
       </ul>
     </div>
   )
 }
 
-function getDefaultMenuId() {
-  const now = new Date()
-  const day = now.getDay()   // 0=dom, 1=lun, …, 6=sab
-  const hour = now.getHours()
-  // Sabato → sempre menù serale (copre sia pranzo sia cena del sabato)
-  if (day === 6) return 'serale'
-  // Negli altri giorni: prima delle 17 → pranzo, dopo → serale
-  return hour >= 17 ? 'serale' : 'pranzo'
-}
-
 export default function MenuTabs() {
-  const [activeId, setActiveId] = useState(() => getDefaultMenuId())
+  const [activeId, setActiveId] = useState(menuData[0]?.id)
   const active = menuData.find((c) => c.id === activeId) ?? menuData[0]
-  const isDegustazione = active.id === 'degustazione'
-
-  // Ref al container dei tab per scrollare l'attivo in vista
-  const tabsRef = useRef(null)
-  const activeTabRef = useRef(null)
-
-  useEffect(() => {
-    const container = tabsRef.current
-    const activeEl = activeTabRef.current
-    if (!container || !activeEl) return
-
-    // Centra il tab attivo nel container scrollabile su mobile
-    const containerLeft = container.getBoundingClientRect().left
-    const elLeft = activeEl.getBoundingClientRect().left
-    const elWidth = activeEl.offsetWidth
-    const containerWidth = container.offsetWidth
-    const scrollTarget = container.scrollLeft + elLeft - containerLeft - (containerWidth / 2) + (elWidth / 2)
-    container.scrollTo({ left: scrollTarget, behavior: 'smooth' })
-  }, [activeId])
 
   return (
     <div>
-      {/* Tab — scrollabili su mobile, centrati su desktop */}
-      <div
-        ref={tabsRef}
-        role="tablist"
-        aria-label="Categorie del menù"
-        className="flex gap-3 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center sm:overflow-visible"
-        style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
-      >
+      {/* Selettore categorie: link di testo, non più "pillole" */}
+      <div className="flex flex-wrap justify-center gap-x-7 gap-y-2 border-y border-charcoal/15 py-4">
         {menuData.map((cat) => {
           const selected = cat.id === active.id
           return (
             <button
               key={cat.id}
-              ref={selected ? activeTabRef : null}
-              role="tab"
-              aria-selected={selected}
               onClick={() => setActiveId(cat.id)}
-              className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition ${
+              className={`font-display text-sm font-bold uppercase tracking-[0.12em] transition ${
                 selected
-                  ? 'bg-terracotta text-cream shadow'
-                  : 'border border-charcoal/15 bg-panel text-charcoal/70 hover:border-terracotta/50 hover:text-terracotta'
+                  ? 'text-terracotta underline decoration-2 underline-offset-8'
+                  : 'text-charcoal/50 hover:text-charcoal'
               }`}
             >
               {cat.title}
@@ -117,26 +66,15 @@ export default function MenuTabs() {
         })}
       </div>
 
-      {/* Contenuto — appare subito senza aspettare scroll */}
-      <div
-        key={active.id}
-        className="mx-auto mt-10 max-w-3xl animate-fadeIn"
-      >
+      <div key={active.id} className="mx-auto mt-10 max-w-4xl animate-fadeIn">
         {active.description && (
-          <p className="mb-8 text-center text-charcoal/65">{active.description}</p>
+          <p className="mb-10 text-center italic text-charcoal/65">{active.description}</p>
         )}
-
-        <div className={isDegustazione ? 'grid gap-6 md:grid-cols-2' : 'space-y-6'}>
+        <div className="gap-x-14 md:columns-2">
           {active.sections.map((section) => (
             <Section key={section.title} section={section} />
           ))}
         </div>
-
-        {isDegustazione && (
-          <p className="mt-6 text-center text-sm italic text-charcoal/55">
-            Menù degustazione disponibile per l'intero tavolo. Abbinamento vini su richiesta.
-          </p>
-        )}
       </div>
     </div>
   )

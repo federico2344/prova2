@@ -11,42 +11,9 @@ const links = [
   { to: '/contatti', label: 'Contatti' },
 ]
 
-/** Barra informativa sottile in cima: indirizzo + telefono. Calma, niente scorrimento. */
-function InfoBar() {
-  return (
-    <div className="wood text-cream/85">
-      <div className="container-x flex h-8 items-center justify-between text-[0.72rem] sm:text-xs">
-        <span className="truncate">
-          {restaurant.address.street} · {restaurant.address.city}
-        </span>
-        <span className="hidden items-center gap-4 sm:flex">
-          <span className="text-cream/60">Cena dalle 20:00</span>
-          <a href={telLink(restaurant.phone)} className="font-semibold text-gold hover:underline">
-            {restaurant.phone}
-          </a>
-        </span>
-        <a href={telLink(restaurant.phone)} className="font-semibold text-gold hover:underline sm:hidden">
-          {restaurant.phone}
-        </a>
-      </div>
-    </div>
-  )
-}
-
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
-
-  const isHome = pathname === '/'
-  const solid = !isHome || scrolled || open
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => setOpen(false), [pathname])
 
@@ -58,48 +25,46 @@ export default function Navbar() {
   }, [])
 
   const booking = telLink(restaurant.phone)
-  const linkColor = solid ? 'text-charcoal/80' : 'text-cream/90'
-  const barColor = solid ? 'bg-charcoal' : 'bg-cream'
+
+  const linkClass = ({ isActive }) =>
+    `text-sm font-semibold uppercase tracking-wide transition hover:text-gold ${
+      isActive ? 'text-gold' : 'text-cream/85'
+    }`
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50"
+      className="fixed inset-x-0 top-0 z-50 shadow-lg"
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
-      <InfoBar />
+      {/* Riga info — sottile, sopra l'asse in legno */}
+      <div className="wood border-b border-black/30 text-cream/85">
+        <div className="container-x flex h-8 items-center justify-between text-[0.72rem] sm:text-xs">
+          <span className="truncate">{restaurant.address.street} · {restaurant.address.city}</span>
+          <span className="hidden items-center gap-4 sm:flex">
+            <span className="text-cream/60">Cena dalle 20:00</span>
+            <a href={booking} className="font-semibold text-gold hover:underline">{restaurant.phone}</a>
+          </span>
+          <a href={booking} className="font-semibold text-gold hover:underline sm:hidden">{restaurant.phone}</a>
+        </div>
+      </div>
 
-      <div className={`transition-colors duration-300 ${
-        solid ? 'bg-cream/95 shadow-sm backdrop-blur-sm' : 'bg-transparent'
-      }`}>
-        <nav className="container-x flex h-14 items-center justify-between md:h-[4.5rem]">
+      {/* Asse principale in legno */}
+      <div className="wood">
+        <nav className="container-x flex h-16 items-center justify-between md:h-[4.75rem]">
           <Link to="/" className="flex items-center" aria-label="Locanda Blues — torna alla home">
-            <Logo size="sm" variant={solid ? 'dark' : 'light'} />
+            <Logo size="sm" variant="light" />
           </Link>
 
-          {/* Link desktop */}
           <div className="hidden items-center gap-6 md:flex lg:gap-7">
             {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                className={({ isActive }) =>
-                  `text-sm font-semibold transition hover:text-terracotta ${
-                    isActive ? 'text-terracotta' : linkColor
-                  }`
-                }
-              >
-                {l.label}
-              </NavLink>
+              <NavLink key={l.to} to={l.to} className={linkClass}>{l.label}</NavLink>
             ))}
-            <Link to="/#eventi" className={`text-sm font-semibold transition hover:text-terracotta ${linkColor}`}>
+            <Link to="/#eventi" className="text-sm font-semibold uppercase tracking-wide text-cream/85 transition hover:text-gold">
               Eventi
             </Link>
-            <a href={booking} className="btn-primary py-2 text-sm">
-              Prenota
-            </a>
+            <a href={booking} className="btn-primary py-2 text-sm">Prenota</a>
           </div>
 
-          {/* Hamburger mobile */}
           <button
             type="button"
             aria-label={open ? 'Chiudi menù' : 'Apri menù'}
@@ -110,9 +75,9 @@ export default function Navbar() {
           >
             <span className="sr-only">{open ? 'Chiudi' : 'Menù'}</span>
             <span className="relative flex h-5 w-6 flex-col justify-between">
-              <span className={`block h-0.5 w-full origin-center rounded ${barColor} transition duration-300 ${open ? 'translate-y-[9px] rotate-45' : ''}`} />
-              <span className={`block h-0.5 w-full rounded ${barColor} transition duration-300 ${open ? 'opacity-0' : ''}`} />
-              <span className={`block h-0.5 w-full origin-center rounded ${barColor} transition duration-300 ${open ? '-translate-y-[9px] -rotate-45' : ''}`} />
+              <span className={`block h-0.5 w-full origin-center rounded bg-cream transition duration-300 ${open ? 'translate-y-[9px] rotate-45' : ''}`} />
+              <span className={`block h-0.5 w-full rounded bg-cream transition duration-300 ${open ? 'opacity-0' : ''}`} />
+              <span className={`block h-0.5 w-full origin-center rounded bg-cream transition duration-300 ${open ? '-translate-y-[9px] -rotate-45' : ''}`} />
             </span>
           </button>
         </nav>
@@ -121,7 +86,7 @@ export default function Navbar() {
       {/* Pannello mobile */}
       <div
         id="mobile-menu"
-        className={`overflow-hidden border-t border-charcoal/10 bg-cream/97 backdrop-blur-sm transition-all duration-300 md:hidden ${
+        className={`wood overflow-hidden border-t border-black/30 transition-all duration-300 md:hidden ${
           open ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
         style={{ paddingBottom: open ? 'env(safe-area-inset-bottom)' : undefined }}
@@ -132,15 +97,15 @@ export default function Navbar() {
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `rounded-xl px-3 py-3.5 text-base font-semibold transition active:bg-charcoal/10 ${
-                  isActive ? 'text-terracotta' : 'text-charcoal hover:bg-charcoal/5'
+                `rounded-lg px-3 py-3.5 text-base font-semibold uppercase tracking-wide transition active:bg-black/20 ${
+                  isActive ? 'text-gold' : 'text-cream/90 hover:bg-black/15'
                 }`
               }
             >
               {l.label}
             </NavLink>
           ))}
-          <Link to="/#eventi" className="rounded-xl px-3 py-3.5 text-base font-semibold text-charcoal transition hover:bg-charcoal/5 active:bg-charcoal/10">
+          <Link to="/#eventi" className="rounded-lg px-3 py-3.5 text-base font-semibold uppercase tracking-wide text-cream/90 transition hover:bg-black/15 active:bg-black/20">
             Eventi
           </Link>
           <a href={booking} className="btn-primary mt-3 justify-center gap-2 text-base">
