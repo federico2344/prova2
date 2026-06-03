@@ -31,7 +31,7 @@ export default {
         blush: '#ECDCC2',
         // Superfici del tema
         panel: '#FCF6EA',   // card su carta chiara
-        ink:   '#341414',   // pannello bordeaux scuro dell'insegna (footer, bande, overlay)
+        ink:   '#34211a',   // legno noce scuro (base delle superfici .wood e card scure)
         // Configurabili via CMS
         cream:   'rgb(var(--c-cream) / <alpha-value>)',   // carta/panna (sfondo)
         charcoal:'rgb(var(--c-charcoal) / <alpha-value>)', // legno scuro (testo)

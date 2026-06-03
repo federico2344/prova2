@@ -143,13 +143,24 @@
     transform: translateY(-0.28em);
   }
 
-  /* Banda di legno bordeaux dell'insegna: assi verticali + venatura + riflesso caldo */
+  /* Effetto legno (noce) modernizzato: assi verticali con fuga + highlight,
+     alternanza di tono tra le assi, venatura orizzontale fine e riflesso dall'alto. */
   .wood {
-    @apply bg-ink;
+    background-color: #34211a;
     background-image:
-      repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.30) 0 2px, transparent 2px 86px),
-      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 9px),
-      linear-gradient(rgba(255, 224, 178, 0.05), transparent 32%);
+      /* riflesso morbido dall'alto + ombra in basso (profondità) */
+      linear-gradient(180deg, rgba(255, 221, 170, 0.09), rgba(0, 0, 0, 0.30)),
+      /* fughe tra le assi: linea scura + sottile highlight chiaro */
+      repeating-linear-gradient(90deg,
+        rgba(0, 0, 0, 0.36) 0 1px,
+        rgba(255, 236, 200, 0.06) 1px 2px,
+        transparent 2px 90px),
+      /* alternanza calda di tono tra un'asse e l'altra */
+      repeating-linear-gradient(90deg,
+        rgba(150, 95, 55, 0.10) 0 90px,
+        rgba(90, 58, 36, 0.14) 90px 180px),
+      /* venatura orizzontale fine */
+      repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0 1px, transparent 1px 6px);
   }
 }
 
