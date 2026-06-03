@@ -22,7 +22,7 @@ export default function Logo({ size = 'sm', variant = 'dark', className = '' }) 
         src="/images/general/logo-nav.png"
         alt="Locanda Blues — Risto-Pub · Live Music"
         onError={() => setBroken(true)}
-        className={`${big ? 'h-24' : 'h-16 md:h-20'} w-auto ${className}`}
+        className={`${big ? 'h-28' : 'h-20 md:h-24'} w-auto ${className}`}
       />
     )
   }

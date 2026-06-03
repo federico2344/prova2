@@ -4,7 +4,7 @@
  */
 export default function PageHeader({ eyebrow, title, subtitle }) {
   return (
-    <header className="bg-cream pt-32 pb-10 md:pt-40 md:pb-12">
+    <header className="bg-cream pt-36 pb-10 md:pt-44 md:pb-12">
       <div className="container-x">
         {eyebrow && <span className="stamp">{eyebrow}</span>}
         <h1 className="mt-4 font-display text-4xl font-bold text-charcoal sm:text-5xl">{title}</h1>

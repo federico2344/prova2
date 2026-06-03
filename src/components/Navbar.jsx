@@ -50,7 +50,7 @@ export default function Navbar() {
 
       {/* Asse principale in legno */}
       <div className="wood">
-        <nav className="container-x flex h-20 items-center justify-between md:h-[5.5rem]">
+        <nav className="container-x flex h-24 items-center justify-between md:h-28">
           <Link to="/" className="flex items-center" aria-label="Locanda Blues — torna alla home">
             <Logo size="sm" variant="light" />
           </Link>

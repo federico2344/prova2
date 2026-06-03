@@ -8,7 +8,7 @@ export default function Hero() {
 
   return (
     <section id="top" className="bg-cream">
-      <div className="container-x grid gap-8 pt-32 md:min-h-[82vh] md:grid-cols-2 md:items-center md:gap-14 md:pt-32 md:pb-14">
+      <div className="container-x grid gap-8 pt-36 pb-16 md:grid-cols-2 md:items-center md:gap-14 md:pt-44 md:pb-24">
         {/* Testo */}
         <div className="order-2 md:order-1">
           <h1 className="sr-only">Locanda Blues — Risto-Pub & Live Music, Roma</h1>
