@@ -31,7 +31,7 @@ export default {
         blush: '#ECDCC2',
         // Superfici del tema
         panel: '#FCF6EA',   // card su carta chiara
-        ink:   '#281410',   // legno scuro caldo (footer, bande, hero overlay)
+        ink:   '#341414',   // pannello bordeaux scuro dell'insegna (footer, bande, overlay)
         // Configurabili via CMS
         cream:   'rgb(var(--c-cream) / <alpha-value>)',   // carta/panna (sfondo)
         charcoal:'rgb(var(--c-charcoal) / <alpha-value>)', // legno scuro (testo)

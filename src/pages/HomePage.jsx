@@ -124,7 +124,7 @@ export default function HomePage() {
         <section id="eventi" className="scroll-mt-32 bg-blush/30 py-20 md:py-24">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <span className="stamp">Sul palco</span>
+              <span className="stamp-blue">Sul palco</span>
               <h2 className="mt-4 font-display text-3xl font-bold text-charcoal sm:text-4xl">Musica dal vivo</h2>
               <p className="mt-4 text-charcoal/75">{events.intro}</p>
             </Reveal>
