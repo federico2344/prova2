@@ -358,15 +358,15 @@ export default function AdminGuidePage() {
           <ul>
             <li>
               <strong>Colore principale</strong>: usato per <em>bottoni, link, titoli sezione</em>
-              come "ANTIPASTI", "PIZZE". Default: rosso mattone (#8C2E22).
+              come "ANTIPASTI", "PIZZE". Default: bordeaux del logo (#6E1A1A).
             </li>
             <li>
               <strong>Colore accento</strong>: usato per <em>badge, eyebrow</em> (le scritte
-              piccole sopra ai titoli, tipo "Dal forno a legna"). Default: ottone/ambra (#B17A2C).
+              piccole sopra ai titoli, tipo "Dal forno a legna"). Default: ambra-miele del logo (#C8902F).
             </li>
             <li>
               <strong>Colore dei prezzi</strong>: usato per i <em>prezzi del menù e dei drink</em>.
-              Categoria separata perché è frequente volerli di un colore diverso. Default: ambra scura (#9A5B1F).
+              Categoria separata perché è frequente volerli di un colore diverso. Default: ambra (#A8701C).
             </li>
             <li>
               <strong>Colore sfondo</strong>: il colore di base di tutto il sito. Default: carta/panna
@@ -374,7 +374,7 @@ export default function AdminGuidePage() {
             </li>
             <li>
               <strong>Colore testo principale</strong>: il colore del corpo del testo (descrizioni,
-              paragrafi). Default: legno scuro (#2B1C13).
+              paragrafi). Default: legno scuro caldo (#271511).
             </li>
           </ul>
           <p>
@@ -763,11 +763,11 @@ export default function AdminGuidePage() {
             valori di default che trovi qui:
           </p>
           <ul>
-            <li>Colore principale: <code>#8C2E22</code></li>
-            <li>Colore accento: <code>#B17A2C</code></li>
-            <li>Colore dei prezzi: <code>#9A5B1F</code></li>
+            <li>Colore principale: <code>#6E1A1A</code></li>
+            <li>Colore accento: <code>#C8902F</code></li>
+            <li>Colore dei prezzi: <code>#A8701C</code></li>
             <li>Colore sfondo: <code>#F4EAD7</code></li>
-            <li>Colore testo principale: <code>#2B1C13</code></li>
+            <li>Colore testo principale: <code>#271511</code></li>
             <li>Font dei titoli: <em>Bitter</em></li>
             <li>Font del corpo: <em>Inter</em></li>
           </ul>

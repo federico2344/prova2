@@ -284,11 +284,11 @@ collections:
         label: "Colori e Font"
         file: "src/content/theme.json"
         fields:
-          - { name: "colorBrand", label: "Colore principale (bottoni, accenti)", widget: "color", default: "#8C2E22" }
-          - { name: "colorAccent", label: "Colore accento (badge, eyebrow)", widget: "color", default: "#B17A2C" }
-          - { name: "colorPrice", label: "Colore dei prezzi (menù e drink)", widget: "color", default: "#9A5B1F" }
+          - { name: "colorBrand", label: "Colore principale (bottoni, accenti)", widget: "color", default: "#6E1A1A" }
+          - { name: "colorAccent", label: "Colore accento (badge, eyebrow)", widget: "color", default: "#C8902F" }
+          - { name: "colorPrice", label: "Colore dei prezzi (menù e drink)", widget: "color", default: "#A8701C" }
           - { name: "colorBackground", label: "Colore sfondo", widget: "color", default: "#F4EAD7" }
-          - { name: "colorText", label: "Colore testo principale", widget: "color", default: "#2B1C13" }
+          - { name: "colorText", label: "Colore testo principale", widget: "color", default: "#271511" }
           - name: "fontDisplay"
             label: "Font dei titoli"
             widget: "select"

@@ -133,7 +133,7 @@ export default function HomePage() {
               <ul className="mt-10 grid gap-3 sm:grid-cols-3">
                 {upcoming.map((ev) => (
                   <li key={ev.title} className="flex items-center gap-4 rounded-xl border border-charcoal/10 bg-panel p-4">
-                    <div className="flex w-12 shrink-0 flex-col items-center rounded-lg bg-terracotta/10 py-1.5 text-terracotta">
+                    <div className="flex w-12 shrink-0 flex-col items-center rounded-lg bg-blues/10 py-1.5 text-blues">
                       <span className="text-[0.65rem] font-semibold uppercase leading-none">{ev.day}</span>
                       <span className="font-display text-xl font-bold leading-none">{ev.date}</span>
                       <span className="text-[0.6rem] uppercase leading-none">{ev.month}</span>

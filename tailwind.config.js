@@ -20,16 +20,18 @@ export default {
           DEFAULT: '#6B4A2E',
           light: '#856237',
         },
-        // Brand color (configurabile via CMS → restaurant.theme.colorBrand) = rosso mattone
+        // Brand color (configurabile via CMS → restaurant.theme.colorBrand) = bordeaux del logo
         terracotta: {
           DEFAULT: 'rgb(var(--c-brand) / <alpha-value>)',
-          dark:    '#6E2419',
+          dark:    '#511010',
         },
+        // Accento blu "Blues" del logo (fisso, non dal picker)
+        blues: '#3FA7DB',
         // Banda chiara calda (carta più calda dello sfondo)
         blush: '#ECDCC2',
         // Superfici del tema
         panel: '#FCF6EA',   // card su carta chiara
-        ink:   '#2C1B12',   // legno scuro (footer, bande, hero overlay)
+        ink:   '#281410',   // legno scuro caldo (footer, bande, hero overlay)
         // Configurabili via CMS
         cream:   'rgb(var(--c-cream) / <alpha-value>)',   // carta/panna (sfondo)
         charcoal:'rgb(var(--c-charcoal) / <alpha-value>)', // legno scuro (testo)

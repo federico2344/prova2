@@ -1,9 +1,9 @@
 {
-  "colorBrand": "#8C2E22",
-  "colorAccent": "#B17A2C",
-  "colorPrice": "#9A5B1F",
+  "colorBrand": "#6E1A1A",
+  "colorAccent": "#C8902F",
+  "colorPrice": "#A8701C",
   "colorBackground": "#F4EAD7",
-  "colorText": "#2B1C13",
+  "colorText": "#271511",
   "fontDisplay": "Bitter",
   "fontBody": "Inter"
 }
