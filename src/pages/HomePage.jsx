@@ -17,29 +17,17 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Intro + tre "fatti" */}
-      <section className="bg-cream py-20 md:py-24">
-        <div className="container-x">
-          <Reveal className="max-w-3xl">
-            <p className="eyebrow">Benvenuti alla Locanda</p>
-            <h2 className="font-display text-3xl font-bold leading-tight text-charcoal sm:text-4xl md:text-[2.75rem]">
-              Cucina, birre e musica dal vivo, a Roma Nord.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-charcoal/75">{restaurant.intro}</p>
-          </Reveal>
-
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-charcoal/10 bg-charcoal/10 sm:grid-cols-3">
-            {[
-              { k: 'Forno a legna', v: 'Pizza con farina di tipo 1' },
-              { k: 'Birreria', v: 'Spine sempre in rotazione' },
-              { k: 'Live nel weekend', v: 'Cena 20:00 · Live 22:00' },
-            ].map((f) => (
-              <div key={f.k} className="bg-cream p-7 text-center">
-                <p className="font-display text-xl font-semibold text-terracotta">{f.k}</p>
-                <p className="mt-1 text-sm text-charcoal/65">{f.v}</p>
-              </div>
-            ))}
-          </div>
+      {/* Manifesto — blocco unico, niente griglia a 3 riquadri */}
+      <section className="bg-cream py-16 md:py-20">
+        <div className="container-x max-w-3xl text-center">
+          <div className="mx-auto h-1 w-16 rounded bg-terracotta/60" />
+          <p className="mt-7 font-display text-2xl font-bold leading-snug text-charcoal sm:text-3xl">
+            Una vecchia locanda di legno dove si mangia, si beve e si suona.
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-charcoal/75">{restaurant.intro}</p>
+          <p className="mt-7 text-sm font-semibold uppercase tracking-[0.18em] text-terracotta">
+            Forno a legna · Birre alla spina · Live nel weekend
+          </p>
         </div>
       </section>
 
@@ -73,29 +61,35 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* Birreria — banner su foto delle spine */}
-      <section className="relative overflow-hidden py-24 text-cream md:py-28">
-        <img src="/images/hero/slide-4.jpg" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-ink/85" />
-        <div className="container-x relative grid items-center gap-8 md:grid-cols-2">
-          <Reveal>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-gold">Al bancone</p>
-            <h2 className="font-display text-3xl font-bold sm:text-4xl">Birreria &amp; Mixology</h2>
-            <p className="mt-4 max-w-md text-cream/80">
+      {/* Birreria — testo + foto contenuta (no foto a tutto schermo) */}
+      <section className="bg-blush/40 py-20 md:py-24">
+        <div className="container-x grid items-center gap-10 md:grid-cols-2 md:gap-14">
+          <Reveal className="order-2 md:order-1">
+            <span className="stamp">Al bancone</span>
+            <h2 className="mt-4 font-display text-3xl font-bold text-charcoal sm:text-4xl">Birreria &amp; Mixology</h2>
+            <p className="mt-4 max-w-md text-charcoal/75">
               Le migliori birre alla spina sempre in rotazione, oltre trenta artigianali in
               bottiglia, cocktail e una scelta di whisky, rum e distillati.
             </p>
             <Link to="/vini" className="btn-primary mt-7">Sfoglia la birreria</Link>
           </Reveal>
+          <Reveal delay={120} className="order-1 md:order-2">
+            <img
+              src="/images/hero/slide-4.jpg"
+              alt="Le birre alla spina del Locanda Blues"
+              className="h-72 w-full rounded-2xl object-cover shadow-xl ring-1 ring-charcoal/10 md:h-80"
+              loading="lazy"
+            />
+          </Reveal>
         </div>
       </section>
 
       {/* Le anime del locale */}
-      <section className="bg-blush/40 py-20 md:py-24">
+      <section className="bg-cream py-20 md:py-24">
         <div className="container-x">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow">Tutto in un posto solo</p>
-            <h2 className="font-display text-3xl font-bold text-charcoal sm:text-4xl">Le anime del Locanda</h2>
+            <span className="stamp">Tutto in un posto solo</span>
+            <h2 className="mt-4 font-display text-3xl font-bold text-charcoal sm:text-4xl">Le anime del Locanda</h2>
           </Reveal>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {team.map((person, i) => (
@@ -125,13 +119,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sul palco / Eventi — una delle anime, non la protagonista */}
+      {/* Sul palco / Eventi */}
       {posters.length > 0 && (
-        <section id="eventi" className="scroll-mt-32 bg-cream py-20 md:py-24">
+        <section id="eventi" className="scroll-mt-32 bg-blush/30 py-20 md:py-24">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow">Sul palco</p>
-              <h2 className="font-display text-3xl font-bold text-charcoal sm:text-4xl">Musica dal vivo</h2>
+              <span className="stamp">Sul palco</span>
+              <h2 className="mt-4 font-display text-3xl font-bold text-charcoal sm:text-4xl">Musica dal vivo</h2>
               <p className="mt-4 text-charcoal/75">{events.intro}</p>
             </Reveal>
 

@@ -4,51 +4,53 @@ import { telLink } from '../lib/utils.js'
 
 export default function Hero() {
   const booking = telLink(restaurant.phone)
-  // Sfondo: l'interno del pub in legno
-  const bg = restaurant.heroSlides?.[1] ?? restaurant.heroSlides?.[0] ?? '/images/hero/slide-2.jpg'
+  const photo = restaurant.heroSlides?.[1] ?? restaurant.heroSlides?.[0] ?? '/images/hero/slide-2.jpg'
 
   return (
-    <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden">
-      <div className="absolute inset-0 bg-ink">
-        <img
-          src={bg}
-          alt=""
-          aria-hidden="true"
-          fetchpriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full animate-kenburns object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/70 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent" />
-      </div>
+    <section id="top" className="bg-cream">
+      <div className="container-x grid gap-8 pt-32 md:min-h-[82vh] md:grid-cols-2 md:items-center md:gap-14 md:pt-32 md:pb-14">
+        {/* Testo */}
+        <div className="order-2 md:order-1">
+          <h1 className="sr-only">Locanda Blues — Risto-Pub & Live Music, Roma</h1>
+          <span className="stamp">Risto-Pub · Pizzeria · Birreria</span>
+          <p className="mt-5 font-display text-4xl font-bold leading-[1.05] text-charcoal sm:text-5xl md:text-6xl">
+            {restaurant.tagline}
+          </p>
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/75">
+            Pizza al forno a legna, hamburger fatti in casa, le migliori birre alla spina
+            e musica dal vivo nel weekend.
+          </p>
 
-      <div
-        className="container-x relative z-10 max-w-2xl pb-20 pt-40 text-cream md:pt-44"
-        style={{ paddingTop: 'calc(9.5rem + env(safe-area-inset-top))' }}
-      >
-        <h1 className="sr-only">Locanda Blues — Risto-Pub & Live Music, Roma</h1>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={booking} className="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              Prenota
+            </a>
+            <Link to="/menu" className="btn-secondary">Vedi il Menù</Link>
+          </div>
 
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-gold">
-          Risto-Pub · Pizzeria · Birreria
-        </p>
-        <p className="font-display text-4xl font-bold leading-[1.05] drop-shadow sm:text-5xl md:text-6xl">
-          {restaurant.tagline}
-        </p>
-        <p className="mt-5 max-w-xl text-base text-cream/85 sm:text-lg">
-          Pizza al forno a legna, hamburger fatti in casa, le migliori birre alla spina
-          e musica dal vivo nel weekend, sulla Cassia a Roma Nord.
-        </p>
+          <p className="mt-7 text-sm text-charcoal/60">
+            {restaurant.address.street}, {restaurant.address.city} · Cena dalle 20:00
+          </p>
+        </div>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a href={booking} className="btn-primary w-full justify-center sm:w-auto">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            Prenota un Tavolo
-          </a>
-          <Link to="/menu" className="btn-secondary w-full justify-center border-cream/40 text-cream hover:bg-cream hover:text-charcoal sm:w-auto">
-            Vedi il Menù
-          </Link>
+        {/* Foto contenuta (non più sfondo a tutto schermo) */}
+        <div className="order-1 md:order-2">
+          <div className="relative">
+            <img
+              src={photo}
+              alt="La sala in legno del Locanda Blues"
+              fetchpriority="high"
+              decoding="async"
+              className="h-64 w-full rounded-2xl object-cover shadow-xl ring-1 ring-charcoal/10 sm:h-80 md:h-[62vh]"
+            />
+            {/* Etichetta sull'angolo, come un cartello appeso */}
+            <span className="absolute -bottom-3 left-5 rounded-sm bg-terracotta px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-cream shadow-lg">
+              Roma Nord · Cassia
+            </span>
+          </div>
         </div>
       </div>
     </section>

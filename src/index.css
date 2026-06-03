@@ -90,25 +90,24 @@
     }
   }
 
-  /* Pulsante primario (terracotta) */
+  /* Pulsante primario — squadrato, stile "etichetta/biglietteria" */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-terracotta
-           px-7 py-3 font-medium text-cream shadow-sm transition
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-terracotta
+           px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] text-cream shadow-sm transition
            hover:bg-terracotta-dark hover:shadow-md
            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta
-           active:scale-[0.97];
+           active:scale-[0.98];
     min-height: 44px;
-    /* Impedisce che il testo vada a capo nel bottone */
     white-space: nowrap;
   }
 
-  /* Pulsante secondario (contorno) */
+  /* Pulsante secondario — contorno spesso, squadrato */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/30
-           px-7 py-3 font-medium text-charcoal transition
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-charcoal/40
+           px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] text-charcoal transition
            hover:border-charcoal hover:bg-charcoal hover:text-cream
            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-charcoal/40
-           active:scale-[0.97];
+           active:scale-[0.98];
     min-height: 44px;
     white-space: nowrap;
   }
