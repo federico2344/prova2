@@ -230,7 +230,52 @@ collections:
                       - { name: "price", label: "Prezzo € (lascia vuoto se non applicabile)", widget: "number", required: false, value_type: "float" }
 
   # ---------------------------------------------------------------------------
-  # 5) TEMA DEL SITO (colori e font)
+  # 5) EVENTI & LIVE
+  # ---------------------------------------------------------------------------
+  - name: "events"
+    label: "Eventi & Live"
+    files:
+      - name: "events"
+        label: "Programmazione live"
+        file: "src/content/events.json"
+        fields:
+          - { name: "intro", label: "Testo introduttivo (sezione Live)", widget: "text", required: false }
+          - name: "upcoming"
+            label: "Prossimi live"
+            label_singular: "Evento"
+            widget: "list"
+            collapsed: true
+            summary: "{{day}} {{date}} {{month}} — {{title}}"
+            required: false
+            hint: "Trascina per riordinare. Il primo evento compare anche nella barra in alto e nella home."
+            fields:
+              - { name: "day", label: "Giorno (es. Ven)", widget: "string", required: true }
+              - { name: "date", label: "Numero del giorno (es. 12)", widget: "string", required: true }
+              - { name: "month", label: "Mese (es. Giu)", widget: "string", required: true }
+              - { name: "title", label: "Nome band / serata", widget: "string", required: true }
+              - { name: "genre", label: "Genere o descrizione", widget: "string", required: false }
+              - { name: "time", label: "Orario (es. Live 22:00)", widget: "string", required: false }
+              - name: "poster"
+                label: "Locandina (opzionale)"
+                widget: "image"
+                required: false
+                media_folder: "/public/images/events"
+                public_folder: "/images/events"
+          - name: "posters"
+            label: "Muro di locandine (home)"
+            label_singular: "Locandina"
+            widget: "list"
+            required: false
+            hint: "Le locandine mostrate nella sezione Live della home."
+            field:
+              name: "src"
+              label: "Locandina"
+              widget: "image"
+              media_folder: "/public/images/events"
+              public_folder: "/images/events"
+
+  # ---------------------------------------------------------------------------
+  # 6) TEMA DEL SITO (colori e font)
   # ---------------------------------------------------------------------------
   - name: "theme"
     label: "Tema del sito"

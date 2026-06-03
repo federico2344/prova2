@@ -174,13 +174,14 @@ export default function AdminGuidePage() {
           <h2 id="home">3. La schermata iniziale (home del pannello)</h2>
           <p>
             Quando entri vedi una <strong>card bianca centrata sullo schermo</strong> con il
-            titolo <strong>RACCOLTE</strong> e sotto un elenco di 5 voci:
+            titolo <strong>RACCOLTE</strong> e sotto un elenco di 6 voci:
           </p>
           <ul>
             <li><strong>Informazioni Ristorante</strong> — nome, orari, indirizzo, telefono, foto slideshow, dati aziendali</li>
             <li><strong>Menù</strong> — tutti i piatti suddivisi per categoria (Pizzeria, Cucina, Panini &amp; Sfizi, Dolci, Menù Fissi) e per sezione (Antipasti, Pizze, ecc.)</li>
-            <li><strong>Le anime del locale</strong> — le sezioni Cucina &amp; Pizzeria, Birreria e Live Club</li>
             <li><strong>Birreria &amp; Drink</strong> — birre, cocktail e vini suddivisi per categoria</li>
+            <li><strong>Eventi &amp; Live</strong> — i prossimi concerti e il muro di locandine della home</li>
+            <li><strong>Le anime del locale</strong> — le sezioni Cucina &amp; Pizzeria, Birreria e Live Club</li>
             <li><strong>Tema del sito</strong> — colori e font del sito (con anteprima live)</li>
           </ul>
           <p>
@@ -201,7 +202,7 @@ export default function AdminGuidePage() {
           <p>Dopo che hai cliccato una raccolta, vedi una schermata divisa in tre aree:</p>
           <ul>
             <li>
-              <strong>Sidebar a sinistra</strong>: l'elenco delle 4 raccolte. Da qui passi
+              <strong>Sidebar a sinistra</strong>: l'elenco delle 6 raccolte. Da qui passi
               velocemente da una sezione all'altra senza tornare alla home.
             </li>
             <li>
@@ -343,7 +344,7 @@ export default function AdminGuidePage() {
           {/* ─────────────────────────────────────────────────────────────── */}
           <h2 id="tema">9. Personalizzare colori e font del sito (Tema)</h2>
           <p>
-            Dalla home centrale clicca <strong>"Tema del sito"</strong> (la 5ª voce). Si apre
+            Dalla home centrale clicca <strong>"Tema del sito"</strong> (l'ultima voce). Si apre
             una schermata divisa in due: a sinistra i campi per cambiare colori e font, a
             destra <strong>l'anteprima live</strong> che ti mostra un esempio realistico del
             sito (titolo, descrizione, pizze con prezzi, bottone Prenota, scheda Live Club) che
@@ -658,7 +659,7 @@ export default function AdminGuidePage() {
             <li>
               <strong>Torna alla home</strong>: clicca <strong>"Contenuti"</strong> in alto
               a sinistra del header, oppure la freccia <strong>←</strong> sopra il titolo della
-              sezione corrente. Vedi di nuovo la card centrale con le 4 raccolte.
+              sezione corrente. Vedi di nuovo la card centrale con le 6 raccolte.
             </li>
           </ol>
           <p>

@@ -159,6 +159,47 @@
     to   { transform: scale(1.08); }
   }
 
+  /* Ticker scorrevole dell'header (barra "stasera live") */
+  .marquee {
+    @apply flex overflow-hidden;
+  }
+  .marquee__track {
+    @apply flex shrink-0 items-center gap-10 whitespace-nowrap;
+    padding-right: 2.5rem;
+    animation: marquee 32s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+  }
+
+  /* Pallino "live" pulsante */
+  .live-dot {
+    @apply inline-block h-2 w-2 rounded-full bg-current;
+    animation: livePulse 1.6s ease-in-out infinite;
+  }
+  @keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.35; transform: scale(0.8); }
+  }
+
+  /* Scorrimento orizzontale "a binario" (menu strip, poster wall) */
+  .rail {
+    @apply flex gap-5 overflow-x-auto pb-4;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .rail > * {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+
   /* Scroll orizzontale fluido per tab su mobile */
   .tabs-scroll {
     @apply flex gap-3 overflow-x-auto pb-2;

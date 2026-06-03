@@ -1,0 +1,38 @@
+{
+  "intro": "Ogni weekend musica dal vivo: tribute band, rock, blues e rockabilly. Si cena dalle 20:00, si suona dalle 22:00. Ingresso con consumazione — consigliata la prenotazione.",
+  "upcoming": [
+    {
+      "day": "Ven",
+      "date": "5",
+      "month": "Giu",
+      "title": "Fattore S",
+      "genre": "883 / Max Pezzali Tribute",
+      "time": "Live 21:30",
+      "poster": "/images/events/poster-3.jpg"
+    },
+    {
+      "day": "Sab",
+      "date": "6",
+      "month": "Giu",
+      "title": "I Disonesti",
+      "genre": "Cover Negrita, Vasco, Zucchero…",
+      "time": "Live 22:00",
+      "poster": "/images/events/poster-4.jpg"
+    },
+    {
+      "day": "Ven",
+      "date": "12",
+      "month": "Giu",
+      "title": "QueenAedo",
+      "genre": "Queen Tribute Band",
+      "time": "Live 22:00",
+      "poster": "/images/events/poster-1.jpg"
+    }
+  ],
+  "posters": [
+    "/images/events/poster-1.jpg",
+    "/images/events/poster-2.jpg",
+    "/images/events/poster-3.jpg",
+    "/images/events/poster-4.jpg"
+  ]
+}
