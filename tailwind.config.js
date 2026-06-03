@@ -40,7 +40,8 @@ export default {
       },
 
       fontFamily: {
-        display: ['var(--font-display)', 'serif'],
+        impact:  ['Anton', 'Oswald', 'Impact', 'sans-serif'], // H1/H2, nav, bottoni
+        display: ['var(--font-display)', 'serif'],             // H3, sottotitoli (Bitter)
         body:    ['var(--font-body)', 'system-ui', 'sans-serif'],
       },
 

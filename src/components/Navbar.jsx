@@ -27,7 +27,7 @@ export default function Navbar() {
   const booking = telLink(restaurant.phone)
 
   const linkClass = ({ isActive }) =>
-    `text-sm font-semibold uppercase tracking-wide transition hover:text-gold ${
+    `font-impact text-base uppercase tracking-wide transition hover:text-gold ${
       isActive ? 'text-gold' : 'text-cream/85'
     }`
 
@@ -36,18 +36,6 @@ export default function Navbar() {
       className="fixed inset-x-0 top-0 z-50 shadow-lg"
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
-      {/* Riga info — sottile, sopra l'asse in legno */}
-      <div className="wood border-b border-black/30 text-cream/85">
-        <div className="container-x flex h-8 items-center justify-between text-[0.72rem] sm:text-xs">
-          <span className="truncate">{restaurant.address.street} · {restaurant.address.city}</span>
-          <span className="hidden items-center gap-4 sm:flex">
-            <span className="text-cream/60">Cena dalle 20:00</span>
-            <a href={booking} className="font-semibold text-gold hover:underline">{restaurant.phone}</a>
-          </span>
-          <a href={booking} className="font-semibold text-gold hover:underline sm:hidden">{restaurant.phone}</a>
-        </div>
-      </div>
-
       {/* Asse principale in legno */}
       <div className="wood">
         <nav className="container-x flex h-24 items-center justify-between md:h-28">
@@ -59,10 +47,10 @@ export default function Navbar() {
             {links.map((l) => (
               <NavLink key={l.to} to={l.to} className={linkClass}>{l.label}</NavLink>
             ))}
-            <Link to="/#eventi" className="text-sm font-semibold uppercase tracking-wide text-cream/85 transition hover:text-gold">
+            <Link to="/#eventi" className="font-impact text-base uppercase tracking-wide text-cream/85 transition hover:text-gold">
               Eventi
             </Link>
-            <a href={booking} className="btn-primary py-2 text-sm">Prenota</a>
+            <a href={booking} className="btn-primary py-2">Prenota</a>
           </div>
 
           <button
@@ -97,7 +85,7 @@ export default function Navbar() {
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `rounded-lg px-3 py-3.5 text-base font-semibold uppercase tracking-wide transition active:bg-black/20 ${
+                `rounded-lg px-3 py-3.5 font-impact text-lg uppercase tracking-wide transition active:bg-black/20 ${
                   isActive ? 'text-gold' : 'text-cream/90 hover:bg-black/15'
                 }`
               }
@@ -105,7 +93,7 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <Link to="/#eventi" className="rounded-lg px-3 py-3.5 text-base font-semibold uppercase tracking-wide text-cream/90 transition hover:bg-black/15 active:bg-black/20">
+          <Link to="/#eventi" className="rounded-lg px-3 py-3.5 font-impact text-lg uppercase tracking-wide text-cream/90 transition hover:bg-black/15 active:bg-black/20">
             Eventi
           </Link>
           <a href={booking} className="btn-primary mt-3 justify-center gap-2 text-base">

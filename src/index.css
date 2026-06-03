@@ -38,10 +38,27 @@
     background-attachment: fixed;
   }
 
-  h1, h2, h3 {
-    @apply font-display;
-    /* Evita il word-break su titoli lunghi su schermi piccoli */
+  /* Titoli d'impatto (Anton) per H1/H2; gli H3 restano sullo slab caldo (Bitter) */
+  h1, h2 {
+    @apply font-impact uppercase;
+    letter-spacing: 0.01em;
     overflow-wrap: break-word;
+  }
+  h3 {
+    @apply font-display;
+    overflow-wrap: break-word;
+  }
+
+  /* Grana "carta da locandina" su tutto: SVG inline, ~4.5%, non intercetta i click */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   /* Tap highlight rimosso — usiamo i nostri stili di focus */
@@ -90,28 +107,31 @@
     }
   }
 
-  /* Pulsante primario — bordeaux con sottile filo ambra (come le lettere dell'insegna) */
+  /* Pulsante primario — ambra/birra (faro da palco) con ombra solida da locandina */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-terracotta
-           px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] text-cream shadow-sm
-           ring-1 ring-inset ring-gold/30 transition
-           hover:bg-terracotta-dark hover:shadow-md
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta
-           active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-none bg-gold
+           px-7 py-3 font-impact text-sm uppercase tracking-[0.08em] text-ink;
+    box-shadow: 4px 4px 0 0 rgb(var(--c-brand));
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
     min-height: 44px;
     white-space: nowrap;
   }
+  .btn-primary:hover  { transform: translate(-2px, -2px) rotate(-0.5deg); box-shadow: 7px 7px 0 0 rgb(var(--c-brand)); }
+  .btn-primary:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 rgb(var(--c-brand)); }
+  .btn-primary:focus-visible { @apply outline-2 outline-offset-2 outline-terracotta; }
 
-  /* Pulsante secondario — contorno spesso, squadrato */
+  /* Pulsante secondario — gemello del primario: bordeaux pieno con ombra solida ambra */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-charcoal/40
-           px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] text-charcoal transition
-           hover:border-charcoal hover:bg-charcoal hover:text-cream
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-charcoal/40
-           active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-none bg-terracotta
+           px-7 py-3 font-impact text-sm uppercase tracking-[0.08em] text-cream;
+    box-shadow: 4px 4px 0 0 rgb(var(--c-gold));
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
     min-height: 44px;
     white-space: nowrap;
   }
+  .btn-secondary:hover  { transform: translate(-2px, -2px) rotate(-0.5deg); box-shadow: 7px 7px 0 0 rgb(var(--c-gold)); }
+  .btn-secondary:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 rgb(var(--c-gold)); }
+  .btn-secondary:focus-visible { @apply outline-2 outline-offset-2 outline-terracotta; }
 
   /* Etichetta sopra i titoli di sezione */
   .eyebrow {
@@ -143,25 +163,25 @@
     transform: translateY(-0.28em);
   }
 
-  /* Effetto legno (noce) modernizzato: assi verticali con fuga + highlight,
-     alternanza di tono tra le assi, venatura orizzontale fine e riflesso dall'alto. */
+  /* Legno vero: foto in cover + velo scuro leggero per tenere il testo leggibile */
   .wood {
     background-color: #34211a;
     background-image:
-      /* riflesso morbido dall'alto + ombra in basso (profondità) */
-      linear-gradient(180deg, rgba(255, 221, 170, 0.09), rgba(0, 0, 0, 0.30)),
-      /* fughe tra le assi: linea scura + sottile highlight chiaro */
-      repeating-linear-gradient(90deg,
-        rgba(0, 0, 0, 0.36) 0 1px,
-        rgba(255, 236, 200, 0.06) 1px 2px,
-        transparent 2px 90px),
-      /* alternanza calda di tono tra un'asse e l'altra */
-      repeating-linear-gradient(90deg,
-        rgba(150, 95, 55, 0.10) 0 90px,
-        rgba(90, 58, 36, 0.14) 90px 180px),
-      /* venatura orizzontale fine */
-      repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0 1px, transparent 1px 6px);
+      linear-gradient(rgba(26, 15, 10, 0.45), rgba(26, 15, 10, 0.45)),
+      url("/images/general/wood.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
+
+  /* Titolo "al neon" — bagliore caldo soft (usare su bande di legno) */
+  .text-neon {
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.35), 0 0 12px rgba(200, 144, 47, 0.35);
+  }
+
+  /* Card "biglietto del concerto": angoli asimmetrici + micro-rotazione alternata */
+  .ticket { border-radius: 16px 5px 16px 5px; transform: rotate(-0.6deg); }
+  .ticket:nth-child(even) { border-radius: 5px 16px 5px 16px; transform: rotate(0.6deg); }
 }
 
 @layer utilities {

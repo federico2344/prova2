@@ -38,7 +38,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-gold">Dal forno a legna</p>
-                <h2 className="font-display text-3xl font-bold sm:text-4xl">Le pizze che ci somigliano</h2>
+                <h2 className="text-neon text-3xl sm:text-4xl">Le pizze che ci somigliano</h2>
               </div>
               <Link to="/menu" className="text-sm font-semibold uppercase tracking-wide text-gold hover:underline">
                 Tutto il menù →
@@ -56,7 +56,6 @@ export default function HomePage() {
                 </article>
               ))}
             </div>
-            <p className="mt-2 text-xs uppercase tracking-widest text-cream/40">← scorri →</p>
           </div>
         </section>
       )}
@@ -66,7 +65,7 @@ export default function HomePage() {
         <div className="container-x grid items-center gap-10 md:grid-cols-2 md:gap-14">
           <Reveal className="order-2 md:order-1">
             <span className="stamp">Al bancone</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-charcoal sm:text-4xl">Birreria &amp; Mixology</h2>
+            <h2 className="mt-4 text-3xl text-charcoal sm:text-4xl">Birreria &amp; Mixology</h2>
             <p className="mt-4 max-w-md text-charcoal/75">
               Le migliori birre alla spina sempre in rotazione, oltre trenta artigianali in
               bottiglia, cocktail e una scelta di whisky, rum e distillati.
@@ -89,7 +88,7 @@ export default function HomePage() {
         <div className="container-x">
           <Reveal className="max-w-2xl">
             <span className="stamp">Tutto in un posto solo</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-charcoal sm:text-4xl">Le anime del Locanda</h2>
+            <h2 className="mt-4 text-3xl text-charcoal sm:text-4xl">Le anime del Locanda</h2>
           </Reveal>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {team.map((person, i) => (
@@ -125,14 +124,14 @@ export default function HomePage() {
           <div className="container-x">
             <Reveal className="max-w-2xl">
               <span className="stamp-blue">Sul palco</span>
-              <h2 className="mt-4 font-display text-3xl font-bold text-charcoal sm:text-4xl">Musica dal vivo</h2>
+              <h2 className="mt-4 text-3xl text-charcoal sm:text-4xl">Musica dal vivo</h2>
               <p className="mt-4 text-charcoal/75">{events.intro}</p>
             </Reveal>
 
             {upcoming.length > 0 && (
               <ul className="mt-10 grid gap-3 sm:grid-cols-3">
                 {upcoming.map((ev) => (
-                  <li key={ev.title} className="flex items-center gap-4 rounded-xl border border-charcoal/10 bg-panel p-4">
+                  <li key={ev.title} className="ticket flex items-center gap-4 border border-charcoal/10 bg-panel p-4 shadow-sm">
                     <div className="flex w-12 shrink-0 flex-col items-center rounded-lg bg-blues/10 py-1.5 text-blues">
                       <span className="text-[0.65rem] font-semibold uppercase leading-none">{ev.day}</span>
                       <span className="font-display text-xl font-bold leading-none">{ev.date}</span>
@@ -168,10 +167,10 @@ export default function HomePage() {
       <section className="bg-terracotta py-16 text-cream">
         <div className="container-x flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
           <div>
-            <h2 className="font-display text-3xl font-bold">Cena, birra e live</h2>
+            <h2 className="text-3xl">Cena, birra e live</h2>
             <p className="mt-2 text-cream/85">{restaurant.address.street}, {restaurant.address.city} · Roma Nord</p>
           </div>
-          <a href={telLink(restaurant.phone)} className="btn-secondary border-cream/50 text-cream hover:bg-cream hover:text-terracotta">
+          <a href={telLink(restaurant.phone)} className="btn-primary">
             Chiama per prenotare
           </a>
         </div>
