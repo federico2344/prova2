@@ -182,6 +182,11 @@
   /* Card "biglietto del concerto": angoli asimmetrici + micro-rotazione alternata */
   .ticket { border-radius: 16px 5px 16px 5px; transform: rotate(-0.6deg); }
   .ticket:nth-child(even) { border-radius: 5px 16px 5px 16px; transform: rotate(0.6deg); }
+
+  /* Tagli diagonali tra le sezioni (al posto delle linee dritte e nette) */
+  .slant-t  { clip-path: polygon(0 2.5vw, 100% 0, 100% 100%, 0 100%); }
+  .slant-b  { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5vw), 0 100%); }
+  .slant-tb { clip-path: polygon(0 2.5vw, 100% 0, 100% calc(100% - 2.5vw), 0 100%); }
 }
 
 @layer utilities {

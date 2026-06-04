@@ -6,7 +6,7 @@ media_folder: "public/images"
 public_folder: "/images"
 
 locale: "it"
-logo_url: /images/general/logo.jpg
+logo_url: /images/general/logo-nav.png
 
 collections:
 
@@ -25,10 +25,10 @@ collections:
           - { name: "intro", label: "Testo introduttivo (home)", widget: "text", required: true }
           - { name: "phone", label: "Telefono (es. +39 06 3031 0097)", widget: "string", required: true }
           - name: "email"
-            label: "Email"
+            label: "Email (opzionale)"
             widget: "string"
-            required: true
-            pattern: ['^[^\s@]+@[^\s@]+\.[^\s@]+$', "Inserire un'email valida (es. info@ristorante.it)"]
+            required: false
+            pattern: ['^$|^[^\s@]+@[^\s@]+\.[^\s@]+$', "Lascia vuoto o inserisci un'email valida"]
           - name: "address"
             label: "Indirizzo"
             widget: "object"
@@ -50,9 +50,9 @@ collections:
             summary: "{{day}}"
             min: 1
             fields:
-              - { name: "day", label: "Giorni (es. Martedì – Sabato)", widget: "string", required: true }
-              - { name: "lunch", label: "Orario pranzo (es. 13:00 – 14:45)", widget: "string", required: false }
-              - { name: "dinner", label: "Orario cena (es. 20:00 – 22:30)", widget: "string", required: false }
+              - { name: "day", label: "Giorni (es. Martedì – Domenica)", widget: "string", required: true }
+              - { name: "lunch", label: "Orario pranzo (opzionale, es. 12:30 – 15:00)", widget: "string", required: false }
+              - { name: "dinner", label: "Orario serale (es. 19:00 – 02:30)", widget: "string", required: false }
               - { name: "closed", label: "Giorno di chiusura", widget: "boolean", default: false, required: false }
           - name: "social"
             label: "Social"
@@ -69,11 +69,6 @@ collections:
                 widget: "string"
                 required: false
                 pattern: ['^https://(www\.)?facebook\.com/.+', "Deve essere un link Facebook (es. https://www.facebook.com/locandablues)"]
-              - name: "tripadvisor"
-                label: "Link Tripadvisor"
-                widget: "string"
-                required: false
-                pattern: ['^https://(www\.)?tripadvisor\.(it|com)/.+', "Deve essere un link Tripadvisor"]
           - name: "legal"
             label: "Dati aziendali (obbligo di legge)"
             widget: "object"
@@ -145,7 +140,7 @@ collections:
                     fields:
                       - { name: "name", label: "Nome piatto", widget: "string", required: true }
                       - { name: "description", label: "Descrizione", widget: "text", required: false }
-                      - { name: "price", label: "Prezzo € (lascia vuoto se incluso nel degustazione)", widget: "number", required: false, value_type: "float" }
+                      - { name: "price", label: "Prezzo € (lascia vuoto se incluso nel menù fisso)", widget: "number", required: false, value_type: "float" }
 
   # ---------------------------------------------------------------------------
   # 3) TEAM
@@ -154,28 +149,53 @@ collections:
     label: "Le anime del locale"
     files:
       - name: "team"
-        label: "Persone"
+        label: "Le anime del locale"
         file: "src/content/team.json"
         fields:
           - name: "people"
-            label: "Membri del team"
-            label_singular: "Persona"
+            label: "Sezioni"
+            label_singular: "Sezione"
             widget: "list"
             collapsed: true
             summary: "{{name}} — {{role}}"
             hint: "Trascina per riordinare. L'ordine qui = l'ordine sulla pagina del sito."
             min: 1
             fields:
-              - { name: "role", label: "Ruolo (es. Cucina & Pizzeria)", widget: "string", required: true }
-              - { name: "name", label: "Nome e cognome", widget: "string", required: true }
-              - { name: "text", label: "Biografia", widget: "text", required: true }
+              - { name: "role", label: "Etichetta (es. Cucina & Pizzeria)", widget: "string", required: true }
+              - { name: "name", label: "Titolo (es. Il Forno a Legna)", widget: "string", required: true }
+              - { name: "text", label: "Descrizione", widget: "text", required: true }
               - name: "photo"
                 label: "Foto"
                 widget: "image"
                 required: false
-                hint: "Consigliato: foto verticale del volto, ben illuminata."
+                hint: "Consigliato: foto rappresentativa, ben illuminata."
                 media_folder: "/public/images/team"
                 public_folder: "/images/team"
+
+  # ---------------------------------------------------------------------------
+  # INTRATTENIMENTI & SPAZI (mostrati nella pagina "Il Locale")
+  # ---------------------------------------------------------------------------
+  - name: "venue"
+    label: "Intrattenimenti & Spazi"
+    files:
+      - name: "venue"
+        label: "Spazi del locale"
+        file: "src/content/venue.json"
+        fields:
+          - { name: "eyebrow", label: "Etichetta (timbro)", widget: "string", required: false }
+          - { name: "title", label: "Titolo della sezione", widget: "string", required: false }
+          - { name: "intro", label: "Testo introduttivo", widget: "text", required: false }
+          - name: "spaces"
+            label: "Spazi"
+            label_singular: "Spazio"
+            widget: "list"
+            collapsed: true
+            summary: "{{title}}"
+            min: 1
+            fields:
+              - { name: "title", label: "Titolo (es. Live Club)", widget: "string", required: true }
+              - { name: "text", label: "Descrizione", widget: "text", required: true }
+              - { name: "link", label: "Link (opzionale, es. pagina Facebook)", widget: "string", required: false, pattern: ['^$|^https?://.+', "Lascia vuoto o inserisci un link che inizia con http"] }
 
   # ---------------------------------------------------------------------------
   # 4) CARTA DEI VINI
@@ -275,7 +295,62 @@ collections:
               public_folder: "/images/events"
 
   # ---------------------------------------------------------------------------
-  # 6) TEMA DEL SITO (colori e font)
+  # TESTI DELLA HOME (titoli e frasi delle sezioni della homepage)
+  # ---------------------------------------------------------------------------
+  - name: "hometext"
+    label: "Testi della Home"
+    files:
+      - name: "home"
+        label: "Titoli e testi delle sezioni"
+        file: "src/content/home.json"
+        fields:
+          - name: "hero"
+            label: "Hero (prima schermata)"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetta sopra il titolo", widget: "string", required: false }
+              - { name: "lead", label: "Frase descrittiva", widget: "text", required: false }
+              - { name: "hoursLine", label: "Riga orari (es. Aperti dalle 19:00)", widget: "string", required: false }
+          - name: "manifesto"
+            label: "Manifesto (sotto la hero)"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetta", widget: "string", required: false }
+              - { name: "title", label: "Frase principale", widget: "text", required: false }
+              - { name: "tags", label: "Riga con i puntini (es. Forno a legna · Birre alla spina · Live)", widget: "string", required: false }
+          - name: "pizze"
+            label: "Sezione Pizze (dal forno a legna)"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetta", widget: "string", required: false }
+              - { name: "title", label: "Titolo", widget: "string", required: false }
+          - name: "birreria"
+            label: "Sezione Birreria"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetta", widget: "string", required: false }
+              - { name: "title", label: "Titolo", widget: "string", required: false }
+              - { name: "text", label: "Testo", widget: "text", required: false }
+          - name: "anime"
+            label: "Sezione Le anime del locale"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetta", widget: "string", required: false }
+              - { name: "title", label: "Titolo", widget: "string", required: false }
+          - name: "eventi"
+            label: "Sezione Musica dal vivo"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetta", widget: "string", required: false }
+              - { name: "title", label: "Titolo", widget: "string", required: false }
+          - name: "cta"
+            label: "Fascia finale (CTA)"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titolo", widget: "string", required: false }
+
+  # ---------------------------------------------------------------------------
+  # TEMA DEL SITO (colori e font)
   # ---------------------------------------------------------------------------
   - name: "theme"
     label: "Tema del sito"

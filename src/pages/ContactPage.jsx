@@ -84,9 +84,13 @@ export default function ContactPage() {
                     </span>
                   ) : (
                     <span className="text-right text-sm text-charcoal/75">
-                      Pranzo {h.lunch}
-                      <br />
-                      Cena {h.dinner}
+                      {h.lunch && (
+                        <>
+                          Pranzo {h.lunch}
+                          <br />
+                        </>
+                      )}
+                      {h.dinner && (h.lunch ? `Cena ${h.dinner}` : h.dinner)}
                     </span>
                   )}
                 </li>

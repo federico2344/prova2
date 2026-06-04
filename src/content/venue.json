@@ -1,0 +1,13 @@
+{
+  "eyebrow": "Intrattenimenti",
+  "title": "Spazi & divertimento",
+  "intro": "Non solo cucina e birra: la Locanda è musica dal vivo e tanti spazi per ogni occasione.",
+  "spaces": [
+    { "title": "Live Club", "text": "Concerti, tribute band e serate rock, blues e rockabilly: musica dal vivo ogni weekend, si suona dalle 22:00.", "link": "" },
+    { "title": "Studio 12.84", "text": "La nostra sala prove e studio di registrazione, per band e musicisti.", "link": "https://www.facebook.com/studio12.84salaprove" },
+    { "title": "Vineria", "text": "Una sala riservata e accogliente per cene e feste private.", "link": "" },
+    { "title": "Sala Chalet", "text": "Uno spazio privato per eventi, compleanni e celebrazioni.", "link": "" },
+    { "title": "Calcio Balilla", "text": "Il mitico biliardino e i giochi del locale, tra un set e l'altro.", "link": "" },
+    { "title": "Giardino Estivo", "text": "Nei mesi caldi, tavoli e bar all'aperto nel Parco di Veio, con vista fino ai monti di Rieti.", "link": "" }
+  ]
+}

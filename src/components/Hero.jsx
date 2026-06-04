@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { restaurant } from '../data/siteData.js'
+import { restaurant, home } from '../data/siteData.js'
 import { telLink } from '../lib/utils.js'
 
 export default function Hero() {
@@ -12,13 +12,12 @@ export default function Hero() {
         {/* Testo */}
         <div className="order-2 md:order-1">
           <h1 className="sr-only">Locanda Blues — Risto-Pub & Live Music, Roma</h1>
-          <span className="stamp">Risto-Pub · Pizzeria · Birreria</span>
+          <span className="stamp">{home.hero.eyebrow}</span>
           <p className="mt-5 font-impact text-4xl uppercase leading-[1.02] text-charcoal sm:text-5xl md:text-6xl">
             {restaurant.tagline}
           </p>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-charcoal/75">
-            Pizza al forno a legna, hamburger fatti in casa, le migliori birre alla spina
-            e musica dal vivo nel weekend.
+            {home.hero.lead}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -32,7 +31,7 @@ export default function Hero() {
           </div>
 
           <p className="mt-7 text-sm text-charcoal/60">
-            {restaurant.address.street}, {restaurant.address.city} · Cena dalle 20:00
+            {restaurant.address.street}, {restaurant.address.city} · {home.hero.hoursLine}
           </p>
         </div>
 

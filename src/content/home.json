@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "eyebrow": "Risto-Pub · Pizzeria · Birreria",
+    "lead": "Pizza al forno a legna, hamburger fatti in casa, le migliori birre alla spina e musica dal vivo nel weekend.",
+    "hoursLine": "Aperti dalle 19:00"
+  },
+  "manifesto": {
+    "eyebrow": "La Locanda",
+    "title": "Una locanda dove si mangia, si beve e si suona.",
+    "tags": "Forno a legna · Birre alla spina · Live nel weekend"
+  },
+  "pizze": {
+    "eyebrow": "Dal forno a legna",
+    "title": "Le pizze che ci somigliano"
+  },
+  "birreria": {
+    "eyebrow": "Al bancone",
+    "title": "Birreria & Mixology",
+    "text": "Le migliori birre alla spina sempre in rotazione, oltre trenta artigianali in bottiglia, cocktail e una scelta di whisky, rum e distillati."
+  },
+  "anime": {
+    "eyebrow": "Tutto in un posto solo",
+    "title": "Le anime del Locanda"
+  },
+  "eventi": {
+    "eyebrow": "Sul palco",
+    "title": "Musica dal vivo"
+  },
+  "cta": {
+    "title": "Cena, birra e live"
+  }
+}

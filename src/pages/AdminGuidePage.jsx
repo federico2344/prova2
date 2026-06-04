@@ -70,6 +70,9 @@ export default function AdminGuidePage() {
             <li><a href="#trovare" className="text-terracotta hover:underline">13. Trovare velocemente un piatto o vino</a></li>
             <li><a href="#errori" className="text-terracotta hover:underline">14. Errori comuni e come risolverli</a></li>
             <li><a href="#sicurezza" className="text-terracotta hover:underline">15. Sicurezza e buone abitudini</a></li>
+            <li><a href="#eventi-cms" className="text-terracotta hover:underline">16. Gestire Eventi &amp; Live</a></li>
+            <li><a href="#spazi-cms" className="text-terracotta hover:underline">17. Gestire Intrattenimenti &amp; Spazi</a></li>
+            <li><a href="#testi-cms" className="text-terracotta hover:underline">18. Modificare i Testi della Home</a></li>
           </ul>
         </nav>
 
@@ -174,7 +177,7 @@ export default function AdminGuidePage() {
           <h2 id="home">3. La schermata iniziale (home del pannello)</h2>
           <p>
             Quando entri vedi una <strong>card bianca centrata sullo schermo</strong> con il
-            titolo <strong>RACCOLTE</strong> e sotto un elenco di 6 voci:
+            titolo <strong>RACCOLTE</strong> e sotto un elenco di 8 voci:
           </p>
           <ul>
             <li><strong>Informazioni Ristorante</strong> — nome, orari, indirizzo, telefono, foto slideshow, dati aziendali</li>
@@ -182,6 +185,8 @@ export default function AdminGuidePage() {
             <li><strong>Birreria &amp; Drink</strong> — birre, cocktail e vini suddivisi per categoria</li>
             <li><strong>Eventi &amp; Live</strong> — i prossimi concerti e il muro di locandine della home</li>
             <li><strong>Le anime del locale</strong> — le sezioni Cucina &amp; Pizzeria, Birreria e Live Club</li>
+            <li><strong>Intrattenimenti &amp; Spazi</strong> — gli spazi del locale (Live Club, Studio 12.84, Vineria, Sala Chalet, Calcio Balilla, Giardino) mostrati in "Il Locale"</li>
+            <li><strong>Testi della Home</strong> — titoli e frasi delle sezioni della homepage (manifesto, pizze, birreria, ecc.)</li>
             <li><strong>Tema del sito</strong> — colori e font del sito (con anteprima live)</li>
           </ul>
           <p>
@@ -202,7 +207,7 @@ export default function AdminGuidePage() {
           <p>Dopo che hai cliccato una raccolta, vedi una schermata divisa in tre aree:</p>
           <ul>
             <li>
-              <strong>Sidebar a sinistra</strong>: l'elenco delle 6 raccolte. Da qui passi
+              <strong>Sidebar a sinistra</strong>: l'elenco delle 8 raccolte. Da qui passi
               velocemente da una sezione all'altra senza tornare alla home.
             </li>
             <li>
@@ -659,7 +664,7 @@ export default function AdminGuidePage() {
             <li>
               <strong>Torna alla home</strong>: clicca <strong>"Contenuti"</strong> in alto
               a sinistra del header, oppure la freccia <strong>←</strong> sopra il titolo della
-              sezione corrente. Vedi di nuovo la card centrale con le 6 raccolte.
+              sezione corrente. Vedi di nuovo la card centrale con le 8 raccolte.
             </li>
           </ol>
           <p>
@@ -809,6 +814,56 @@ export default function AdminGuidePage() {
               In questo modo hai sempre un confronto se qualcosa non torna.
             </li>
           </ul>
+
+          {/* ─────────────────────────────────────────────────────────────── */}
+          <h2 id="eventi-cms">16. Gestire Eventi &amp; Live</h2>
+          <p>
+            Dalla home clicca <strong>"Eventi &amp; Live"</strong>. Da qui gestisci i concerti e le
+            locandine mostrati sul sito:
+          </p>
+          <ul>
+            <li><strong>Testo introduttivo</strong>: la frase sotto il titolo "Musica dal vivo".</li>
+            <li>
+              <strong>Prossimi live</strong>: l'elenco dei concerti. Per ognuno compili
+              <strong> Giorno</strong> (es. "Ven"), <strong>Numero del giorno</strong> (es. "12"),
+              <strong> Mese</strong> (es. "Giu"), <strong>Nome band/serata</strong>,
+              <strong> Genere</strong>, <strong>Orario</strong> (es. "Live 22:00") e una
+              <strong> Locandina</strong> (foto, opzionale). Trascina per riordinare.
+            </li>
+            <li>
+              <strong>Muro di locandine</strong>: le immagini delle locandine mostrate in fondo alla
+              sezione Live della home. Aggiungile/riordinale come le foto dello slideshow.
+            </li>
+          </ul>
+
+          {/* ─────────────────────────────────────────────────────────────── */}
+          <h2 id="spazi-cms">17. Gestire Intrattenimenti &amp; Spazi</h2>
+          <p>
+            Dalla home clicca <strong>"Intrattenimenti &amp; Spazi"</strong>. Sono gli spazi mostrati
+            nella pagina <strong>"Il Locale"</strong> (Live Club, Studio 12.84, Vineria, Sala Chalet,
+            Calcio Balilla, Giardino). Puoi modificare:
+          </p>
+          <ul>
+            <li><strong>Etichetta</strong> e <strong>Titolo</strong> della sezione, più un <strong>Testo introduttivo</strong>.</li>
+            <li>
+              L'elenco degli <strong>Spazi</strong>: per ognuno <strong>Titolo</strong>,
+              <strong> Descrizione</strong> e un <strong>Link</strong> opzionale (es. la pagina
+              Facebook dello Studio 12.84). <strong>Se inserisci il link, la card diventa cliccabile</strong>;
+              se lo lasci vuoto resta solo informativa.
+            </li>
+          </ul>
+
+          {/* ─────────────────────────────────────────────────────────────── */}
+          <h2 id="testi-cms">18. Modificare i Testi della Home</h2>
+          <p>
+            Dalla home clicca <strong>"Testi della Home"</strong>. Qui cambi <strong>titoli e frasi</strong>
+            delle sezioni della pagina iniziale <strong>senza toccare il codice</strong>. Ogni gruppo ha i suoi campi:
+          </p>
+          <ul>
+            <li><strong>Hero</strong> (prima schermata): etichetta, frase descrittiva, riga orari.</li>
+            <li><strong>Manifesto</strong>, <strong>Pizze</strong>, <strong>Birreria</strong>, <strong>Le anime</strong>, <strong>Musica dal vivo</strong>, <strong>Fascia finale</strong>: etichetta e titolo (e, dove presente, il testo).</li>
+          </ul>
+          <p>Scrivi nei campi, poi <strong>Salva</strong> e <strong>Pubblica</strong>: il sito si aggiorna in 1-2 minuti.</p>
 
           <p className="text-sm text-charcoal/60 mt-12 border-t border-blush pt-6">
             Hai trovato qualcosa di poco chiaro in questa guida? Segnalalo all'amministratore

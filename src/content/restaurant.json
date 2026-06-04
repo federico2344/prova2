@@ -10,12 +10,13 @@
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Locanda+Blues+Via+Cassia+1284+Roma"
   },
   "hours": [
-    { "day": "Martedì – Venerdì", "dinner": "19:30 – 00:30" },
-    { "day": "Sabato", "lunch": "12:30 – 15:00", "dinner": "19:30 – 01:00" },
-    { "day": "Domenica", "lunch": "12:30 – 15:00", "dinner": "19:30 – 00:00" },
+    { "day": "Martedì – Domenica", "dinner": "19:00 – 02:30" },
     { "day": "Lunedì", "closed": true }
   ],
-  "social": {},
+  "social": {
+    "instagram": "https://www.instagram.com/locanda_blues",
+    "facebook": "https://www.facebook.com/share/1Aw3DtuC6R/"
+  },
   "heroSlides": [
     "/images/hero/slide-1.jpg",
     "/images/hero/slide-2.jpg",
@@ -26,8 +27,8 @@
   "whatsappNumber": "390630310097",
   "whatsappMessage": "Ciao Locanda Blues, vorrei prenotare un tavolo per ... persone, in data ... alle ore ...",
   "legal": {
-    "companyName": "",
-    "vatNumber": "",
+    "companyName": "Locanda Blues Live Club e Risto-Pub",
+    "vatNumber": "11646141009",
     "fiscalCode": "",
     "legalAddress": "",
     "pec": ""
