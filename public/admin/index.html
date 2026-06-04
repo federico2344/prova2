@@ -487,18 +487,31 @@
             display: flex !important;
             justify-content: center !important;
             align-items: flex-start !important;
-            padding: 40px 24px 56px !important;
+            padding: 28px 24px 40px !important;
             height: calc(100vh - 52px) !important;
             overflow-y: auto !important;
             background: var(--bg) !important;
           }
           html body.admin-home [class*="CollectionTop"]:not([class*="Container"]),
           html body.admin-home [class*="SidebarContainer"] {
-            width: min(520px, 92vw) !important;
+            width: min(780px, 94vw) !important;
             max-width: none !important;
-            padding: 36px 28px !important;
+            padding: 32px 32px !important;
             border-radius: 18px !important;
             box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04) !important;
+          }
+          /* Voci delle raccolte su 2 colonne: la card sta tutta nello schermo */
+          html body.admin-home [class*="SidebarNavList"],
+          html body.admin-home [class*="SidebarContainer"] nav,
+          html body.admin-home [class*="SidebarContainer"] ul,
+          html body.admin-home [class*="CollectionTop"]:not([class*="Container"]) nav,
+          html body.admin-home [class*="CollectionTop"]:not([class*="Container"]) ul {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 8px !important;
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
           }
           html body.admin-home [class*="CollectionTop"] h2,
           html body.admin-home [class*="Sidebar"] h2 {
@@ -511,9 +524,9 @@
           html body.admin-home [class*="NavLink"],
           html body.admin-home [class*="CollectionListItem"],
           html body.admin-home a[class*="SidebarNavLink"] {
-            font-size: 17px !important;
-            padding: 16px 20px !important;
-            margin: 4px 0 !important;
+            font-size: 15px !important;
+            padding: 13px 16px !important;
+            margin: 0 !important;
             border-radius: 12px !important;
           }
 
