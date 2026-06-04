@@ -21,10 +21,10 @@ export default function HomePage() {
       <Hero />
 
       {/* Manifesto — asimmetrico, allineato a sinistra, parola gigante sbiadita dietro */}
-      <section className="relative overflow-hidden bg-cream py-20 md:py-28">
+      <section className="relative overflow-hidden bg-cream py-14 md:py-24">
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none font-impact uppercase leading-none text-terracotta/[0.06] text-[40vw] md:text-[20rem]"
+          className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none font-impact uppercase leading-none text-terracotta/[0.05] text-[30vw] md:text-[18rem]"
         >
           Blues
         </span>
@@ -44,7 +44,7 @@ export default function HomePage() {
 
       {/* Pizze — banda di legno full-width, taglio diagonale, carte sfalsate */}
       {signatures.length > 0 && (
-        <section className="wood slant-tb py-24 text-cream md:py-28">
+        <section className="wood slant-tb py-16 text-cream md:py-28">
           <div className="container-x">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
@@ -77,18 +77,18 @@ export default function HomePage() {
       )}
 
       {/* Birreria — asimmetrica: foto grande disassata + card testo che la sovrappone */}
-      <section className="bg-cream py-24 md:py-28">
+      <section className="bg-cream py-16 md:py-28">
         <div className="container-x">
-          <div className="grid items-center gap-8 md:grid-cols-12">
+          <div className="grid items-center gap-6 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-7 md:col-start-6 md:row-start-1">
               <img
                 src="/images/hero/slide-4.jpg"
                 alt="Le birre alla spina del Locanda Blues"
-                className="h-72 w-full rounded-2xl object-cover shadow-2xl ring-1 ring-charcoal/10 sm:h-96 md:h-[30rem]"
+                className="h-64 w-full rounded-2xl object-cover shadow-2xl ring-1 ring-charcoal/10 sm:h-96 md:h-[30rem]"
                 loading="lazy"
               />
             </div>
-            <div className="relative z-10 -mt-10 rotate-[-1deg] bg-panel p-8 shadow-2xl ring-1 ring-charcoal/10 md:col-span-6 md:col-start-1 md:row-start-1 md:-mr-12 md:mt-0 md:p-10">
+            <div className="relative z-10 bg-panel p-6 shadow-2xl ring-1 ring-charcoal/10 sm:p-8 md:col-span-6 md:col-start-1 md:row-start-1 md:-mr-12 md:rotate-[-1deg] md:p-10">
               <span className="stamp">{home.birreria.eyebrow}</span>
               <h2 className="mt-4 text-3xl text-charcoal sm:text-4xl">{home.birreria.title}</h2>
               <p className="mt-4 max-w-md text-charcoal/75">{home.birreria.text}</p>
@@ -100,7 +100,7 @@ export default function HomePage() {
 
       {/* Le anime del locale — griglia irregolare: 1 grande + 2 sfalsate */}
       {bigSoul && (
-        <section className="bg-blush/30 py-20 md:py-24">
+        <section className="bg-blush/30 py-16 md:py-24">
           <div className="container-x">
             <Reveal className="max-w-2xl">
               <span className="stamp">{home.anime.eyebrow}</span>
@@ -122,7 +122,7 @@ export default function HomePage() {
       {/* Musica dal vivo — blocco legno full-width con taglio diagonale ("storto"),
           ma struttura interna semplice (griglia date + striscia locandine) */}
       {posters.length > 0 && (
-        <section id="eventi" className="wood slant-t scroll-mt-32 py-24 text-cream md:py-28">
+        <section id="eventi" className="wood slant-t scroll-mt-32 py-16 text-cream md:py-28">
           <div className="container-x">
             <Reveal className="max-w-2xl">
               <span className="stamp-blue">{home.eventi.eyebrow}</span>

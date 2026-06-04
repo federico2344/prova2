@@ -702,26 +702,30 @@
       function applyPreviewTheme() {
         var t = getTheme();
         var FF = {
+          'Bitter': '"Bitter", Georgia, serif',
           'Playfair Display': '"Playfair Display", Georgia, serif',
           'Cormorant Garamond': '"Cormorant Garamond", Garamond, serif',
           'DM Serif Display': '"DM Serif Display", "Times New Roman", serif',
+          'Oswald': '"Oswald", "Arial Narrow", sans-serif',
           Inter: 'Inter, system-ui, sans-serif',
           Manrope: 'Manrope, system-ui, sans-serif',
           Lora: 'Lora, Georgia, serif',
         };
-        var css = '* { box-sizing: border-box; }' +
+        var impact = '"Anton", "Oswald", Impact, sans-serif';
+        var css = "@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bitter:wght@400;500;600;700&family=Kaushan+Script&display=swap');" +
+          '* { box-sizing: border-box; }' +
           'body { font-family: ' + (FF[t.fontBody] || FF.Inter) + ';' +
           ' background: ' + t.colorBackground + ';' +
           ' color: ' + t.colorText + '; padding: 2rem; margin: 0; }' +
           '.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;' +
           ' text-transform: uppercase; color: ' + t.colorAccent + '; margin-bottom: 0.5rem; }' +
-          'h1 { font-family: ' + (FF[t.fontDisplay] || FF['Playfair Display']) + ';' +
-          ' font-size: 2rem; margin: 0 0 0.5rem; color: ' + t.colorText + '; }' +
-          'h2 { font-family: ' + (FF[t.fontDisplay] || FF['Playfair Display']) + ';' +
-          ' font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;' +
+          'h1 { font-family: ' + impact + '; text-transform: uppercase;' +
+          ' font-size: 2.1rem; margin: 0 0 0.5rem; color: ' + t.colorText + '; }' +
+          'h2 { font-family: ' + impact + ';' +
+          ' font-size: 1.15rem; font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase;' +
           ' color: ' + t.colorBrand + '; border-bottom: 1px solid ' + t.colorBrand + '33;' +
           ' padding-bottom: 0.4rem; margin: 1.5rem 0 0.75rem; }' +
-          'h3 { font-family: ' + (FF[t.fontDisplay] || FF['Playfair Display']) + ';' +
+          'h3 { font-family: ' + (FF[t.fontDisplay] || FF.Bitter) + ';' +
           ' font-size: 1rem; margin: 0 0 0.2rem; color: ' + t.colorText + '; }' +
           'p { margin: 0.25rem 0; color: ' + t.colorText + '; opacity: 0.75;' +
           ' font-size: 0.9rem; line-height: 1.5; }' +
@@ -878,25 +882,17 @@
           var addr = data.get('address');
           var hours = data.get('hours');
           var social = data.get('social');
-          var slides = data.get('heroSlides');
+          var heroImg = data.get('heroImage');
           var getAsset = this.props.getAsset;
+          var heroUrl = heroImg && getAsset ? getAsset(heroImg) : heroImg;
 
           return h('div', {},
-            slides && slides.size > 0 && h('div', {},
-              h('h2', {}, 'Slideshow home'),
-              h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.5rem', marginBottom: '1.5rem' } },
-                slides.map(function(src, i) {
-                  var url = src && (typeof src === 'string' ? src : src.get && src.get('src'));
-                  if (!url) return null;
-                  var asset = getAsset ? getAsset(url) : url;
-                  return h('div', { key: i, style: { position: 'relative', aspectRatio: '16/10', borderRadius: '8px', overflow: 'hidden', background: '#eee' } },
-                    h('img', { src: asset.toString ? asset.toString() : asset, style: { width: '100%', height: '100%', objectFit: 'cover' } }),
-                    h('div', { style: { position: 'absolute', top: 6, left: 6, background: 'rgba(0,0,0,0.6)', color: 'white', padding: '2px 8px', borderRadius: '10px', fontSize: '0.7rem', fontWeight: 700 } }, 'Foto ' + (i + 1))
-                  );
-                })
-              )
-            ),
-            h('div', { className: 'eyebrow' }, addr ? addr.get('street') + ' · Roma' : ''),
+            heroImg && h('img', {
+              src: heroUrl && heroUrl.toString ? heroUrl.toString() : heroUrl,
+              style: { width: '100%', borderRadius: '12px', aspectRatio: '16/9', objectFit: 'cover', marginBottom: '1.5rem' },
+              alt: ''
+            }),
+            h('div', { className: 'eyebrow' }, addr ? addr.get('street') + ' · Roma Nord' : ''),
             h('h1', {}, data.get('name') || '—'),
             h('p', { style: { fontStyle: 'italic', marginBottom: '1.5rem' } }, data.get('tagline') || ''),
             h('p', {}, data.get('intro') || ''),
@@ -925,8 +921,7 @@
               h('h2', {}, 'Social'),
               h('div', { className: 'card' },
                 h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Instagram:'), h('span', {}, social.get('instagram') || '—')),
-                h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Facebook:'), h('span', {}, social.get('facebook') || '—')),
-                h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Tripadvisor:'), h('span', {}, social.get('tripadvisor') || '—'))
+                h('div', { className: 'info-row' }, h('span', { className: 'label' }, 'Facebook:'), h('span', {}, social.get('facebook') || '—'))
               )
             )
           );
@@ -936,13 +931,16 @@
 
       // ── Anteprima TEMA: mostra esempi reali coi colori e font scelti ─────
       var FONT_FAMILIES = {
+        'Bitter': '"Bitter", Georgia, serif',
         'Playfair Display': '"Playfair Display", Georgia, serif',
         'Cormorant Garamond': '"Cormorant Garamond", Garamond, serif',
         'DM Serif Display': '"DM Serif Display", "Times New Roman", serif',
+        'Oswald': '"Oswald", "Arial Narrow", sans-serif',
         Inter: 'Inter, system-ui, sans-serif',
         Manrope: 'Manrope, system-ui, sans-serif',
         Lora: 'Lora, Georgia, serif',
       };
+      var IMPACT_FONT = '"Anton", "Oswald", Impact, sans-serif';
       var ThemePreview = createClass({
         render: function() {
           var data = this.props.entry.get('data');
@@ -951,9 +949,9 @@
           var price = data.get('colorPrice') || '#B8872A';
           var bg = data.get('colorBackground') || '#FAF6F0';
           var text = data.get('colorText') || '#2B2622';
-          var fontDisplayName = data.get('fontDisplay') || 'Playfair Display';
+          var fontDisplayName = data.get('fontDisplay') || 'Bitter';
           var fontBodyName = data.get('fontBody') || 'Inter';
-          var fontDisplay = FONT_FAMILIES[fontDisplayName] || FONT_FAMILIES['Playfair Display'];
+          var fontDisplay = FONT_FAMILIES[fontDisplayName] || FONT_FAMILIES['Bitter'];
           var fontBody = FONT_FAMILIES[fontBodyName] || FONT_FAMILIES['Inter'];
 
           // Persisti il tema per le altre anteprime
@@ -967,14 +965,14 @@
             background: bg, color: text, padding: '2.5rem 2rem',
             fontFamily: fontBody, minHeight: '100vh',
           };
-          var headingStyle = { fontFamily: fontDisplay, color: text, margin: 0 };
+          var headingStyle = { fontFamily: IMPACT_FONT, color: text, margin: 0 };
           var eyebrowStyle = {
             color: accent, fontSize: '0.72rem', fontWeight: 700,
             letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 6,
           };
           var sectionLabelStyle = {
-            fontFamily: fontDisplay, color: brand, fontSize: '1rem',
-            fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
+            fontFamily: IMPACT_FONT, color: brand, fontSize: '1.05rem',
+            fontWeight: 400, letterSpacing: '0.06em', textTransform: 'uppercase',
             borderBottom: '1px solid ' + brand + '33', paddingBottom: 6, marginBottom: 12,
           };
           var dishRow = {
@@ -985,9 +983,10 @@
           var dishDesc = { color: text, opacity: 0.65, fontSize: '0.88rem', marginTop: 2 };
           var priceStyle = { color: price, fontFamily: fontDisplay, fontSize: '1.05rem', fontWeight: 600, marginLeft: 16 };
           var btnStyle = {
-            background: brand, color: '#fff', padding: '12px 24px', borderRadius: 999,
-            fontFamily: fontBody, fontWeight: 600, fontSize: '0.95rem', display: 'inline-block',
-            marginTop: 24,
+            background: brand, color: '#fff', padding: '13px 26px', borderRadius: 3,
+            fontFamily: IMPACT_FONT, fontWeight: 400, fontSize: '0.95rem',
+            letterSpacing: '0.08em', textTransform: 'uppercase', display: 'inline-block',
+            marginTop: 24, boxShadow: '4px 4px 0 0 ' + accent,
           };
           var badgeStyle = {
             display: 'inline-block', background: bg, border: '1px solid ' + accent,
@@ -1034,7 +1033,7 @@
               h('div', { style: badgeStyle }, 'Live Club'),
               h('h2', { style: Object.assign({}, headingStyle, { fontSize: '1.5rem', marginTop: 8 }) }, 'Musica dal vivo'),
               h('p', { style: { marginTop: 8, lineHeight: 1.6, opacity: 0.8, fontSize: '0.92rem' } },
-                "Concerti, tribute band e serate rock: si cena dalle 20:00 " +
+                "Concerti, tribute band e serate rock: si cena dalle 19:00 " +
                 "e si suona dalle 22:00.")
             ),
 
@@ -1044,6 +1043,98 @@
         }
       });
       CMS.registerPreviewTemplate('theme', ThemePreview);
+
+      // ── Anteprima EVENTI & LIVE ──────────────────────────────────────────
+      var EventsPreview = createClass({
+        render: function() {
+          var data = this.props.entry.get('data');
+          var getAsset = this.props.getAsset;
+          var upcoming = data.get('upcoming');
+          var posters = data.get('posters');
+          return h('div', {},
+            h('div', { className: 'eyebrow' }, 'Sul palco'),
+            h('h1', {}, 'Musica dal vivo'),
+            data.get('intro') && h('p', { style: { marginBottom: '1rem' } }, data.get('intro')),
+            upcoming && upcoming.size > 0 && h('div', {},
+              h('h2', {}, 'Prossimi live'),
+              upcoming.map(function(ev, i) {
+                var poster = ev.get('poster');
+                var pUrl = poster && getAsset ? getAsset(poster) : poster;
+                return h('div', { key: i, className: 'card', style: { display: 'flex', gap: '1rem', alignItems: 'center' } },
+                  poster && h('img', { src: pUrl && pUrl.toString ? pUrl.toString() : pUrl, style: { width: 64, height: 90, objectFit: 'cover', borderRadius: 6, flexShrink: 0 }, alt: '' }),
+                  h('div', {},
+                    h('h3', {}, (ev.get('day') || '') + ' ' + (ev.get('date') || '') + ' ' + (ev.get('month') || '') + ' — ' + (ev.get('title') || '—')),
+                    h('p', {}, (ev.get('genre') || '') + (ev.get('time') ? ' · ' + ev.get('time') : ''))
+                  )
+                );
+              })
+            ),
+            posters && posters.size > 0 && h('div', {},
+              h('h2', {}, 'Muro di locandine'),
+              h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '0.5rem' } },
+                posters.map(function(src, i) {
+                  var url = src && (typeof src === 'string' ? src : (src.get && src.get('src')));
+                  if (!url) return null;
+                  var a = getAsset ? getAsset(url) : url;
+                  return h('img', { key: i, src: a && a.toString ? a.toString() : a, style: { width: '100%', borderRadius: 6, aspectRatio: '2/3', objectFit: 'cover' }, alt: '' });
+                })
+              )
+            )
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('events', EventsPreview);
+
+      // ── Anteprima INTRATTENIMENTI & SPAZI ────────────────────────────────
+      var VenuePreview = createClass({
+        render: function() {
+          var data = this.props.entry.get('data');
+          var spaces = data.get('spaces');
+          var accent = getTheme().colorAccent;
+          return h('div', {},
+            h('div', { className: 'eyebrow' }, data.get('eyebrow') || 'Intrattenimenti'),
+            h('h1', {}, data.get('title') || 'Spazi & divertimento'),
+            data.get('intro') && h('p', { style: { marginBottom: '1rem' } }, data.get('intro')),
+            spaces && spaces.map(function(s, i) {
+              return h('div', { key: i, className: 'card' },
+                h('h3', {}, s.get('title') || '—'),
+                h('p', {}, s.get('text') || ''),
+                s.get('link') && h('p', { style: { color: accent, fontWeight: 600, fontSize: '0.82rem', marginTop: 4 } }, '🔗 ' + s.get('link'))
+              );
+            })
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('venue', VenuePreview);
+
+      // ── Anteprima TESTI DELLA HOME ───────────────────────────────────────
+      var HomeTextPreview = createClass({
+        render: function() {
+          var data = this.props.entry.get('data');
+          function blk(label, obj, fields) {
+            if (!obj) return null;
+            return h('div', { className: 'card' },
+              h('div', { className: 'eyebrow' }, label),
+              fields.map(function(f, i) {
+                var v = obj.get(f.key);
+                if (!v) return null;
+                return h('p', { key: i }, h('strong', {}, f.lbl + ': '), v);
+              })
+            );
+          }
+          return h('div', {},
+            h('h1', {}, 'Testi della Home'),
+            blk('Prima schermata', data.get('hero'), [{ key: 'eyebrow', lbl: 'Etichetta' }, { key: 'lead', lbl: 'Frase' }, { key: 'hoursLine', lbl: 'Orari' }]),
+            blk('Manifesto', data.get('manifesto'), [{ key: 'eyebrow', lbl: 'Etichetta' }, { key: 'title', lbl: 'Titolo' }, { key: 'tags', lbl: 'Riga' }]),
+            blk('Pizze', data.get('pizze'), [{ key: 'eyebrow', lbl: 'Etichetta' }, { key: 'title', lbl: 'Titolo' }]),
+            blk('Birreria', data.get('birreria'), [{ key: 'eyebrow', lbl: 'Etichetta' }, { key: 'title', lbl: 'Titolo' }, { key: 'text', lbl: 'Testo' }]),
+            blk('Le anime', data.get('anime'), [{ key: 'eyebrow', lbl: 'Etichetta' }, { key: 'title', lbl: 'Titolo' }]),
+            blk('Musica dal vivo', data.get('eventi'), [{ key: 'eyebrow', lbl: 'Etichetta' }, { key: 'title', lbl: 'Titolo' }]),
+            blk('Fascia finale', data.get('cta'), [{ key: 'title', lbl: 'Titolo' }])
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('home', HomeTextPreview);
     </script>
   </body>
 </html>
