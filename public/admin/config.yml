@@ -15,6 +15,7 @@ collections:
   # ---------------------------------------------------------------------------
   - name: "info"
     label: "Informazioni Ristorante"
+    description: "Nome, contatti, orari, social, dati legali e foto in cima alla home. Compaiono nell'intestazione, nella home, nel footer e nella pagina Contatti."
     files:
       - name: "restaurant"
         label: "Dati principali"
@@ -80,27 +81,20 @@ collections:
               - { name: "fiscalCode", label: "Codice fiscale", widget: "string", required: false }
               - { name: "legalAddress", label: "Sede legale", widget: "string", required: false }
               - { name: "pec", label: "Email PEC", widget: "string", required: false }
-          - name: "heroSlides"
-            label: "Foto slideshow (home)"
-            label_singular: "Foto"
-            widget: "list"
-            min: 1
-            hint: "Le foto scorrono automaticamente nella home, nell'ordine in cui appaiono qui. Trascina per riordinare. Consigliato: foto orizzontali e luminose."
-            field:
-              name: "src"
-              label: "Foto slideshow"
-              widget: "image"
-              media_folder: "/public/images/hero"
-              public_folder: "/images/hero"
-              media_library:
-                config:
-                  multiple: false
+          - name: "heroImage"
+            label: "Foto in cima alla home (prima schermata)"
+            widget: "image"
+            required: false
+            hint: "È la grande foto in cima alla home, accanto al titolo. Consigliata orizzontale e ben illuminata."
+            media_folder: "/public/images/hero"
+            public_folder: "/images/hero"
 
   # ---------------------------------------------------------------------------
   # 2) MENÙ
   # ---------------------------------------------------------------------------
   - name: "menu"
     label: "Menù"
+    description: "I piatti della pagina 'Cucina & Pizza' (/menu) e le pizze in evidenza nella home."
     files:
       - name: "menu"
         label: "Categorie del menù"
@@ -147,6 +141,7 @@ collections:
   # ---------------------------------------------------------------------------
   - name: "team"
     label: "Le anime del locale"
+    description: "Le tre 'anime' (Cucina, Birreria, Live) mostrate nella home e nella pagina 'Il Locale'."
     files:
       - name: "team"
         label: "Le anime del locale"
@@ -177,6 +172,7 @@ collections:
   # ---------------------------------------------------------------------------
   - name: "venue"
     label: "Intrattenimenti & Spazi"
+    description: "Gli spazi del locale (Live Club, Studio 12.84, Vineria, Sala Chalet, ecc.) mostrati nella pagina 'Il Locale'."
     files:
       - name: "venue"
         label: "Spazi del locale"
@@ -202,6 +198,7 @@ collections:
   # ---------------------------------------------------------------------------
   - name: "wines"
     label: "Birreria & Drink"
+    description: "Birre, cocktail, vini e distillati della pagina 'Birreria' (/vini)."
     files:
       - name: "wines"
         label: "Birre, drink e vini"
@@ -254,6 +251,7 @@ collections:
   # ---------------------------------------------------------------------------
   - name: "events"
     label: "Eventi & Live"
+    description: "Concerti e locandine della sezione 'Musica dal vivo' nella home."
     files:
       - name: "events"
         label: "Programmazione live"
@@ -299,13 +297,14 @@ collections:
   # ---------------------------------------------------------------------------
   - name: "hometext"
     label: "Testi della Home"
+    description: "Titoli e frasi delle varie sezioni della pagina iniziale (home)."
     files:
       - name: "home"
         label: "Titoli e testi delle sezioni"
         file: "src/content/home.json"
         fields:
           - name: "hero"
-            label: "Hero (prima schermata)"
+            label: "Prima schermata (in cima alla home)"
             widget: "object"
             fields:
               - { name: "eyebrow", label: "Etichetta sopra il titolo", widget: "string", required: false }
@@ -354,6 +353,7 @@ collections:
   # ---------------------------------------------------------------------------
   - name: "theme"
     label: "Tema del sito"
+    description: "Colori e font usati in tutto il sito (con anteprima live)."
     files:
       - name: "theme"
         label: "Colori e Font"

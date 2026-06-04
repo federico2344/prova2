@@ -4,7 +4,7 @@ import { telLink } from '../lib/utils.js'
 
 export default function Hero() {
   const booking = telLink(restaurant.phone)
-  const photo = restaurant.heroSlides?.[1] ?? restaurant.heroSlides?.[0] ?? '/images/hero/slide-2.jpg'
+  const photo = restaurant.heroImage ?? '/images/hero/slide-2.jpg'
 
   return (
     <section id="top" className="bg-cream">

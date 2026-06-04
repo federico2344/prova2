@@ -93,7 +93,7 @@ export default function AdminGuidePage() {
             <li>Modificare orari di apertura</li>
             <li>Aggiungere, modificare o eliminare piatti del menù</li>
             <li>Aggiornare la birreria e i drink con nuove voci e prezzi</li>
-            <li>Cambiare le foto dello slideshow nella home e le foto delle sezioni del locale</li>
+            <li>Cambiare la foto in cima alla home e le altre foto del sito</li>
             <li>Aggiornare i link a Instagram, Facebook, Tripadvisor</li>
             <li><strong>Personalizzare colori e font del sito</strong></li>
             <li>Modificare i dati aziendali (P.IVA, codice fiscale, ecc.) richiesti per legge</li>
@@ -180,7 +180,7 @@ export default function AdminGuidePage() {
             titolo <strong>RACCOLTE</strong> e sotto un elenco di 8 voci:
           </p>
           <ul>
-            <li><strong>Informazioni Ristorante</strong> — nome, orari, indirizzo, telefono, foto slideshow, dati aziendali</li>
+            <li><strong>Informazioni Ristorante</strong> — nome, orari, indirizzo, telefono, foto in cima alla home, dati aziendali</li>
             <li><strong>Menù</strong> — tutti i piatti suddivisi per categoria (Pizzeria, Cucina, Panini &amp; Sfizi, Dolci, Menù Fissi) e per sezione (Antipasti, Pizze, ecc.)</li>
             <li><strong>Birreria &amp; Drink</strong> — birre, cocktail e vini suddivisi per categoria</li>
             <li><strong>Eventi &amp; Live</strong> — i prossimi concerti e il muro di locandine della home</li>
@@ -314,18 +314,13 @@ export default function AdminGuidePage() {
               <strong>Link Facebook</strong>: stesso discorso, deve iniziare con
               <code>https://www.facebook.com/</code>.
             </li>
-            <li>
-              <strong>Link Tripadvisor</strong>: deve iniziare con <code>https://www.tripadvisor.it/</code>
-              o <code>.com/</code>.
-            </li>
           </ul>
           <p>Se non avete una pagina su uno dei social, lascia il campo vuoto e basta.</p>
 
-          <h3>Foto slideshow (home)</h3>
+          <h3>Foto in cima alla home (prima schermata)</h3>
           <p>
-            Sono le immagini che scorrono automaticamente in cima alla pagina iniziale del
-            sito. Si comportano come delle "diapositive". Vedi sezione 10 per come caricare
-            foto. L'<strong>ordine in cui appaiono qui = l'ordine in cui scorrono sul sito</strong>.
+            È la grande foto che si vede in cima alla pagina iniziale, accanto al titolo.
+            Cliccala per sostituirla (vedi sezione 10). Consigliata orizzontale e ben illuminata.
           </p>
 
           <h3>Dati aziendali (importante: obbligatori per legge)</h3>
@@ -561,12 +556,12 @@ export default function AdminGuidePage() {
           <p>
             Ogni campo "Foto" ha la sua <strong>libreria dedicata</strong>: quando clicchi su
             un campo foto del team, vedi SOLO le foto del team. Non si mescolano con quelle
-            dello slideshow. Così è impossibile sbagliare.
+            delle altre sezioni. Così è impossibile sbagliare.
           </p>
 
           <h3>Caricare una foto da computer/telefono</h3>
           <ol>
-            <li>Clicca sul campo foto (es. uno slot vuoto dello slideshow, o la foto attuale di un membro del team).</li>
+            <li>Clicca sul campo foto (es. la foto in cima alla home, o la foto di una sezione).</li>
             <li>
               Si apre una finestra <strong>"Risorse multimediali"</strong> con le foto già presenti.
             </li>
@@ -591,17 +586,17 @@ export default function AdminGuidePage() {
             <li>Clicca "Inserisci selezionato".</li>
           </ol>
 
-          <h3>Eliminare una foto dallo slideshow</h3>
+          <h3>Eliminare una foto da una lista</h3>
           <p>
-            Nella sezione "Foto slideshow (home)", sulla riga della foto da rimuovere clicca
-            la <strong>X</strong> a destra. Salva e pubblica.
+            In alcune sezioni le foto sono in elenco (es. il muro di locandine in "Eventi &amp; Live"):
+            sulla riga della foto da rimuovere clicca la <strong>X</strong> a destra. Salva e pubblica.
           </p>
 
           <h3>Formati supportati e consigli</h3>
           <ul>
             <li>Formati: <strong>JPG</strong>, <strong>PNG</strong>, <strong>WebP</strong>.</li>
             <li>
-              <strong>Slideshow home</strong>: foto orizzontali, ben illuminate. Risoluzione
+              <strong>Foto in cima alla home</strong>: foto orizzontale, ben illuminata. Risoluzione
               consigliata 1920×1080 ma il sistema gestisce qualsiasi formato.
             </li>
             <li>
@@ -832,7 +827,7 @@ export default function AdminGuidePage() {
             </li>
             <li>
               <strong>Muro di locandine</strong>: le immagini delle locandine mostrate in fondo alla
-              sezione Live della home. Aggiungile/riordinale come le foto dello slideshow.
+              sezione Live della home. Aggiungile/riordinale come le altre foto.
             </li>
           </ul>
 
@@ -860,7 +855,7 @@ export default function AdminGuidePage() {
             delle sezioni della pagina iniziale <strong>senza toccare il codice</strong>. Ogni gruppo ha i suoi campi:
           </p>
           <ul>
-            <li><strong>Hero</strong> (prima schermata): etichetta, frase descrittiva, riga orari.</li>
+            <li><strong>Prima schermata</strong> (in cima alla home): etichetta sopra il titolo, frase descrittiva, riga orari.</li>
             <li><strong>Manifesto</strong>, <strong>Pizze</strong>, <strong>Birreria</strong>, <strong>Le anime</strong>, <strong>Musica dal vivo</strong>, <strong>Fascia finale</strong>: etichetta e titolo (e, dove presente, il testo).</li>
           </ul>
           <p>Scrivi nei campi, poi <strong>Salva</strong> e <strong>Pubblica</strong>: il sito si aggiorna in 1-2 minuti.</p>
