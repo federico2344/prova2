@@ -24,7 +24,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-cream py-14 md:py-24">
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none font-impact uppercase leading-none text-terracotta/[0.05] text-[30vw] md:text-[18rem]"
+          className="pointer-events-none absolute -right-4 top-1/2 hidden -translate-y-1/2 select-none font-impact uppercase leading-none text-terracotta/[0.05] md:block md:text-[18rem]"
         >
           Blues
         </span>
@@ -56,13 +56,11 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="rail mt-12 items-start">
-              {signatures.map((dish, i) => (
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {signatures.map((dish) => (
                 <article
                   key={dish.name}
-                  className={`w-72 rounded-2xl bg-panel p-7 text-charcoal shadow-xl ${
-                    i % 2 ? 'rotate-[0.8deg] md:mt-10' : '-rotate-[0.8deg]'
-                  }`}
+                  className="rounded-2xl bg-panel p-7 text-charcoal shadow-xl"
                 >
                   <h3 className="font-display text-2xl font-bold text-terracotta">{dish.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{dish.description}</p>
@@ -148,9 +146,9 @@ export default function HomePage() {
               </ul>
             )}
 
-            <div className="rail mt-8">
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {posters.map((src, i) => (
-                <div key={src} className="w-44 overflow-hidden rounded-xl bg-ink shadow-md ring-1 ring-black/30 sm:w-52">
+                <div key={src} className="aspect-[2/3] overflow-hidden rounded-xl bg-ink shadow-md ring-1 ring-black/30">
                   <img
                     src={src}
                     alt={`Locandina concerto ${i + 1}`}

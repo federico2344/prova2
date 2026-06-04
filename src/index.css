@@ -18,6 +18,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Niente scroll orizzontale accidentale su mobile */
+    overflow-x: hidden;
     /* Offset scroll per la navbar fissa */
     scroll-padding-top: 5rem;
     /* Prevenzione testo che si ridimensiona su rotazione iOS */
