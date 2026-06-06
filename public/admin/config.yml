@@ -2,6 +2,10 @@ backend:
   name: git-gateway
   branch: main
 
+# Backend locale per l'anteprima del pannello in sviluppo (attivo solo su localhost,
+# quando gira "npx decap-server"). In produzione resta git-gateway. Non serve login.
+local_backend: true
+
 media_folder: "public/images"
 public_folder: "/images"
 

@@ -13,7 +13,6 @@ const navLinks = [
 const socialLabels = {
   instagram: 'Instagram',
   facebook: 'Facebook',
-  tripadvisor: 'Tripadvisor',
   youtube: 'YouTube',
 }
 

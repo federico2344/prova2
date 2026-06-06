@@ -9,6 +9,7 @@ export default function HomePage() {
     .flatMap((c) => c.sections)
     .flatMap((s) => s.dishes)
     .filter((d) => d.tags?.includes('Signature'))
+    .slice(0, 3)
 
   const posters = events?.posters ?? []
   const upcoming = events?.upcoming ?? []

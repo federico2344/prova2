@@ -569,6 +569,9 @@
           'menu': 'menu',
           'team': 'team',
           'wines': 'wines',
+          'events': 'events',
+          'venue': 'venue',
+          'hometext': 'home',
           'theme': 'theme',
         };
         var userClickedSidebar = false;
@@ -677,12 +680,12 @@
       // ── Stile anteprime ──────────────────────────────────────────────────
       // ── Tema corrente: defaults + override da localStorage ─────────────
       var DEFAULT_THEME = {
-        colorBrand: '#8B1A1A',
-        colorAccent: '#B8872A',
-        colorPrice: '#B8872A',
-        colorBackground: '#FAF6F0',
-        colorText: '#2B2622',
-        fontDisplay: 'Playfair Display',
+        colorBrand: '#6E1A1A',
+        colorAccent: '#C8902F',
+        colorPrice: '#A8701C',
+        colorBackground: '#F4EAD7',
+        colorText: '#271511',
+        fontDisplay: 'Bitter',
         fontBody: 'Inter',
       };
       function getTheme() {
@@ -858,18 +861,21 @@
           var getAsset = this.props.getAsset;
           if (!people || !people.size) return h('p', { className: 'empty' }, 'Nessun dato da mostrare.');
 
-          return h('div', {},
+          return h('div', { style: { display: 'grid', gap: '1rem' } },
             people.map(function(person, i) {
               var photo = person.get('photo');
               var photoUrl = photo && getAsset ? getAsset(photo) : photo;
-              return h('div', { key: i, className: 'card' },
-                h('div', { className: 'team-card' },
-                  photo && h('img', { src: photoUrl && photoUrl.toString ? photoUrl.toString() : photoUrl, className: 'photo', alt: '' }),
-                  h('div', { className: 'team-info' },
-                    h('span', { className: 'tag' }, person.get('role') || ''),
-                    h('h1', { style: { fontSize: '1.4rem' } }, person.get('name') || '—'),
-                    h('p', {}, person.get('text') || '')
-                  )
+              return h('div', { key: i, style: { position: 'relative', borderRadius: 16, overflow: 'hidden', minHeight: 240, background: '#2c1b12' } },
+                photo && h('img', {
+                  src: photoUrl && photoUrl.toString ? photoUrl.toString() : photoUrl,
+                  alt: '',
+                  style: { width: '100%', height: 300, objectFit: 'cover', display: 'block' }
+                }),
+                h('div', { style: { position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(20,12,8,0.94), rgba(20,12,8,0.25) 55%, transparent)' } }),
+                h('div', { style: { position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.2rem 1.4rem' } },
+                  h('span', { className: 'tag' }, person.get('role') || ''),
+                  h('h3', { style: { color: '#F4EAD7', fontSize: '1.5rem' } }, person.get('name') || '—'),
+                  h('p', { style: { color: '#F4EAD7', opacity: 0.85, marginTop: 4 } }, person.get('text') || '')
                 )
               );
             })

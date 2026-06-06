@@ -94,7 +94,7 @@ export default function AdminGuidePage() {
             <li>Aggiungere, modificare o eliminare piatti del menù</li>
             <li>Aggiornare la birreria e i drink con nuove voci e prezzi</li>
             <li>Cambiare la foto in cima alla home e le altre foto del sito</li>
-            <li>Aggiornare i link a Instagram, Facebook, Tripadvisor</li>
+            <li>Aggiornare i link a Instagram e Facebook</li>
             <li><strong>Personalizzare colori e font del sito</strong></li>
             <li>Modificare i dati aziendali (P.IVA, codice fiscale, ecc.) richiesti per legge</li>
           </ul>
