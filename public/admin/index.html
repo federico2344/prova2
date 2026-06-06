@@ -712,43 +712,48 @@
           Lora: 'Lora, Georgia, serif',
         };
         var impact = '"Anton", "Oswald", Impact, sans-serif';
+        var displayFont = FF[t.fontDisplay] || FF.Bitter;
         var css = "@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bitter:wght@400;500;600;700&family=Kaushan+Script&display=swap');" +
           '* { box-sizing: border-box; }' +
           'body { font-family: ' + (FF[t.fontBody] || FF.Inter) + ';' +
           ' background: ' + t.colorBackground + ';' +
-          ' color: ' + t.colorText + '; padding: 2rem; margin: 0; }' +
-          '.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;' +
-          ' text-transform: uppercase; color: ' + t.colorAccent + '; margin-bottom: 0.5rem; }' +
-          'h1 { font-family: ' + impact + '; text-transform: uppercase;' +
-          ' font-size: 2.1rem; margin: 0 0 0.5rem; color: ' + t.colorText + '; }' +
-          'h2 { font-family: ' + impact + ';' +
-          ' font-size: 1.15rem; font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase;' +
-          ' color: ' + t.colorBrand + '; border-bottom: 1px solid ' + t.colorBrand + '33;' +
-          ' padding-bottom: 0.4rem; margin: 1.5rem 0 0.75rem; }' +
-          'h3 { font-family: ' + (FF[t.fontDisplay] || FF.Bitter) + ';' +
-          ' font-size: 1rem; margin: 0 0 0.2rem; color: ' + t.colorText + '; }' +
-          'p { margin: 0.25rem 0; color: ' + t.colorText + '; opacity: 0.75;' +
-          ' font-size: 0.9rem; line-height: 1.5; }' +
-          '.card { background: white; border-radius: 12px; padding: 1.25rem 1.5rem;' +
-          ' margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }' +
-          '.row { display: flex; justify-content: space-between; align-items: baseline;' +
-          ' padding: 0.6rem 0; border-bottom: 1px solid #f0ebe3; }' +
-          '.row:last-child { border-bottom: none; }' +
-          '.price { color: ' + t.colorPrice + '; font-weight: 700; font-size: 1rem;' +
-          ' white-space: nowrap; margin-left: 1rem; }' +
-          '.fixed-price { color: ' + t.colorBrand + '; font-size: 0.9rem; font-weight: 600; }' +
-          '.note { font-style: italic; color: #888; font-size: 0.82rem; margin-bottom: 0.5rem; }' +
-          '.photo { width: 100%; max-width: 280px; border-radius: 12px;' +
-          ' object-fit: cover; aspect-ratio: 3/4; }' +
-          '.team-card { display: flex; gap: 1.5rem; align-items: flex-start; }' +
+          ' color: ' + t.colorText + '; padding: 2.5rem 2rem; margin: 0; }' +
+          // eyebrow = timbro ambra su pannello bordeaux (come .stamp del sito)
+          '.eyebrow { display: inline-block; background: ' + t.colorBrand + '; color: ' + t.colorAccent + ';' +
+          ' font-size: 0.66rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;' +
+          ' padding: 4px 11px; border-radius: 3px; margin-bottom: 0.9rem; }' +
+          'h1 { font-family: ' + impact + '; text-transform: uppercase; line-height: 1;' +
+          ' font-size: 2.4rem; margin: 0 0 0.6rem; color: ' + t.colorText + '; }' +
+          // intestazione di sezione "stampata": slab + filetto mattone
+          'h2 { font-family: ' + displayFont + '; font-size: 1.15rem; font-weight: 700;' +
+          ' letter-spacing: 0.03em; text-transform: uppercase; color: ' + t.colorText + ';' +
+          ' border-bottom: 2px solid ' + t.colorBrand + '55; padding-bottom: 0.4rem; margin: 1.6rem 0 0.7rem; }' +
+          'h3 { font-family: ' + displayFont + '; font-weight: 700; font-size: 1.05rem; margin: 0; color: ' + t.colorText + '; }' +
+          'p { margin: 0.25rem 0; color: ' + t.colorText + '; opacity: 0.72; font-size: 0.9rem; line-height: 1.5; }' +
+          // menù stampato a colonne con righe puntinate (come /menu e /vini)
+          '.cols { columns: 2; column-gap: 2.6rem; }' +
+          '.sec { break-inside: avoid; margin-bottom: 1.4rem; }' +
+          '.dish { break-inside: avoid; padding: 0.5rem 0; }' +
+          '.menu-row { display: flex; align-items: baseline; gap: 0.4rem; }' +
+          '.dish-name { font-weight: 600; color: ' + t.colorText + '; }' +
+          '.leader { flex: 1; min-width: 1rem; border-bottom: 1px dotted ' + t.colorText + '59; transform: translateY(-0.28em); }' +
+          '.dish-desc { font-size: 0.82rem; opacity: 0.6; margin: 0.12rem 0 0; line-height: 1.4; }' +
+          '.price { color: ' + t.colorPrice + '; font-family: ' + displayFont + '; font-weight: 700;' +
+          ' white-space: nowrap; }' +
+          '.fixed-price { color: ' + t.colorBrand + '; font-size: 0.85rem; font-weight: 600; }' +
+          '.note { font-style: italic; opacity: 0.6; font-size: 0.82rem; margin-bottom: 0.4rem; }' +
+          // card calde (anime, eventi, info) — niente bianco piatto
+          '.card { background: rgba(255,255,255,0.55); border: 1px solid ' + t.colorText + '22;' +
+          ' border-radius: 14px; padding: 1.1rem 1.3rem; margin-bottom: 0.9rem; }' +
+          '.photo { width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3; }' +
+          '.team-card { display: flex; gap: 1.2rem; align-items: flex-start; }' +
           '.team-info { flex: 1; }' +
           '.info-row { display: flex; gap: 0.5rem; margin-bottom: 0.4rem; font-size: 0.9rem; }' +
-          '.label { font-weight: 600; min-width: 90px; color: #555; }' +
-          '.tag { background: ' + t.colorBackground + '; border: 1px solid ' + t.colorAccent + ';' +
-          ' color: ' + t.colorAccent + '; padding: 2px 10px; border-radius: 20px;' +
-          ' font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;' +
-          ' display: inline-block; margin-bottom: 0.75rem; }' +
-          '.empty { color: #aaa; font-style: italic; text-align: center; padding: 2rem; }';
+          '.label { font-weight: 600; min-width: 90px; opacity: 0.8; }' +
+          '.tag { display: inline-block; background: ' + t.colorBrand + '; color: ' + t.colorAccent + ';' +
+          ' padding: 3px 10px; border-radius: 3px; font-size: 0.66rem; font-weight: 700;' +
+          ' letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.6rem; }' +
+          '.empty { opacity: 0.5; font-style: italic; text-align: center; padding: 2rem; }';
         CMS.registerPreviewStyle(css, { raw: true });
       }
       applyPreviewTheme();
@@ -770,27 +775,31 @@
           return h('div', {},
             categories.map(function(cat, ci) {
               var sections = cat.get('sections');
-              return h('div', { key: ci },
+              return h('div', { key: ci, style: { marginBottom: '2rem' } },
                 h('div', { className: 'eyebrow' }, cat.get('title') || '—'),
-                h('p', {}, cat.get('description') || ''),
-                sections && sections.map(function(sec, si) {
-                  var dishes = sec.get('dishes');
-                  var fp = sec.get('fixedPrice');
-                  return h('div', { key: si, className: 'card' },
-                    sec.get('title') && h('h2', {}, sec.get('title')),
-                    fp && h('p', { className: 'fixed-price' }, '€ ' + fp + ' a persona'),
-                    sec.get('note') && h('p', { className: 'note' }, sec.get('note')),
-                    dishes && dishes.map(function(dish, di) {
-                      return h('div', { key: di, className: 'row' },
-                        h('div', {},
-                          h('h3', {}, dish.get('name') || '—'),
-                          dish.get('description') && h('p', {}, dish.get('description'))
-                        ),
-                        dish.get('price') != null && h('span', { className: 'price' }, fmt(dish.get('price')))
-                      );
-                    })
-                  );
-                })
+                cat.get('description') && h('p', {}, cat.get('description')),
+                h('div', { className: 'cols' },
+                  sections && sections.map(function(sec, si) {
+                    var dishes = sec.get('dishes');
+                    var fp = sec.get('fixedPrice');
+                    return h('div', { key: si, className: 'sec' },
+                      sec.get('title') && h('h2', {}, sec.get('title')),
+                      fp != null && fp !== '' && h('p', { className: 'fixed-price' }, '€ ' + fp + ' a persona'),
+                      sec.get('note') && h('p', { className: 'note' }, sec.get('note')),
+                      dishes && dishes.map(function(dish, di) {
+                        var hasPrice = dish.get('price') != null && dish.get('price') !== '';
+                        return h('div', { key: di, className: 'dish' },
+                          h('div', { className: 'menu-row' },
+                            h('span', { className: 'dish-name' }, dish.get('name') || '—'),
+                            hasPrice && h('span', { className: 'leader' }),
+                            hasPrice && h('span', { className: 'price' }, fmt(dish.get('price')))
+                          ),
+                          dish.get('description') && h('p', { className: 'dish-desc' }, dish.get('description'))
+                        );
+                      })
+                    );
+                  })
+                )
               );
             })
           );
@@ -805,40 +814,35 @@
           var sections = entry.getIn(['data', 'sections']);
           if (!sections || !sections.size) return h('p', { className: 'empty' }, 'Nessun dato da mostrare.');
 
+          function wineRow(wine, key) {
+            var hasPrice = wine.get('price') != null && wine.get('price') !== '';
+            return h('div', { key: key, className: 'dish' },
+              h('div', { className: 'menu-row' },
+                h('span', { className: 'dish-name' }, wine.get('name') || '—'),
+                hasPrice && h('span', { className: 'leader' }),
+                hasPrice && h('span', { className: 'price' }, fmt(wine.get('price')))
+              ),
+              wine.get('description') && h('p', { className: 'dish-desc' }, wine.get('description'))
+            );
+          }
           return h('div', {},
             entry.getIn(['data', 'intro']) && h('p', { style: { fontStyle: 'italic', marginBottom: '1.5rem' } }, entry.getIn(['data', 'intro'])),
             sections.map(function(sec, si) {
               var items = sec.get('items');
               var subs = sec.get('subsections');
-              return h('div', { key: si },
+              return h('div', { key: si, style: { marginBottom: '1.6rem' } },
                 h('h2', {}, sec.get('title') || '—'),
-                items && items.size > 0 && h('div', { className: 'card' },
-                  items.map(function(wine, wi) {
-                    return h('div', { key: wi, className: 'row' },
-                      h('div', {},
-                        h('h3', {}, wine.get('name') || '—'),
-                        wine.get('description') && h('p', {}, wine.get('description'))
-                      ),
-                      h('span', { className: 'price' }, fmt(wine.get('price')))
+                items && items.size > 0 && h('div', { className: 'cols' },
+                  items.map(function(wine, wi) { return wineRow(wine, wi); })
+                ),
+                subs && subs.size > 0 && h('div', { className: 'cols' },
+                  subs.map(function(sub, subi) {
+                    return h('div', { key: subi, className: 'sec' },
+                      h('h3', { style: { marginBottom: '0.35rem' } }, sub.get('title') || '—'),
+                      sub.get('items') && sub.get('items').map(function(wine, wi) { return wineRow(wine, wi); })
                     );
                   })
-                ),
-                subs && subs.map(function(sub, subi) {
-                  return h('div', { key: subi },
-                    h('h2', { style: { fontSize: '0.9rem' } }, sub.get('title') || '—'),
-                    h('div', { className: 'card' },
-                      sub.get('items') && sub.get('items').map(function(wine, wi) {
-                        return h('div', { key: wi, className: 'row' },
-                          h('div', {},
-                            h('h3', {}, wine.get('name') || '—'),
-                            wine.get('description') && h('p', {}, wine.get('description'))
-                          ),
-                          h('span', { className: 'price' }, fmt(wine.get('price')))
-                        );
-                      })
-                    )
-                  );
-                })
+                )
               );
             })
           );
